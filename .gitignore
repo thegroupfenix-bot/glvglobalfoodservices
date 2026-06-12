@@ -1,0 +1,53 @@
+# ── Deployer scripts ─────────────────────────────────────
+glv-deploy.php
+deploy.php
+upload-hostinger.py
+*.deployer.php
+
+# ── Credenciales y configuración sensible ────────────────
+.env
+.env.local
+.env.production
+.env.staging
+config.php
+config.local.php
+
+# ── Videos (servidos directamente desde Hostinger) ───────
+imagenes/*.mp4
+imagenes/*.mov
+imagenes/*.avi
+imagenes/*.webm
+
+# ── Logs del servidor ─────────────────────────────────────
+error_log
+*.log
+logs/
+
+# ── Archivos de sistema operativo ────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── IDE y editores ────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Backups y temporales ──────────────────────────────────
+*.bak
+*.backup
+*.old
+*.zip
+*.tar.gz
+*.rar
+tmp/
+temp/
+.cache/
+
+# ── Artefactos de Hostinger ───────────────────────────────
+public_html/
