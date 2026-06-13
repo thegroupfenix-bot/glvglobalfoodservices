@@ -2,6 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GLV Global Food Services LLC — Miami · Florida · USA</title>
 <meta name="description" content="GLV Global Food Services LLC — Operador de distribución e importación de alimentos certificados desde Miami, Florida. Canal USA del GLV Global Holding.">
@@ -122,6 +126,8 @@ nav {
   padding:0.5rem 1.2rem; transition:all 0.2s;
 }
 .nav-cta:hover { background:var(--gold-light); }
+.nav-cta-portal { background:transparent; color:var(--gold); border:1px solid var(--gold); }
+.nav-cta-portal:hover { background:var(--gold); color:var(--dark); }
 .nav-hamburger {
   display:none; background:none; border:none;
   color:var(--gold); font-size:1.4rem; cursor:pointer;
@@ -681,6 +687,42 @@ footer {
       "sameAs": ["https://glvservicesexp.com"]
     },
     {
+      "@type": "LocalBusiness",
+      "@id": "https://glvglobalfoodservices.com/#localbusiness",
+      "name": "GLV Global Food Services LLC",
+      "url": "https://glvglobalfoodservices.com",
+      "image": "https://glvglobalfoodservices.com/imagenes/operaciones-miami-glv.jpg",
+      "description": "Miami-based food export company specializing in USDA eggs, certified coconut oils, grains, tropical fruits, live animals, and international trade operations.",
+      "email": "info@glvglobalfoodservices.com",
+      "telephone": ["+573160865294", "+5511946610038"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Miami",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "postalCode": "33101",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.7617,
+        "longitude": -80.1918
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "priceRange": "$$$$",
+      "currenciesAccepted": "USD",
+      "paymentAccepted": "Wire Transfer, Letter of Credit, D/P",
+      "areaServed": ["US", "CO", "BR", "MX", "AE", "SA", "CN"],
+      "parentOrganization": {
+        "@id": "https://glvglobalfoodservices.com/#organization"
+      }
+    },
+    {
       "@type": "WebSite",
       "@id": "https://glvglobalfoodservices.com/#website",
       "url": "https://glvglobalfoodservices.com",
@@ -739,6 +781,9 @@ footer {
       <button class="lang-btn" onclick="setLang('ar')">عربي</button>
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
     </div>
+    <a href="/portal-clientes" class="nav-cta nav-cta-portal btn-nav-hide">
+      <span lang-es>Portal Clientes</span><span lang-en>Client Portal</span><span lang-ar>بوابة العملاء</span><span lang-zh>客户门户</span>
+    </a>
     <a href="#cotizar" class="nav-cta btn-nav-hide">
       <span lang-es>Cotizar</span><span lang-en>Get Quote</span><span lang-ar>اطلب عرضاً</span><span lang-zh>获取报价</span>
     </a>
@@ -1431,7 +1476,8 @@ footer {
       <span lang-ar>نرد في أقل من 24 ساعة. المشترون الجادون فقط.</span>
       <span lang-zh">24小时内回复。仅限有FCL采购能力的认真买家。</span>
     </p>
-    <form class="quote-form" id="quoteForm" onsubmit="handleQuote(event)">
+    <form class="quote-form" id="quoteForm" onsubmit="handleQuote(event)" novalidate>
+      <input type="hidden" name="csrf_token" id="csrfToken" value="">
       <div class="form-group">
         <label><span lang-es>Nombre completo *</span><span lang-en>Full Name *</span><span lang-ar>الاسم الكامل *</span><span lang-zh>姓名 *</span></label>
         <input type="text" id="fName" name="name" required placeholder="Full name / Nombre completo">
@@ -1788,34 +1834,113 @@ function sendViaWhatsApp() {
 }
 
 /* ─── FORM SUBMIT — EMAIL VIA PHP + WA ─── */
+/* ─── CSRF TOKEN INIT ─── */
+(function loadCsrf() {
+  fetch('csrf-token.php', { credentials: 'same-origin' })
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      var el = document.getElementById('csrfToken');
+      if (el && d.csrf_token) el.value = d.csrf_token;
+    })
+    .catch(function() {});
+})();
+
+/* ─── CLIENT-SIDE VALIDATION ─── */
+function validateQuoteForm(form) {
+  var errors = [];
+  var name  = form.querySelector('[name="name"]').value.trim();
+  var email = form.querySelector('[name="email"]').value.trim();
+  var prod  = form.querySelector('[name="product"]').value.trim();
+  if (name.length < 2)  errors.push('Por favor ingresa tu nombre completo.');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('Por favor ingresa un email válido.');
+  if (!prod) errors.push('Por favor selecciona un producto.');
+  return errors;
+}
+
+function showFormError(msg) {
+  var el = document.getElementById('formError');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'formError';
+    el.style.cssText = 'background:rgba(200,50,50,0.15);border:1px solid rgba(200,50,50,0.4);color:#f88;padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.85rem;border-radius:4px;';
+    var form = document.getElementById('quoteForm');
+    form.insertBefore(el, form.firstChild.nextSibling);
+  }
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function hideFormError() {
+  var el = document.getElementById('formError');
+  if (el) el.style.display = 'none';
+}
+
+/* ─── FORM SUBMIT — with CSRF, rate-limit awareness, double-submit guard ─── */
+var _submitting = false;
 function handleQuote(e) {
   e.preventDefault();
+  if (_submitting) return;
+
+  var form = document.getElementById('quoteForm');
+  hideFormError();
+
+  var errors = validateQuoteForm(form);
+  if (errors.length) { showFormError(errors.join(' ')); return; }
+
+  _submitting = true;
+  var btn = form.querySelector('button[type="submit"]');
+  var btnText = btn ? btn.textContent : '';
+  if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
   var overlay = document.getElementById('sendOverlay');
   if (overlay) overlay.classList.add('show');
 
-  var form = document.getElementById('quoteForm');
   var data = new FormData(form);
 
-  fetch('send-email.php', { method: 'POST', body: data })
-    .then(function(r) { return r.json(); })
+  fetch('send-email.php', { method: 'POST', body: data, credentials: 'same-origin' })
+    .then(function(r) {
+      if (r.status === 429) throw new Error('rate_limit');
+      if (r.status === 403) throw new Error('csrf');
+      if (!r.ok) throw new Error('server');
+      return r.json();
+    })
     .then(function(res) {
       if (overlay) overlay.classList.remove('show');
-      var msg = document.getElementById('formSuccess');
-      if (msg) { msg.style.display = 'block'; setTimeout(function(){ msg.style.display='none'; }, 6000); }
-      document.getElementById('btnPDF').style.display = 'block';
-      var waMsg = buildWAMessage();
-      setTimeout(function() {
-        window.open('https://wa.me/573160865294?text=' + waMsg, '_blank');
-      }, 800);
-      form.reset();
-      updateSmartFields('');
+      if (res.success) {
+        var msg = document.getElementById('formSuccess');
+        if (msg) { msg.style.display = 'block'; setTimeout(function(){ msg.style.display='none'; }, 6000); }
+        if (document.getElementById('btnPDF')) document.getElementById('btnPDF').style.display = 'block';
+        var waMsg = buildWAMessage();
+        setTimeout(function() { window.open('https://wa.me/573160865294?text=' + waMsg, '_blank'); }, 800);
+        form.reset();
+        updateSmartFields('');
+        if (res.csrf_token) document.getElementById('csrfToken').value = res.csrf_token;
+      } else {
+        showFormError(res.error || 'Error al enviar. Por favor intenta de nuevo.');
+        if (res.csrf_token) document.getElementById('csrfToken').value = res.csrf_token;
+      }
     })
-    .catch(function() {
+    .catch(function(err) {
       if (overlay) overlay.classList.remove('show');
-      var waMsg = buildWAMessage();
-      window.open('https://wa.me/573160865294?text=' + waMsg, '_blank');
+      if (err.message === 'rate_limit') {
+        showFormError('Has enviado demasiadas solicitudes. Por favor espera unos minutos.');
+      } else if (err.message === 'csrf') {
+        showFormError('Token de seguridad inválido. Recarga la página e intenta de nuevo.');
+        fetch('csrf-token.php', { credentials: 'same-origin' })
+          .then(function(r){ return r.json(); })
+          .then(function(d){ if(d.csrf_token) document.getElementById('csrfToken').value = d.csrf_token; });
+      } else {
+        showFormError('Error de conexión. Por favor contáctanos en info@glvglobalfoodservices.com');
+        var waMsg = buildWAMessage();
+        window.open('https://wa.me/573160865294?text=' + waMsg, '_blank');
+      }
+    })
+    .finally(function() {
+      _submitting = false;
+      if (btn) { btn.disabled = false; btn.textContent = btnText; }
     });
 }
+
 
 /* ─── ANIMATED COUNTERS ─── */
 function animateCount(el) {

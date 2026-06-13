@@ -2,6 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Frutas Tropicales — Línea VI · GLV Global Food Services LLC</title>
 <meta name="description" content="GLV Global Food Services — Frutas tropicales certificadas: Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Papaya. ICA Colombia, MAPA Brasil, GlobalGAP. Miami, Florida.">
@@ -47,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .nav-back{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
 .nav-back:hover{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--dark);text-decoration:none;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.2rem;transition:all 0.2s;}
-.nav-cta:hover{background:var(--gold-light);}
+.nav-cta:hover{background:var(--gold-light);}.nav-cta-portal{background:transparent;color:var(--gold);border:1px solid var(--gold);}.nav-cta-portal:hover{background:var(--gold);color:var(--dark);}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;overflow:hidden;}
@@ -163,6 +167,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   div[style*="padding:6rem 4rem"]{padding:4rem 1.5rem!important;}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Frutas Tropicales Certificadas — Mango, Aguacate, Banano, Piña",
+  "description": "Frutas tropicales certificadas: Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Papaya. ICA Colombia, MAPA Brasil, GlobalGAP. Miami, Florida.",
+  "brand": { "@type": "Brand", "name": "GLV Global Food Services LLC" },
+  "image": "https://glvglobalfoodservices.com/imagenes/cargue-exportacion-glv.jpg",
+  "url": "https://glvglobalfoodservices.com/frutas",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "@id": "https://glvglobalfoodservices.com/#organization" }
+  },
+  "manufacturer": { "@id": "https://glvglobalfoodservices.com/#organization" },
+  "category": "Fresh Tropical Fruits",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Certification", "value": "ICA Colombia, MAPA Brasil, GlobalGAP" },
+    { "@type": "PropertyValue", "name": "Products", "value": "Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Papaya" },
+    { "@type": "PropertyValue", "name": "Incoterms", "value": "FOB, CIF, DDP" }
+  ]
+}
+</script>
 </head>
 <body class="lang-es">
 
@@ -179,6 +207,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
     </div>
     <a href="./index.html" class="nav-back">← <span lang-es>Inicio</span><span lang-en>Home</span><span lang-ar>الرئيسية</span><span lang-zh>首页</span></a>
+    <a href="/portal-clientes" class="nav-cta nav-cta-portal"><span lang-es>Portal Clientes</span><span lang-en>Client Portal</span><span lang-ar>بوابة العملاء</span><span lang-zh>客户门户</span></a>
     <a href="./index.html#cotizar" class="nav-cta"><span lang-es>Cotizar</span><span lang-en>Quote</span><span lang-ar>سعر</span><span lang-zh>报价</span></a>
   </div>
 </nav>
