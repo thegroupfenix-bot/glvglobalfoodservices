@@ -1123,10 +1123,13 @@ footer {
     </div>
     <div class="products-img">
       <!-- Reemplazar con imagen de huevos / contenedor -->
-      <img src="./imagenes/contenedor-huevos-glv.jpg"
-           onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.minHeight='500px';"
-           alt="Contenedor FCL Huevos GLV Global Food Services"
-           loading="lazy">
+      <picture>
+        <source srcset="./imagenes/contenedor-huevos-glv.webp" type="image/webp">
+        <img src="./imagenes/contenedor-huevos-glv.jpg"
+             onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.minHeight='500px';"
+             alt="Contenedor FCL Huevos GLV Global Food Services"
+             loading="lazy">
+      </picture>
     </div>
   </div>
 </section>
@@ -1135,7 +1138,10 @@ footer {
 <section style="position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;">
   <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
     <source src="./imagenes/video-corporativo-glv-foodservices.mp4" type="video/mp4">
-    <img src="./imagenes/operaciones-miami-glv.jpg" alt="GLV Operaciones" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    <picture>
+      <source srcset="./imagenes/operaciones-miami-glv.webp" type="image/webp">
+      <img src="./imagenes/operaciones-miami-glv.jpg" alt="GLV Operaciones" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    </picture>
   </video>
   <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.92) 50%,rgba(10,10,10,0.4) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:5rem 4rem;width:100%;">
@@ -1182,7 +1188,10 @@ footer {
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:1.2rem;padding:1.2rem;background:rgba(201,168,76,0.07);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
-        <img src="./imagenes/operaciones-miami-glv.jpg" alt="Misael Valencia — GLV Global Food Services" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);flex-shrink:0;" onerror="this.style.background='linear-gradient(135deg,#C9A84C,#E8C96A)';this.innerHTML='MV'" loading="lazy">
+        <picture>
+          <source srcset="./imagenes/operaciones-miami-glv.webp" type="image/webp">
+          <img src="./imagenes/operaciones-miami-glv.jpg" alt="Misael Valencia — GLV Global Food Services" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);flex-shrink:0;" onerror="this.style.background='linear-gradient(135deg,#C9A84C,#E8C96A)';this.innerHTML='MV'" loading="lazy">
+        </picture>
         <div>
           <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:700;">Misael Valencia</div>
           <div style="font-size:0.78rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">CEO · GLV Global Holding</div>
