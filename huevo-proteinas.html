@@ -2,6 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Huevo USDA & Proteínas — Línea I · GLV Global Food Services LLC</title>
 <meta name="description" content="GLV Global Food Services — Huevo fresco USDA Grade A y AA. 331.200 huevos por FCL. 149 contenedores entregados. ICA Colombia · MAPA Brasil. Miami, Florida.">
@@ -47,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .nav-back{font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
 .nav-back:hover{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--dark);text-decoration:none;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.2rem;transition:all 0.2s;}
-.nav-cta:hover{background:var(--gold-light);}
+.nav-cta:hover{background:var(--gold-light);}.nav-cta-portal{background:transparent;color:var(--gold);border:1px solid var(--gold);}.nav-cta-portal:hover{background:var(--gold);color:var(--dark);}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;overflow:hidden;}
@@ -150,6 +154,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   .hero-bg::after{-webkit-mask-image:none;mask-image:none;background:rgba(15,15,15,0.82);}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Huevo USDA Grade A & AA — Exportación FCL",
+  "description": "Huevo fresco USDA Grade A y AA. 331.200 huevos por FCL. 149 contenedores entregados. Certificación ICA Colombia y MAPA Brasil. Exportación desde Miami, Florida.",
+  "brand": { "@type": "Brand", "name": "GLV Global Food Services LLC" },
+  "image": "https://glvglobalfoodservices.com/imagenes/hero-huevo-proteinas.jpg",
+  "url": "https://glvglobalfoodservices.com/huevo-proteinas",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "@id": "https://glvglobalfoodservices.com/#organization" }
+  },
+  "manufacturer": { "@id": "https://glvglobalfoodservices.com/#organization" },
+  "category": "Fresh Eggs / Poultry",
+  "additionalProperty": [
+    { "@type": "PropertyValue", "name": "Certification", "value": "USDA Grade A, USDA Grade AA, ICA Colombia, MAPA Brasil" },
+    { "@type": "PropertyValue", "name": "Units per FCL", "value": "331,200 eggs" },
+    { "@type": "PropertyValue", "name": "Incoterms", "value": "FOB, CIF, DDP" }
+  ]
+}
+</script>
 </head>
 <body class="lang-es">
 
@@ -166,6 +194,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
       <button class="lang-btn" onclick="setLang('zh')">中文</button>
     </div>
     <a href="./index.html" class="nav-back">← <span lang-es>Inicio</span><span lang-en>Home</span><span lang-ar>الرئيسية</span><span lang-zh>首页</span></a>
+    <a href="/portal-clientes" class="nav-cta nav-cta-portal"><span lang-es>Portal Clientes</span><span lang-en>Client Portal</span><span lang-ar>بوابة العملاء</span><span lang-zh>客户门户</span></a>
     <a href="./index.html#cotizar" class="nav-cta"><span lang-es>Cotizar</span><span lang-en>Quote</span><span lang-ar>سعر</span><span lang-zh>报价</span></a>
   </div>
 </nav>

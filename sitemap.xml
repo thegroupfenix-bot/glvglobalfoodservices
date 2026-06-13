@@ -86,4 +86,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://glvglobalfoodservices.com/comercio-internacional"/>
   </url>
 
+
+  <url>
+    <loc>https://glvglobalfoodservices.com/portal-clientes</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
