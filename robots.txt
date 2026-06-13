@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /send-email.php
+Disallow: /glv-deploy.php
+
+Sitemap: https://glvglobalfoodservices.com/sitemap.xml

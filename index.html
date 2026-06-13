@@ -5,9 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GLV Global Food Services LLC — Miami · Florida · USA</title>
 <meta name="description" content="GLV Global Food Services LLC — Operador de distribución e importación de alimentos certificados desde Miami, Florida. Canal USA del GLV Global Holding.">
+<!-- Canonical & Alternates -->
+<link rel="canonical" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="es" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="en" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="ar" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="zh" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="x-default" href="https://glvglobalfoodservices.com/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
 <meta property="og:title" content="GLV Global Food Services LLC — Where Food Moves Markets.">
 <meta property="og:description" content="Miami, Florida · Canal USA del GLV Global Holding. Huevo USDA, Coco certificado, Granos, Aceites y Proteínas para el mercado americano y el Caribe.">
-<meta property="og:url" content="https://glvglobalfoodservices.com">
+<meta property="og:url" content="https://glvglobalfoodservices.com/">
+<meta property="og:image" content="https://glvglobalfoodservices.com/imagenes/operaciones-miami-glv.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_US">
+<meta property="og:site_name" content="GLV Global Food Services LLC">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GLV Global Food Services LLC — Where Food Moves Markets.">
+<meta name="twitter:description" content="Miami, Florida · Huevo USDA, Coco certificado, Granos, Aceites y Proteínas para el mercado americano y el Caribe.">
+<meta name="twitter:image" content="https://glvglobalfoodservices.com/imagenes/operaciones-miami-glv.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;700&display=swap" rel="stylesheet">
@@ -635,6 +654,44 @@ footer {
   .contact-strip-inner { grid-template-columns:1fr; }
 }
 </style>
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://glvglobalfoodservices.com/#organization",
+      "name": "GLV Global Food Services LLC",
+      "url": "https://glvglobalfoodservices.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://glvglobalfoodservices.com/imagenes/operaciones-miami-glv.jpg"
+      },
+      "description": "Miami-based food export company specializing in USDA eggs, certified coconut oils, grains, tropical fruits, live animals, and international trade operations.",
+      "email": "info@glvglobalfoodservices.com",
+      "telephone": ["+573160865294", "+5511946610038"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "areaServed": ["US", "CO", "BR", "MX", "AE", "SA", "CN"],
+      "sameAs": ["https://glvservicesexp.com"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://glvglobalfoodservices.com/#website",
+      "url": "https://glvglobalfoodservices.com",
+      "name": "GLV Global Food Services LLC",
+      "publisher": {
+        "@id": "https://glvglobalfoodservices.com/#organization"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="lang-es">
 
@@ -1066,9 +1123,13 @@ footer {
     </div>
     <div class="products-img">
       <!-- Reemplazar con imagen de huevos / contenedor -->
-      <img src="./imagenes/contenedor-huevos-glv.jpg"
-           onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.minHeight='500px';"
-           alt="Contenedor FCL Huevos GLV Global Food Services">
+      <picture>
+        <source srcset="./imagenes/contenedor-huevos-glv.webp" type="image/webp">
+        <img src="./imagenes/contenedor-huevos-glv.jpg"
+             onerror="this.style.background='linear-gradient(135deg,#1a1a1a,#2a2a2a)';this.style.minHeight='500px';"
+             alt="Contenedor FCL Huevos GLV Global Food Services"
+             loading="lazy">
+      </picture>
     </div>
   </div>
 </section>
@@ -1077,7 +1138,10 @@ footer {
 <section style="position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;">
   <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
     <source src="./imagenes/video-corporativo-glv-foodservices.mp4" type="video/mp4">
-    <img src="./imagenes/operaciones-miami-glv.jpg" alt="GLV Operaciones" style="width:100%;height:100%;object-fit:cover;">
+    <picture>
+      <source srcset="./imagenes/operaciones-miami-glv.webp" type="image/webp">
+      <img src="./imagenes/operaciones-miami-glv.jpg" alt="GLV Operaciones" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+    </picture>
   </video>
   <div style="position:absolute;inset:0;background:linear-gradient(105deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.92) 50%,rgba(10,10,10,0.4) 100%);z-index:1;"></div>
   <div style="position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:5rem 4rem;width:100%;">
@@ -1124,7 +1188,10 @@ footer {
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:1.2rem;padding:1.2rem;background:rgba(201,168,76,0.07);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
-        <img src="./imagenes/operaciones-miami-glv.jpg" alt="Misael Valencia — GLV Global Food Services" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);flex-shrink:0;" onerror="this.style.background='linear-gradient(135deg,#C9A84C,#E8C96A)';this.innerHTML='MV'">
+        <picture>
+          <source srcset="./imagenes/operaciones-miami-glv.webp" type="image/webp">
+          <img src="./imagenes/operaciones-miami-glv.jpg" alt="Misael Valencia — GLV Global Food Services" style="width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid var(--gold);flex-shrink:0;" onerror="this.style.background='linear-gradient(135deg,#C9A84C,#E8C96A)';this.innerHTML='MV'" loading="lazy">
+        </picture>
         <div>
           <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;font-weight:700;">Misael Valencia</div>
           <div style="font-size:0.78rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">CEO · GLV Global Holding</div>
