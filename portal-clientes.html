@@ -29,11 +29,14 @@
 
   /* NAV */
   nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(15,15,15,0.97); border-bottom:1px solid rgba(201,168,76,0.2); }
-  .nav-inner { max-width:1200px; margin:0 auto; padding:0.75rem 1.5rem; display:flex; align-items:center; gap:1.5rem; }
+  .nav-inner { max-width:1200px; margin:0 auto; padding:0.75rem 1.5rem; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
   .nav-logo { text-decoration:none; display:flex; align-items:center; gap:0.5rem; margin-right:auto; }
   .nav-logo-text { font-size:1rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); }
   .nav-logo-sub { font-size:0.6rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; display:block; }
-  .nav-cta { background:var(--gold); color:var(--dark); text-decoration:none; font-size:0.9rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.5rem 1.2rem; transition:all 0.2s; }
+  .lang-switcher { display:flex; gap:0.25rem; }
+  .lang-btn { background:none; border:1px solid rgba(201,168,76,0.3); color:var(--muted); font-size:0.75rem; font-weight:700; padding:0.2rem 0.45rem; cursor:pointer; transition:all 0.2s; font-family:inherit; }
+  .lang-btn:hover,.lang-btn.active { background:var(--gold); color:var(--dark); border-color:var(--gold); }
+  .nav-cta { background:var(--gold); color:var(--dark); text-decoration:none; font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.5rem 1.2rem; transition:all 0.2s; }
   .nav-cta:hover { background:var(--gold-light); }
   .nav-cta-portal { background:transparent; color:var(--gold); border:1px solid var(--gold); }
   .nav-cta-portal:hover { background:var(--gold); color:var(--dark); }
@@ -74,7 +77,7 @@
   footer a { color:var(--gold); text-decoration:none; }
 </style>
 </head>
-<body>
+<body class="lang-es">
 
 <nav>
   <div class="nav-inner">
@@ -84,17 +87,24 @@
         <span class="nav-logo-sub">Miami · Florida · USA</span>
       </span>
     </a>
-    <a href="/portal-clientes" class="nav-cta nav-cta-portal">Portal Clientes</a>
-    <a href="/#cotizar" class="nav-cta">Cotizar</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
+      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    </div>
+    <a href="/portal-clientes" class="nav-cta nav-cta-portal" data-i18n="nav.portal">Portal Clientes</a>
+    <a href="/#cotizar" class="nav-cta" data-i18n="nav.quote">Cotizar</a>
   </div>
 </nav>
 
 <main>
-  <span class="portal-badge">Próximamente / Coming Soon</span>
+  <span class="portal-badge" data-i18n="portal.badge">Próximamente</span>
 
-  <h1>Portal de<br><span>Clientes</span></h1>
+  <h1><span data-i18n="portal.title">Portal de Clientes</span></h1>
 
-  <p class="portal-desc">
+  <p class="portal-desc" data-i18n="portal.desc">
     Estamos construyendo una plataforma exclusiva para clientes de GLV Global Food Services LLC.
     Gestione sus operaciones de importación desde un solo lugar.
   </p>
@@ -102,34 +112,34 @@
   <div class="features-grid">
     <div class="feature-card">
       <span class="feature-icon">👤</span>
-      <div class="feature-title">Registro de Clientes</div>
-      <div class="feature-desc">Alta segura de empresas importadoras y distribuidoras con verificación</div>
+      <div class="feature-title" data-i18n="portal.features.register.title">Registro de Clientes</div>
+      <div class="feature-desc" data-i18n="portal.features.register.desc">Alta segura de empresas importadoras y distribuidoras con verificación</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">🔍</span>
-      <div class="feature-title">KYC / Due Diligence</div>
-      <div class="feature-desc">Proceso de conocimiento del cliente con cumplimiento regulatorio internacional</div>
+      <div class="feature-title" data-i18n="portal.features.kyc.title">KYC / Due Diligence</div>
+      <div class="feature-desc" data-i18n="portal.features.kyc.desc">Proceso de conocimiento del cliente con cumplimiento regulatorio internacional</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">📄</span>
-      <div class="feature-title">Seguimiento Documental</div>
-      <div class="feature-desc">Estado en tiempo real de certificados, BL, facturas y permisos sanitarios</div>
+      <div class="feature-title" data-i18n="portal.features.docs.title">Seguimiento Documental</div>
+      <div class="feature-desc" data-i18n="portal.features.docs.desc">Estado en tiempo real de certificados, BL, facturas y permisos sanitarios</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">💼</span>
-      <div class="feature-title">Cotizaciones en Línea</div>
-      <div class="feature-desc">Solicite y reciba cotizaciones formales con historial y comparativas</div>
+      <div class="feature-title" data-i18n="portal.features.quotes.title">Cotizaciones en Línea</div>
+      <div class="feature-desc" data-i18n="portal.features.quotes.desc">Solicite y reciba cotizaciones formales con historial y comparativas</div>
     </div>
     <div class="feature-card">
       <span class="feature-icon">⬇️</span>
-      <div class="feature-title">Descarga de Documentos</div>
-      <div class="feature-desc">Acceso seguro a documentos de exportación, certificados USDA/FDA y contratos</div>
+      <div class="feature-title" data-i18n="portal.features.download.title">Descarga de Documentos</div>
+      <div class="feature-desc" data-i18n="portal.features.download.desc">Acceso seguro a documentos de exportación, certificados USDA/FDA y contratos</div>
     </div>
   </div>
 
   <div class="notify-box">
-    <p>¿Desea ser notificado cuando el portal esté disponible?</p>
-    <a href="/#cotizar" class="notify-cta">Contáctenos ahora →</a>
+    <p data-i18n="portal.notify">¿Desea ser notificado cuando el portal esté disponible?</p>
+    <a href="/#cotizar" class="notify-cta" data-i18n="portal.cta">Contáctenos ahora →</a>
   </div>
 </main>
 
@@ -137,5 +147,6 @@
   <p>&copy; 2025 <a href="/">GLV Global Food Services LLC</a> · Miami, Florida, USA · <a href="mailto:info@glvglobalfoodservices.com">info@glvglobalfoodservices.com</a></p>
 </footer>
 
+<script src="/js/i18n.js"></script>
 </body>
 </html>
