@@ -1,0 +1,92 @@
+{
+  "lang": "es",
+  "dir": "ltr",
+  "nav": {
+    "portal": "Portal Clientes",
+    "quote": "Cotizar",
+    "home": "Inicio"
+  },
+  "hero": {
+    "eyebrow": "Distribución & Importación de Alimentos · Miami, Florida",
+    "cta_primary": "Solicitar Cotización",
+    "cta_secondary": "Ver Servicios →"
+  },
+  "stats": {
+    "fcl": "FCL Distribuidos",
+    "entities": "Entidades Globales",
+    "countries": "Países Destino",
+    "ops": "Operaciones"
+  },
+  "about": {
+    "eyebrow": "Sobre Nosotros · Miami, Florida",
+    "title": "Miami. El Hub que conecta mundos.",
+    "cta": "Iniciar Operación →"
+  },
+  "holding": {
+    "eyebrow": "Estructura Corporativa"
+  },
+  "services": {
+    "eyebrow": "6 Líneas de Negocio",
+    "title": "Un canal USA. Seis plataformas.",
+    "lines": {
+      "1": { "title": "Huevo & Proteínas", "link": "Ver Línea I" },
+      "2": { "title": "Coco & Aceites", "link": "Ver Línea II" },
+      "3": { "title": "Granos & Cereales", "link": "Ver Línea III" },
+      "4": { "title": "Animales Vivos & Cortes", "link": "Ver Línea IV" },
+      "5": { "title": "Frutas Tropicales", "link": "Ver Línea V" },
+      "6": { "title": "Comercio Internacional", "link": "Ver Línea VI" }
+    }
+  },
+  "markets": {
+    "eyebrow": "Mercados Destino · Desde Miami",
+    "title": "Compradores serios en todo el mundo"
+  },
+  "process": {
+    "eyebrow": "Proceso Operativo · Miami Hub",
+    "title": "Proceso de principio a fin",
+    "steps": {
+      "1": "Sourcing",
+      "2": "Certificación",
+      "3": "Documentación",
+      "4": "Tránsito Miami",
+      "5": "Entrega"
+    }
+  },
+  "form": {
+    "eyebrow": "Cotización Rápida · Miami",
+    "title": "Cotice con nosotros hoy",
+    "subtitle": "Respondemos en menos de 24 horas. Solo compradores serios con capacidad de FCL.",
+    "name": "Nombre completo *",
+    "company": "Empresa · País *",
+    "product": "Producto de interés *",
+    "destination": "Destino *",
+    "volume": "Volumen requerido",
+    "incoterm": "Incoterm preferido",
+    "payment": "Método de pago",
+    "message": "Mensaje adicional",
+    "btn_email": "Enviar por Email",
+    "btn_pdf": "Descargar Cotización de Referencia (PDF)",
+    "success": "Mensaje enviado. Nos comunicamos en menos de 24 horas.",
+    "sending": "Enviando solicitud..."
+  },
+  "footer": {
+    "products": "Productos",
+    "contact": "Contacto & Operaciones",
+    "tagline": "Canal USA del GLV Global Holding. Distribución e importación de alimentos certificados desde Miami, Florida — hacia USA, el Caribe, Latinoamérica y el mundo.",
+    "rights": "Todos los derechos reservados."
+  },
+  "portal": {
+    "badge": "Próximamente",
+    "title": "Portal de Clientes",
+    "desc": "Estamos construyendo una plataforma exclusiva para clientes de GLV Global Food Services LLC.",
+    "features": {
+      "register": { "title": "Registro de Clientes", "desc": "Alta segura de empresas importadoras y distribuidoras con verificación" },
+      "kyc": { "title": "KYC / Due Diligence", "desc": "Proceso de conocimiento del cliente con cumplimiento regulatorio internacional" },
+      "docs": { "title": "Seguimiento Documental", "desc": "Estado en tiempo real de certificados, BL, facturas y permisos sanitarios" },
+      "quotes": { "title": "Cotizaciones en Línea", "desc": "Solicite y reciba cotizaciones formales con historial y comparativas" },
+      "download": { "title": "Descarga de Documentos", "desc": "Acceso seguro a documentos de exportación, certificados USDA/FDA y contratos" }
+    },
+    "notify": "¿Desea ser notificado cuando el portal esté disponible?",
+    "cta": "Contáctenos ahora →"
+  }
+}

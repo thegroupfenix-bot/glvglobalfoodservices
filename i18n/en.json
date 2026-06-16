@@ -1,0 +1,92 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "nav": {
+    "portal": "Client Portal",
+    "quote": "Get Quote",
+    "home": "Home"
+  },
+  "hero": {
+    "eyebrow": "Food Distribution & Import · Miami, Florida",
+    "cta_primary": "Request a Quote",
+    "cta_secondary": "Our Services →"
+  },
+  "stats": {
+    "fcl": "FCL Distributed",
+    "entities": "Global Entities",
+    "countries": "Destination Countries",
+    "ops": "Operations"
+  },
+  "about": {
+    "eyebrow": "About Us · Miami, Florida",
+    "title": "Miami. The Hub that connects worlds.",
+    "cta": "Start an Operation →"
+  },
+  "holding": {
+    "eyebrow": "Corporate Structure"
+  },
+  "services": {
+    "eyebrow": "6 Business Lines",
+    "title": "One USA channel. Six platforms.",
+    "lines": {
+      "1": { "title": "Eggs & Proteins", "link": "View Line I" },
+      "2": { "title": "Coconut & Oils", "link": "View Line II" },
+      "3": { "title": "Grains & Cereals", "link": "View Line III" },
+      "4": { "title": "Live Animals & Cuts", "link": "View Line IV" },
+      "5": { "title": "Tropical Fruits", "link": "View Line V" },
+      "6": { "title": "International Trade", "link": "View Line VI" }
+    }
+  },
+  "markets": {
+    "eyebrow": "Target Markets · From Miami",
+    "title": "Serious buyers worldwide"
+  },
+  "process": {
+    "eyebrow": "Operations Process · Miami Hub",
+    "title": "Process end to end",
+    "steps": {
+      "1": "Sourcing",
+      "2": "Certification",
+      "3": "Documentation",
+      "4": "Miami Transit",
+      "5": "Delivery"
+    }
+  },
+  "form": {
+    "eyebrow": "Quick Quote · Miami",
+    "title": "Get a quote today",
+    "subtitle": "We respond in less than 24 hours. Serious buyers with FCL capacity only.",
+    "name": "Full Name *",
+    "company": "Company · Country *",
+    "product": "Product of interest *",
+    "destination": "Destination *",
+    "volume": "Required Volume",
+    "incoterm": "Preferred Incoterm",
+    "payment": "Payment Method",
+    "message": "Additional message",
+    "btn_email": "Send by Email",
+    "btn_pdf": "Download Reference Quote (PDF)",
+    "success": "Message sent. We'll get back to you within 24 hours.",
+    "sending": "Sending request..."
+  },
+  "footer": {
+    "products": "Products",
+    "contact": "Contact & Operations",
+    "tagline": "USA channel of GLV Global Holding. Certified food distribution and import from Miami, Florida — to USA, Caribbean, Latin America and the world.",
+    "rights": "All rights reserved."
+  },
+  "portal": {
+    "badge": "Coming Soon",
+    "title": "Client Portal",
+    "desc": "We are building an exclusive platform for GLV Global Food Services LLC clients.",
+    "features": {
+      "register": { "title": "Client Registration", "desc": "Secure onboarding for importing companies and distributors with verification" },
+      "kyc": { "title": "KYC / Due Diligence", "desc": "Client verification process with international regulatory compliance" },
+      "docs": { "title": "Document Tracking", "desc": "Real-time status of certificates, BL, invoices and sanitary permits" },
+      "quotes": { "title": "Online Quotes", "desc": "Request and receive formal quotes with history and comparisons" },
+      "download": { "title": "Document Download", "desc": "Secure access to export documents, USDA/FDA certificates and contracts" }
+    },
+    "notify": "Would you like to be notified when the portal is available?",
+    "cta": "Contact us now →"
+  }
+}

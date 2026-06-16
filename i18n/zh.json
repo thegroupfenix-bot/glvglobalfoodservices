@@ -1,0 +1,93 @@
+{
+  "lang": "zh",
+  "dir": "ltr",
+  "nav": {
+    "portal": "客户门户",
+    "quote": "获取报价",
+    "home": "首页"
+  },
+  "hero": {
+    "eyebrow": "食品配送与进口 · 迈阿密，佛罗里达",
+    "cta_primary": "请求报价",
+    "cta_secondary": "我们的服务 →"
+  },
+  "stats": {
+    "fcl": "已分发集装箱",
+    "entities": "全球实体",
+    "countries": "目的地国家",
+    "ops": "全天候运营"
+  },
+  "about": {
+    "eyebrow": "关于我们 · 迈阿密，佛罗里达",
+    "title": "迈阿密。连接世界的枢纽。",
+    "cta": "开始业务 →"
+  },
+  "holding": {
+    "eyebrow": "公司架构"
+  },
+  "services": {
+    "eyebrow": "6条业务线",
+    "title": "一个美国渠道。六个平台。",
+    "lines": {
+      "1": { "title": "鸡蛋与蛋白质", "link": "查看业务线 I" },
+      "2": { "title": "椰子与油脂", "link": "查看业务线 II" },
+      "3": { "title": "谷物与粮食", "link": "查看业务线 III" },
+      "4": { "title": "活体动物与肉类切割", "link": "查看业务线 IV" },
+      "5": { "title": "热带水果", "link": "查看业务线 V" },
+      "6": { "title": "国际贸易", "link": "查看业务线 VI" }
+    }
+  },
+  "markets": {
+    "eyebrow": "目标市场 · 从迈阿密出发",
+    "title": "全球各地的认真买家"
+  },
+  "process": {
+    "eyebrow": "运营流程 · 迈阿密中心",
+    "title": "从头到尾的全流程",
+    "steps": {
+      "1": "采购",
+      "2": "认证",
+      "3": "单证",
+      "4": "迈阿密中转",
+      "5": "交付"
+    }
+  },
+  "form": {
+    "eyebrow": "快速报价 · 迈阿密",
+    "title": "今天获取报价",
+    "subtitle": "24小时内回复。仅限有FCL采购能力的认真买家。",
+    "name": "姓名 *",
+    "company": "公司 · 国家 *",
+    "product": "感兴趣的产品 *",
+    "destination": "目的地 *",
+    "volume": "所需数量",
+    "incoterm": "首选国际贸易术语",
+    "payment": "付款方式",
+    "message": "附加信息",
+    "phone": "电话",
+    "btn_email": "发送邮件",
+    "btn_pdf": "下载参考报价单 (PDF)",
+    "success": "消息已发送。我们将在24小时内回复您。",
+    "sending": "正在发送..."
+  },
+  "footer": {
+    "products": "产品",
+    "contact": "联系与运营",
+    "tagline": "GLV全球控股集团美国渠道。从迈阿密佛罗里达州进行认证食品分销和进口。",
+    "rights": "保留所有权利。"
+  },
+  "portal": {
+    "badge": "即将推出",
+    "title": "客户门户",
+    "desc": "我们正在为GLV Global Food Services LLC客户构建专属平台。",
+    "features": {
+      "register": { "title": "客户注册", "desc": "进口企业和分销商的安全注册与验证" },
+      "kyc": { "title": "KYC / 尽职调查", "desc": "符合国际监管要求的客户验证流程" },
+      "docs": { "title": "文件跟踪", "desc": "证书、提单、发票和卫生许可的实时状态" },
+      "quotes": { "title": "在线报价", "desc": "申请并接收正式报价，含历史记录和比较" },
+      "download": { "title": "文件下载", "desc": "安全访问出口文件、USDA/FDA证书和合同" }
+    },
+    "notify": "您希望在门户上线时收到通知吗？",
+    "cta": "立即联系我们 →"
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "lang": "pt-br",
+  "dir": "ltr",
+  "nav": {
+    "portal": "Portal de Clientes",
+    "quote": "Cotar",
+    "home": "Início"
+  },
+  "hero": {
+    "eyebrow": "Distribuição & Importação de Alimentos · Miami, Flórida",
+    "cta_primary": "Solicitar Cotação",
+    "cta_secondary": "Nossos Serviços →"
+  },
+  "stats": {
+    "fcl": "FCL Distribuídos",
+    "entities": "Entidades Globais",
+    "countries": "Países de Destino",
+    "ops": "Operações"
+  },
+  "about": {
+    "eyebrow": "Sobre Nós · Miami, Flórida",
+    "title": "Miami. O Hub que conecta mundos.",
+    "body": "GLV Global Food Services LLC é a entidade norte-americana do GLV Global Holding — a mesma empresa fundada por Misael Valencia que opera em 7 jurisdições globais. A partir de Miami, operamos como canal de distribuição e importação para o mercado americano, Caribe e América Latina, entregando produtos com certificação USDA, HACCP, IFS e origem verificada diretamente dos produtores na Colômbia, Brasil e Argentina.",
+    "cta": "Iniciar Operação →"
+  },
+  "holding": {
+    "eyebrow": "Estrutura Corporativa",
+    "body": "7 entidades legais em 7 jurisdições. GLV Global Food Services LLC é a entidade EUA do holding — projetada para operar com compradores institucionais, importadores e distribuidores no mercado americano."
+  },
+  "services": {
+    "eyebrow": "6 Linhas de Negócio",
+    "title": "Um canal EUA. Seis plataformas.",
+    "lines": {
+      "1": {
+        "title": "Ovos & Proteínas",
+        "subtitle": "USDA Grau A · AA · Colômbia · Brasil",
+        "desc": "Ovos frescos USDA Grau A e AA certificados. 920 caixas × 360 und. = 331.200 ovos por FCL. 149 FCL entregues em 2024–2025. Distribuição para o Caribe, México, Peru e mercado EUA.",
+        "link": "Ver Linha I"
+      },
+      "2": {
+        "title": "Coco & Óleos",
+        "subtitle": "IFS · HACCP · GPM · Brasil Certificado",
+        "desc": "Coco Ralado, Óleo de Coco e Água de Coco de produtor certificado no Brasil (IFS, HACCP, GPM). Óleo de Soja, Girassol e Palma da Argentina e Colômbia. Canal direto sem intermediários.",
+        "link": "Ver Linha II"
+      },
+      "3": {
+        "title": "Grãos & Cereais",
+        "subtitle": "Índia · Argentina · Colômbia · MOQ a partir de 1 FCL",
+        "desc": "Arroz Basmati e não-Basmati 17 variedades da Índia. Marca própria Aternal Rice. Feijão 9 variedades Argentina MOQ 12.500 MT. Grão-de-bico 7-9mm. Milho, Trigo e Soja.",
+        "link": "Ver Linha III"
+      },
+      "4": {
+        "title": "Animais Vivos & Cortes",
+        "subtitle": "Bovinos · Ovinos · Caprinos · MAPA · ICA · Halal",
+        "desc": "Bovinos Nelore/Angus, ovinos Dorper/Île de France e caprinos do Brasil e Colômbia. Cortes premium: Rib Eye, Striploin, Tenderloin, carré de cordeiro. Navios pecuários certificados. Halal disponível. Destinos: Oriente Médio, Caribe, África.",
+        "link": "Ver Linha IV"
+      },
+      "5": {
+        "title": "Frutas Tropicais",
+        "subtitle": "Colômbia · Brasil · Equador · GlobalGAP · ICA",
+        "desc": "Manga Tommy/Kent, Abacate Hass, Banana Cavendish, Abacaxi MD2, Maracujá, Granadilla Roxa, Mamão e frutas exóticas. A Colômbia é líder mundial em maracujá. Certificação GlobalGAP, ICA, MAPA. Orgânico disponível. Reefer FCL e aéreo.",
+        "link": "Ver Linha V"
+      },
+      "6": {
+        "title": "Comércio Internacional",
+        "subtitle": "Miami Hub · PortMIA · Import & Export",
+        "desc": "Miami como hub de operações B2B: importação para os EUA, reexportação para o Caribe e conexão direta com as entidades GLV na Colômbia, Brasil, Dubai, Itália e Hong Kong. Operações em FOB, CIF, DDP e L/C.",
+        "link": "Ver Linha VI"
+      }
+    }
+  },
+  "markets": {
+    "eyebrow": "Mercados de Destino · A partir de Miami",
+    "title": "Compradores sérios em todo o mundo",
+    "cards": {
+      "caribe": {
+        "title": "Rep. Dominicana, Cuba, Porto Rico, EUA",
+        "desc": "Mercado principal a partir de Miami. 149 contêineres de ovos entregues. Equipe local na Rep. Dominicana. Arroz, óleos e proteínas com entrega DDP."
+      },
+      "latam": {
+        "title": "México, Peru, Colômbia, Venezuela",
+        "desc": "Canal de reexportação de Miami para toda a América Latina. Ovos, coco, arroz e óleos. Operações CIF e FOB do PortMIA com rastreabilidade completa."
+      },
+      "mena": {
+        "title": "EAU, Arábia Saudita, China, Hong Kong",
+        "desc": "Coordenação com GLV Dubai e GLV HK. Produtos Halal, ovos USDA, coco certificado e commodities. Canal B2B direto sem intermediários."
+      },
+      "europe": {
+        "title": "Itália, Espanha, União Europeia",
+        "desc": "Canal via GLV Global Foods Italia SRL. Coco certificado IFS/HACCP do Brasil, óleos e proteínas com rastreabilidade ambiental verificada e padrões UE."
+      },
+      "usa": {
+        "title": "Importadores, Distribuidores & Varejistas EUA",
+        "desc": "Fornecimento direto a importadores institucionais, supermercados étnicos, distribuidores de alimentos e restaurantes no mercado americano. Registro FDA. Mínimo 1 FCL."
+      },
+      "africa": {
+        "title": "Argélia, Marrocos, Namíbia, Egito",
+        "desc": "Mercado em expansão para ovos Halal certificados, óleos e grãos. Coordenação de Miami com entidades GLV em Dubai e Colômbia para destinos africanos de alta demanda."
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Processo Operacional · Hub Miami",
+    "title": "Processo de ponta a ponta",
+    "steps": {
+      "1": { "title": "Sourcing", "desc": "Visita pessoal na origem: Colômbia, Brasil, Índia, Argentina" },
+      "2": { "title": "Certificação", "desc": "USDA · FDA · ICA · MAPA · HACCP · IFS · Halal" },
+      "3": { "title": "Documentação", "desc": "L/C · BL · Invoice · Packing List · Phyto · Health Cert" },
+      "4": { "title": "Trânsito Miami", "desc": "PortMIA · Armazém · Inspeção FDA · Cadeia de Frio" },
+      "5": { "title": "Entrega", "desc": "DDP · CIF · FOB — Confirmação e rastreamento" }
+    }
+  },
+  "contact": {
+    "office": "Escritório Principal",
+    "holding": "Parte do Holding"
+  },
+  "form": {
+    "eyebrow": "Cotação Rápida · Miami",
+    "title": "Cotar com a gente hoje",
+    "subtitle": "Respondemos em menos de 24 horas. Somente compradores sérios com capacidade de FCL.",
+    "name": "Nome completo *",
+    "company": "Empresa · País *",
+    "product": "Produto de interesse *",
+    "destination": "Destino *",
+    "volume": "Volume necessário",
+    "incoterm": "Incoterm preferido",
+    "payment": "Método de pagamento",
+    "message": "Mensagem adicional",
+    "phone": "Telefone",
+    "btn_email": "Enviar por E-mail",
+    "btn_pdf": "Baixar Cotação de Referência (PDF)",
+    "success": "Mensagem enviada. Entraremos em contato em menos de 24 horas.",
+    "sending": "Enviando solicitação...",
+    "disclaimer": "Os valores indicados são apenas de referência. A cotação oficial será enviada por nossa equipe comercial conforme disponibilidade, volume e condições de mercado."
+  },
+  "footer": {
+    "products": "Produtos",
+    "contact": "Contato & Operações",
+    "tagline": "Canal EUA do GLV Global Holding. Distribuição e importação de alimentos certificados de Miami, Flórida — para os EUA, Caribe, América Latina e o mundo.",
+    "rights": "Todos os direitos reservados.",
+    "products_list": {
+      "eggs": "Ovos USDA Grau A · AA",
+      "coconut": "Coco Ralado & Óleo de Coco",
+      "water": "Água de Coco Certificada",
+      "rice": "Arroz Basmati · Aternal Rice",
+      "grains": "Grãos & Leguminosas",
+      "oils": "Óleos & Gorduras"
+    }
+  },
+  "portal": {
+    "badge": "Em Breve",
+    "title": "Portal de Clientes",
+    "desc": "Estamos construindo uma plataforma exclusiva para os clientes da GLV Global Food Services LLC. Gerencie suas operações de importação em um só lugar.",
+    "features": {
+      "register": { "title": "Cadastro de Clientes", "desc": "Cadastro seguro de empresas importadoras e distribuidoras com verificação" },
+      "kyc": { "title": "KYC / Due Diligence", "desc": "Processo de verificação do cliente com conformidade regulatória internacional" },
+      "docs": { "title": "Acompanhamento Documental", "desc": "Status em tempo real de certificados, BL, faturas e licenças sanitárias" },
+      "quotes": { "title": "Cotações Online", "desc": "Solicite e receba cotações formais com histórico e comparativos" },
+      "download": { "title": "Download de Documentos", "desc": "Acesso seguro a documentos de exportação, certificados USDA/FDA e contratos" }
+    },
+    "notify": "Deseja ser notificado quando o portal estiver disponível?",
+    "cta": "Entre em contato agora →"
+  }
+}

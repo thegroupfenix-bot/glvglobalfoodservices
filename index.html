@@ -6,7 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>GLV Global Food Services LLC — Miami · Florida · USA</title>
 <meta name="description" content="GLV Global Food Services LLC — Operador de distribución e importación de alimentos certificados desde Miami, Florida. Canal USA del GLV Global Holding.">
 <!-- Canonical & Alternates -->
@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="en" href="https://glvglobalfoodservices.com/">
 <link rel="alternate" hreflang="ar" href="https://glvglobalfoodservices.com/">
 <link rel="alternate" hreflang="zh" href="https://glvglobalfoodservices.com/">
+<link rel="alternate" hreflang="pt-br" href="https://glvglobalfoodservices.com/">
 <link rel="alternate" hreflang="x-default" href="https://glvglobalfoodservices.com/">
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -66,12 +67,13 @@ body {
 }
 
 /* ─── LANGUAGE SYSTEM ─── */
-[lang-es],[lang-en],[lang-ar],[lang-zh] { display:none; }
-body.lang-es [lang-es], body.lang-en [lang-en],
+[lang-es],[lang-en],[lang-ar],[lang-zh],[lang-pt] { display:none; }
+body.lang-es [lang-es], body.lang-en [lang-en], body.lang-pt [lang-pt],
 body.lang-ar [lang-ar], body.lang-zh [lang-zh] { display:inline; }
+body.lang-pt [lang-pt] { display:inline; }
 body.lang-ar { direction:rtl; }
 body.lang-ar [lang-ar] { display:block; }
-body.lang-es [lang-es].block, body.lang-en [lang-en].block,
+body.lang-es [lang-es].block, body.lang-en [lang-en].block, body.lang-pt [lang-pt].block,
 body.lang-ar [lang-ar].block, body.lang-zh [lang-zh].block { display:block; }
 
 /* ─── NAV ─── */
@@ -659,6 +661,138 @@ footer {
   .process-steps { grid-template-columns:repeat(2,1fr); }
   .contact-strip-inner { grid-template-columns:1fr; }
 }
+
+/* ─── LANG SELECT DROPDOWN ─── */
+.lang-switcher { display:none; } /* legacy hidden */
+.lang-select-wrap { position:relative; z-index:2000; }
+.lang-select-btn {
+  display:flex; align-items:center; gap:0.4rem;
+  background:none; border:1px solid rgba(201,168,76,0.3);
+  color:var(--text-dim); font-family:'Barlow',sans-serif;
+  font-size:0.75rem; font-weight:600; letter-spacing:0.04em;
+  padding:0 0.7rem; cursor:pointer; transition:all 0.2s;
+  white-space:nowrap; min-height:44px;
+}
+.lang-select-btn:hover,
+.lang-select-wrap.open .lang-select-btn { border-color:var(--gold); color:var(--gold); }
+.lang-select-globe { font-size:0.9rem; }
+.lang-select-label { font-size:0.72rem; }
+.lang-select-arrow { font-size:0.65rem; transition:transform 0.2s; }
+.lang-select-wrap.open .lang-select-arrow { transform:rotate(180deg); }
+.lang-select-menu {
+  display:none; position:absolute;
+  top:calc(100% + 4px); right:0;
+  background:rgba(15,15,15,0.99); border:1px solid rgba(201,168,76,0.25);
+  min-width:190px; z-index:3000;
+  padding:0.35rem 0; box-shadow:0 12px 32px rgba(0,0,0,0.6);
+}
+.lang-select-wrap.open .lang-select-menu { display:block; }
+.lang-option {
+  display:flex; align-items:center; gap:0.7rem;
+  width:100%; background:none; border:none;
+  color:var(--text-dim); font-family:'Barlow',sans-serif;
+  font-size:0.82rem; padding:0 1rem; cursor:pointer;
+  text-align:left; min-height:44px; transition:all 0.15s;
+  border-left:2px solid transparent;
+}
+.lang-option:hover { color:var(--gold); background:rgba(201,168,76,0.06); }
+.lang-option.active { color:var(--gold); border-left-color:var(--gold); }
+.lang-option-code {
+  font-size:0.62rem; font-weight:800; letter-spacing:0.1em;
+  color:var(--gold); background:rgba(201,168,76,0.12);
+  padding:0.1rem 0.35rem; min-width:26px; text-align:center;
+}
+
+/* ─── MOBILE UX — GLOBAL ─── */
+/* M-1: CTA min 44px */
+.btn-primary, .btn-secondary, .nav-cta, .btn-wa-submit, .btn-email-submit {
+  min-height:44px;
+}
+/* H-4: Notch / Dynamic Island safe area */
+@supports (padding: max(0px)) {
+  nav {
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
+  }
+}
+
+/* ─── RESPONSIVE — 768px ─── */
+@media (max-width:768px) {
+  /* C-2: Prevent iPhone Safari zoom on inputs */
+  input, select, textarea {
+    font-size:16px !important;
+  }
+  /* C-3: Hero height mobile */
+  .hero {
+    height:auto;
+    min-height:min(100svh, 580px);
+  }
+  /* M-1: Touch targets */
+  .btn-primary, .btn-secondary { min-height:48px; padding:0.75rem 1.5rem; }
+  .nav-cta { min-height:44px; }
+  /* M-2: Form labels */
+  .form-group label { font-size:0.9rem; margin-bottom:0.4rem; }
+  /* M-4: Stats bar */
+  .stats-inner { grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+  .stat-num { font-size:1.8rem; }
+  /* L-3: Reduce vertical padding */
+  .about-section, .services-section, .markets-section,
+  .logistics-section { padding:4rem 1.5rem; }
+  .quote-section { padding:4rem 1.5rem; }
+  /* H-2: WhatsApp float safe area */
+  .whatsapp-float {
+    bottom:max(1.5rem, env(safe-area-inset-bottom));
+    right:max(1rem, env(safe-area-inset-right));
+  }
+  /* H-3: Tables overflow */
+  table { display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; width:100%; }
+  /* H-5: Footer */
+  .footer-top { grid-template-columns:1fr; }
+  /* L-2: Process 2col on mobile */
+  .process-steps { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ─── RESPONSIVE — 480px ─── */
+@media (max-width:480px) {
+  /* H-1: 480px breakpoint */
+  nav { padding:0 1rem; height:56px; }
+  /* C-3: Hero smaller devices */
+  .hero { min-height:min(100svh, 520px); }
+  .hero-content { padding:0 1rem; padding-top:56px; }
+  .hero-title { font-size:clamp(2rem,8vw,2.8rem); }
+  .hero-subtitle { font-size:0.88rem; }
+  /* Stats */
+  .stats-bar { padding:1.5rem 1rem; }
+  .stats-inner { grid-template-columns:1fr 1fr; gap:1rem; }
+  .stat-num { font-size:1.5rem; }
+  /* Section titles */
+  .section-title { font-size:clamp(1.5rem,6vw,2rem); }
+  /* M-6: Holdings grid */
+  .holding-grid { grid-template-columns:repeat(2,1fr); gap:0.75rem; }
+  .entity-card { padding:1rem 0.75rem; }
+  /* L-3: Padding */
+  .about-section, .services-section, .markets-section,
+  .quote-section, .logistics-section { padding:3rem 1rem; }
+  .stats-bar { padding:1.5rem 1rem; }
+  /* L-2: Process 1col */
+  .process-steps { grid-template-columns:1fr; }
+  /* Footer 1col */
+  .footer-top { grid-template-columns:1fr; }
+  .footer-inner { padding:3rem 1rem 1.5rem; }
+  /* Form */
+  .form-submit-dual { grid-template-columns:1fr; }
+  /* Markets */
+  .markets-grid { grid-template-columns:1fr; }
+  /* Services */
+  .services-grid { grid-template-columns:1fr; }
+  /* Product img */
+  .products-img { height:220px; }
+  /* WhatsApp float compact on very small screens */
+  .wa-label { display:none; }
+  .wa-btn { border-radius:50%; width:52px; height:52px; justify-content:center; padding:0; }
+  .wa-icon { font-size:1.5rem; }
+  .whatsapp-float { gap:0.5rem; }
+}
 </style>
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -760,32 +894,50 @@ footer {
   <ul class="nav-links" id="navLinks">
     <li><a href="#inicio">GLV</a></li>
     <li class="nav-dropdown">
-      <a href="#servicios"><span lang-es>Líneas ▾</span><span lang-en>Lines ▾</span><span lang-ar>الخطوط ▾</span><span lang-zh>业务线 ▾</span></a>
+      <a href="#servicios"><span lang-es>Líneas ▾</span><span lang-en>Lines ▾</span><span lang-ar>الخطوط ▾</span><span lang-zh>业务线 ▾</span><span lang-pt>Líneas ▾</span></a>
       <ul class="nav-sub">
-        <li><a href="./huevo-proteinas.html">🥚 <span lang-es>Huevo & Proteínas</span><span lang-en>Eggs & Proteins</span><span lang-ar>البيض والبروتينات</span><span lang-zh>鸡蛋与蛋白质</span></a></li>
-        <li><a href="./coco-aceites.html">🥥 <span lang-es>Coco & Aceites</span><span lang-en>Coconut & Oils</span><span lang-ar>جوز الهند والزيوت</span><span lang-zh>椰子与油脂</span></a></li>
-        <li><a href="./granos-cereales.html">🌾 <span lang-es>Granos & Cereales</span><span lang-en>Grains & Cereals</span><span lang-ar>الحبوب والغلال</span><span lang-zh>谷物与粮食</span></a></li>
-        <li><a href="./animales-vivos.html">🐄 <span lang-es>Animales Vivos & Cortes</span><span lang-en>Live Animals & Cuts</span><span lang-ar>الحيوانات الحية</span><span lang-zh>活体动物与肉类</span></a></li>
-        <li><a href="./frutas.html">🥭 <span lang-es>Frutas Tropicales</span><span lang-en>Tropical Fruits</span><span lang-ar>الفواكه الاستوائية</span><span lang-zh>热带水果</span></a></li>
-        <li><a href="./comercio-internacional.html">🚢 <span lang-es>Comercio Internacional</span><span lang-en>International Trade</span><span lang-ar>التجارة الدولية</span><span lang-zh>国际贸易</span></a></li>
+        <li><a href="./huevo-proteinas.html">🥚 <span lang-es>Huevo & Proteínas</span><span lang-en>Eggs & Proteins</span><span lang-ar>البيض والبروتينات</span><span lang-zh>鸡蛋与蛋白质</span><span lang-pt>Ovos & Proteínas</span></a></li>
+        <li><a href="./coco-aceites.html">🥥 <span lang-es>Coco & Aceites</span><span lang-en>Coconut & Oils</span><span lang-ar>جوز الهند والزيوت</span><span lang-zh>椰子与油脂</span><span lang-pt>Coco & Óleos</span></a></li>
+        <li><a href="./granos-cereales.html">🌾 <span lang-es>Granos & Cereales</span><span lang-en>Grains & Cereals</span><span lang-ar>الحبوب والغلال</span><span lang-zh>谷物与粮食</span><span lang-pt>Grãos & Cereais</span></a></li>
+        <li><a href="./animales-vivos.html">🐄 <span lang-es>Animales Vivos & Cortes</span><span lang-en>Live Animals & Cuts</span><span lang-ar>الحيوانات الحية</span><span lang-zh>活体动物与肉类</span><span lang-pt>Animais Vivos & Cortes</span></a></li>
+        <li><a href="./frutas.html">🥭 <span lang-es>Frutas Tropicales</span><span lang-en>Tropical Fruits</span><span lang-ar>الفواكه الاستوائية</span><span lang-zh>热带水果</span><span lang-pt>Frutas Tropicais</span></a></li>
+        <li><a href="./comercio-internacional.html">🚢 <span lang-es>Comercio Internacional</span><span lang-en>International Trade</span><span lang-ar>التجارة الدولية</span><span lang-zh>国际贸易</span><span lang-pt>Comércio Internacional</span></a></li>
       </ul>
     </li>
-    <li><a href="#mercados"><span lang-es>Mercados</span><span lang-en>Markets</span><span lang-ar>الأسواق</span><span lang-zh>市场</span></a></li>
+    <li><a href="#mercados"><span lang-es>Mercados</span><span lang-en>Markets</span><span lang-ar>الأسواق</span><span lang-zh>市场</span><span lang-pt>Mercados</span></a></li>
     <li><a href="#holding">Holding</a></li>
-    <li><a href="#contacto"><span lang-es>Contacto</span><span lang-en>Contact</span><span lang-ar>اتصل</span><span lang-zh>联系</span></a></li>
+    <li><a href="#contacto"><span lang-es>Contacto</span><span lang-en>Contact</span><span lang-ar>اتصل</span><span lang-zh>联系</span><span lang-pt>Contacto</span></a></li>
   </ul>
   <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
-      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    <div class="lang-select-wrap" id="langSelect">
+      <button class="lang-select-btn" onclick="toggleLangMenu()" aria-haspopup="listbox" aria-label="Select language">
+        <span class="lang-select-globe" aria-hidden="true">🌐</span>
+        <span class="lang-select-label" id="langLabel">ES · Español</span>
+        <span class="lang-select-arrow" aria-hidden="true">▾</span>
+      </button>
+      <div class="lang-select-menu" id="langMenu" role="listbox">
+        <button class="lang-option active" data-lang="es" onclick="setLang('es');closeLangMenu()" role="option">
+          <span class="lang-option-code">ES</span> Español
+        </button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en');closeLangMenu()" role="option">
+          <span class="lang-option-code">EN</span> English
+        </button>
+        <button class="lang-option" data-lang="pt" onclick="setLang('pt');closeLangMenu()" role="option">
+          <span class="lang-option-code">PT</span> Português (Brasil)
+        </button>
+        <button class="lang-option" data-lang="ar" onclick="setLang('ar');closeLangMenu()" role="option">
+          <span class="lang-option-code">AR</span> العربية
+        </button>
+        <button class="lang-option" data-lang="zh" onclick="setLang('zh');closeLangMenu()" role="option">
+          <span class="lang-option-code">ZH</span> 中文
+        </button>
+      </div>
     </div>
     <a href="/portal-clientes" class="nav-cta nav-cta-portal btn-nav-hide">
-      <span lang-es>Portal Clientes</span><span lang-en>Client Portal</span><span lang-ar>بوابة العملاء</span><span lang-zh>客户门户</span>
+      <span lang-es>Portal Clientes</span><span lang-en>Client Portal</span><span lang-ar>بوابة العملاء</span><span lang-zh>客户门户</span><span lang-pt>Portal de Clientes</span>
     </a>
     <a href="#cotizar" class="nav-cta btn-nav-hide">
-      <span lang-es>Cotizar</span><span lang-en>Get Quote</span><span lang-ar>اطلب عرضاً</span><span lang-zh>获取报价</span>
+      <span lang-es>Cotizar</span><span lang-en>Get Quote</span><span lang-ar>اطلب عرضاً</span><span lang-zh>获取报价</span><span lang-pt>Cotar</span>
     </a>
     <button class="nav-hamburger" onclick="toggleNav()">&#9776;</button>
   </div>
@@ -805,7 +957,7 @@ footer {
         <span lang-es>Distribución & Importación de Alimentos · Miami, Florida</span>
         <span lang-en>Food Distribution & Import · Miami, Florida</span>
         <span lang-ar>توزيع واستيراد الأغذية · ميامي، فلوريدا</span>
-        <span lang-zh>食品配送与进口 · 迈阿密，佛罗里达</span>
+        <span lang-zh>食品配送与进口 · 迈阿密，佛罗里达</span><span lang-pt>Distribuição & Importação de Alimentos · Miami, Flórida</span>
       </p>
       <h1 class="hero-title fade-up">
         Where Food <em>Moves</em> Markets.
@@ -814,20 +966,20 @@ footer {
         <span lang-es>GLV Global Food Services LLC — Canal USA del GLV Global Holding. Huevo USDA, coco certificado, granos y proteínas desde origen certificado hasta el comprador final en USA, el Caribe y Latinoamérica.</span>
         <span lang-en>GLV Global Food Services LLC — USA channel of GLV Global Holding. USDA eggs, certified coconut, grains and proteins from certified origin to the final buyer in the USA, Caribbean and Latin America.</span>
         <span lang-ar>GLV Global Food Services LLC — الذراع الأمريكية لمجموعة GLV القابضة. بيض USDA وجوز الهند المعتمد والحبوب والبروتينات.</span>
-        <span lang-zh>GLV Global Food Services LLC — GLV全球控股集团美国渠道。USDA鸡蛋、认证椰子、谷物和蛋白质。</span>
+        <span lang-zh>GLV Global Food Services LLC — GLV全球控股集团美国渠道。USDA鸡蛋、认证椰子、谷物和蛋白质。</span><span lang-pt>GLV Global Food Services LLC — Canal USA del GLV Global Holding. Huevo USDA, coco certificado, granos y proteínas desde origen certificado hasta el comprador final en USA, el Caribe y Latinoamérica.</span>
       </p>
       <div class="hero-btns fade-up">
         <a href="#cotizar" class="btn-primary">
           <span lang-es>Solicitar Cotización</span>
           <span lang-en>Request a Quote</span>
           <span lang-ar>طلب عرض سعر</span>
-          <span lang-zh>请求报价</span>
+          <span lang-zh>请求报价</span><span lang-pt>Solicitar Cotação</span>
         </a>
         <a href="#servicios" class="btn-secondary">
           <span lang-es>Ver Servicios →</span>
           <span lang-en>Our Services →</span>
           <span lang-ar>← خدماتنا</span>
-          <span lang-zh>我们的服务 →</span>
+          <span lang-zh>我们的服务 →</span><span lang-pt>Nossos Serviços →</span>
         </a>
       </div>
     </div>
@@ -840,19 +992,19 @@ footer {
   <div class="stats-inner">
     <div class="stat">
       <div class="stat-num">149+</div>
-      <span class="stat-label"><span lang-es>FCL Distribuidos</span><span lang-en>FCL Distributed</span><span lang-ar>حاوية موزعة</span><span lang-zh>已分发集装箱</span></span>
+      <span class="stat-label"><span lang-es>FCL Distribuidos</span><span lang-en>FCL Distributed</span><span lang-ar>حاوية موزعة</span><span lang-zh>已分发集装箱</span><span lang-pt>FCL Distribuídos</span></span>
     </div>
     <div class="stat">
       <div class="stat-num">7</div>
-      <span class="stat-label"><span lang-es>Entidades Globales</span><span lang-en>Global Entities</span><span lang-ar>كيانات عالمية</span><span lang-zh>全球实体</span></span>
+      <span class="stat-label"><span lang-es>Entidades Globales</span><span lang-en>Global Entities</span><span lang-ar>كيانات عالمية</span><span lang-zh>全球实体</span><span lang-pt>Entidades Globais</span></span>
     </div>
     <div class="stat">
       <div class="stat-num">15+</div>
-      <span class="stat-label"><span lang-es>Países Destino</span><span lang-en>Destination Countries</span><span lang-ar>دول وجهة</span><span lang-zh>目的地国家</span></span>
+      <span class="stat-label"><span lang-es>Países Destino</span><span lang-en>Destination Countries</span><span lang-ar>دول وجهة</span><span lang-zh>目的地国家</span><span lang-pt>Países de Destino</span></span>
     </div>
     <div class="stat">
       <div class="stat-num">24/7</div>
-      <span class="stat-label"><span lang-es>Operaciones</span><span lang-en>Operations</span><span lang-ar>عمليات</span><span lang-zh>全天候运营</span></span>
+      <span class="stat-label"><span lang-es>Operaciones</span><span lang-en>Operations</span><span lang-ar>عمليات</span><span lang-zh>全天候运营</span><span lang-pt>Operações</span></span>
     </div>
   </div>
 </div>
@@ -912,19 +1064,19 @@ footer {
         <span lang-es>Sobre Nosotros · Miami, Florida</span>
         <span lang-en>About Us · Miami, Florida</span>
         <span lang-ar>عنّا · ميامي، فلوريدا</span>
-        <span lang-zh>关于我们 · 迈阿密，佛罗里达</span>
+        <span lang-zh>关于我们 · 迈阿密，佛罗里达</span><span lang-pt>Sobre Nós · Miami, Flórida</span>
       </p>
       <h2 class="section-title">
         <span lang-es>Miami. El <em>Hub</em> que conecta mundos.</span>
         <span lang-en>Miami. The <em>Hub</em> that connects worlds.</span>
         <span lang-ar>ميامي. <em>المحور</em> الذي يربط العالم.</span>
-        <span lang-zh>迈阿密。连接世界的<em>枢纽</em>。</span>
+        <span lang-zh>迈阿密。连接世界的<em>枢纽</em>。</span><span lang-pt>Miami. O <em>Hub</em> que conecta mundos.</span>
       </h2>
       <p style="font-size:1rem;color:var(--text-dim);line-height:1.75;margin-bottom:1.5rem;">
         <span lang-es>GLV Global Food Services LLC es la entidad estadounidense del <strong style="color:var(--text)">GLV Global Holding</strong> — la misma compañía fundada por Misael Valencia que opera en 7 jurisdicciones globales. Desde Miami, operamos como canal de distribución e importación hacia el mercado americano, el Caribe y Latinoamérica, llevando productos con certificación USDA, HACCP, IFS y origen verificado directamente desde los productores en Colombia, Brasil y Argentina.</span>
         <span lang-en">GLV Global Food Services LLC is the United States entity of <strong style="color:var(--text)">GLV Global Holding</strong> — the same company founded by Misael Valencia operating in 7 global jurisdictions. From Miami, we operate as the distribution and import channel into the American market, Caribbean and Latin America, delivering USDA, HACCP, IFS certified products from verified producers in Colombia, Brazil and Argentina.</span>
         <span lang-ar>GLV Global Food Services LLC هي الكيان الأمريكي لـ <strong style="color:var(--text)">مجموعة GLV القابضة</strong> — الشركة ذاتها التي أسسها Misael Valencia والتي تعمل في 7 ولايات قضائية عالمية. من ميامي، نعمل كقناة توزيع واستيراد نحو السوق الأمريكية ومنطقة الكاريبي وأمريكا اللاتينية.</span>
-        <span lang-zh">GLV Global Food Services LLC是<strong style="color:var(--text)">GLV全球控股集团</strong>的美国实体——同一家由Misael Valencia创立、在7个全球司法管辖区运营的公司。从迈阿密出发，我们作为分销和进口渠道，向美国市场、加勒比地区和拉丁美洲提供来自哥伦比亚、巴西和阿根廷的经过USDA、HACCP、IFS认证的产品。</span>
+        <span lang-zh">GLV Global Food Services LLC是<strong style="color:var(--text)">GLV全球控股集团</strong>的美国实体——同一家由Misael Valencia创立、在7个全球司法管辖区运营的公司。从迈阿密出发，我们作为分销和进口渠道，向美国市场、加勒比地区和拉丁美洲提供来自哥伦比亚、巴西和阿根廷的经过USDA、HACCP、IFS认证的产品。</span><span lang-pt>GLV Global Food Services LLC es la entidad estadounidense del <strong style="color:var(--text)">GLV Global Holding</strong> — la misma compañía fundada por Misael Valencia que opera en 7 jurisdicciones globales. Desde Miami, operamos como canal de distribución e importación hacia el mercado americano, el Caribe y Latinoamérica, llevando productos con certificación USDA, HACCP, IFS y origen verificado directamente desde los productores en Colombia, Brasil y Argentina.</span>
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:2rem;">
         <span class="cert-badge">USDA Certified</span>
@@ -940,7 +1092,7 @@ footer {
         <span lang-es>Iniciar Operación →</span>
         <span lang-en>Start an Operation →</span>
         <span lang-ar>← ابدأ عملية</span>
-        <span lang-zh>开始业务 →</span>
+        <span lang-zh>开始业务 →</span><span lang-pt>Iniciar Operação →</span>
       </a>
     </div>
   </div>
@@ -953,19 +1105,19 @@ footer {
     <span lang-es>Estructura Corporativa</span>
     <span lang-en>Corporate Structure</span>
     <span lang-ar>الهيكل المؤسسي</span>
-    <span lang-zh>公司架构</span>
+    <span lang-zh>公司架构</span><span lang-pt>Estrutura Corporativa</span>
   </p>
   <h2 class="section-title">
     <span lang-es>GLV Global <em>Holding</em></span>
     <span lang-en>GLV Global <em>Holding</em></span>
     <span lang-ar>مجموعة GLV <em>العالمية</em></span>
-    <span lang-zh>GLV <em>全球</em>控股</span>
+    <span lang-zh>GLV <em>全球</em>控股</span><span lang-pt>GLV Global <em>Holding</em></span>
   </h2>
   <p style="font-size:1rem;color:var(--text-dim);max-width:650px;line-height:1.6;">
     <span lang-es>7 entidades legales en 7 jurisdicciones. GLV Global Food Services LLC es la entidad USA del holding — diseñada para operar con compradores institucionales, importadores y distribuidores en el mercado americano.</span>
     <span lang-en">7 legal entities in 7 jurisdictions. GLV Global Food Services LLC is the USA entity of the holding — designed to operate with institutional buyers, importers and distributors in the American market.</span>
     <span lang-ar>7 كيانات قانونية في 7 ولايات قضائية. GLV Global Food Services LLC هي الكيان الأمريكي للمجموعة القابضة.</span>
-    <span lang-zh>7个司法管辖区的7个法律实体。GLV Global Food Services LLC是控股集团的美国实体。</span>
+    <span lang-zh>7个司法管辖区的7个法律实体。GLV Global Food Services LLC是控股集团的美国实体。</span><span lang-pt>7 entidades legales en 7 jurisdicciones. GLV Global Food Services LLC es la entidad USA del holding — diseñada para operar con compradores institucionales, importadores y distribuidores en el mercado americano.</span>
   </p>
   <div class="holding-grid">
     <div class="entity-card"><span class="entity-flag">🇨🇴</span><div class="entity-name">GLV Services SAS</div><div class="entity-country">Colombia · HQ</div></div>
@@ -986,13 +1138,13 @@ footer {
       <span lang-es>6 Líneas de Negocio</span>
       <span lang-en">6 Business Lines</span>
       <span lang-ar>٦ خطوط أعمال</span>
-      <span lang-zh>6条业务线</span>
+      <span lang-zh>6条业务线</span><span lang-pt>6 Linhas de Negócio</span>
     </p>
     <h2 class="section-title">
       <span lang-es>Un canal USA. <em>Seis plataformas.</em></span>
       <span lang-en">One USA channel. <em>Six platforms.</em></span>
       <span lang-ar>قناة أمريكية واحدة. <em>ست منصات.</em></span>
-      <span lang-zh>一个美国渠道。<em>六个平台。</em></span>
+      <span lang-zh>一个美国渠道。<em>六个平台。</em></span><span lang-pt>Un canal USA. <em>Seis plataformas.</em></span>
     </h2>
     <div class="services-grid">
 
@@ -1000,13 +1152,13 @@ footer {
       <div class="svc-card">
         <div class="svc-num">01</div>
         <div class="svc-icon">🥚</div>
-        <div class="svc-title"><span lang-es>Huevo & Proteínas</span><span lang-en">Eggs & Proteins</span><span lang-ar>البيض والبروتينات</span><span lang-zh>鸡蛋与蛋白质</span></div>
+        <div class="svc-title"><span lang-es>Huevo & Proteínas</span><span lang-en">Eggs & Proteins</span><span lang-ar>البيض والبروتينات</span><span lang-zh>鸡蛋与蛋白质</span><span lang-pt>Ovos & Proteínas</span></div>
         <div class="svc-subtitle">USDA Grade A · AA · Colombia · Brasil</div>
         <p class="svc-desc">
           <span lang-es>Huevo fresco Tipo A y Doble AA certificado USDA. 920 cajas × 360 uds = 331.200 huevos por FCL. 149 FCL entregados en 2024–2025. Distribución hacia Caribe, México, Perú y mercado USA.</span>
           <span lang-en">USDA certified Grade A and AA fresh eggs. 920 boxes × 360 units = 331,200 eggs per FCL. 149 FCL delivered in 2024–2025. Distribution to Caribbean, Mexico, Peru and US market.</span>
           <span lang-ar>بيض طازج USDA درجة A وAA. 331,200 بيضة لكل حاوية FCL. 149 حاوية تم تسليمها في 2024-2025.</span>
-          <span lang-zh">USDA认证A级和AA级鲜蛋。每FCL 331,200个鸡蛋。2024-2025年已交付149个FCL。</span>
+          <span lang-zh">USDA认证A级和AA级鲜蛋。每FCL 331,200个鸡蛋。2024-2025年已交付149个FCL。</span><span lang-pt>Huevo fresco Tipo A y Doble AA certificado USDA. 920 cajas × 360 uds = 331.200 huevos por FCL. 149 FCL entregados en 2024–2025. Distribución hacia Caribe, México, Perú y mercado USA.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">USDA Grade A·AA</span>
@@ -1014,20 +1166,20 @@ footer {
           <span class="svc-tag">ICA · MAPA</span>
           <span class="svc-tag">149 FCL entregados</span>
         </div>
-        <a href="./huevo-proteinas.html" class="svc-link"><span lang-es>Ver Línea I</span><span lang-en">View Line I</span><span lang-ar>الخط الأول</span><span lang-zh>查看业务线 I</span></a>
+        <a href="./huevo-proteinas.html" class="svc-link"><span lang-es>Ver Línea I</span><span lang-en">View Line I</span><span lang-ar>الخط الأول</span><span lang-zh>查看业务线 I</span><span lang-pt>Ver Linha I</span></a>
       </div>
 
       <!-- LINE 02 -->
       <div class="svc-card">
         <div class="svc-num">02</div>
         <div class="svc-icon">🥥</div>
-        <div class="svc-title"><span lang-es>Coco & Aceites</span><span lang-en">Coconut & Oils</span><span lang-ar>جوز الهند والزيوت</span><span lang-zh>椰子与油脂</span></div>
+        <div class="svc-title"><span lang-es>Coco & Aceites</span><span lang-en">Coconut & Oils</span><span lang-ar>جوز الهند والزيوت</span><span lang-zh>椰子与油脂</span><span lang-pt>Coco & Óleos</span></div>
         <div class="svc-subtitle">IFS · HACCP · GPM · Brasil Certificado</div>
         <p class="svc-desc">
           <span lang-es>Coco Rayado, Aceite de Coco y Agua de Coco desde productor certificado en Brasil (IFS, HACCP, GPM). Aceite de Soja, Girasol y Palma desde Argentina y Colombia. Canal directo sin intermediarios.</span>
           <span lang-en">Shredded Coconut, Coconut Oil and Coconut Water from certified producer in Brazil (IFS, HACCP, GPM). Soybean, Sunflower and Palm Oil from Argentina and Colombia. Direct channel, no intermediaries.</span>
           <span lang-ar>جوز هند مبشور وزيت جوز الهند وماء جوز الهند من منتج معتمد في البرازيل. زيت الصويا وعباد الشمس.</span>
-          <span lang-zh">来自巴西认证生产商的椰丝、椰子油和椰子水。豆油和葵花籽油。</span>
+          <span lang-zh">来自巴西认证生产商的椰丝、椰子油和椰子水。豆油和葵花籽油。</span><span lang-pt>Coco Rayado, Aceite de Coco y Agua de Coco desde productor certificado en Brasil (IFS, HACCP, GPM). Aceite de Soja, Girasol y Palma desde Argentina y Colombia. Canal directo sin intermediarios.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">Coco Rayado</span>
@@ -1035,20 +1187,20 @@ footer {
           <span class="svc-tag">Agua de Coco</span>
           <span class="svc-tag">IFS · HACCP · GPM</span>
         </div>
-        <a href="./coco-aceites.html" class="svc-link"><span lang-es>Ver Línea II</span><span lang-en">View Line II</span><span lang-ar>الخط الثاني</span><span lang-zh>查看业务线 II</span></a>
+        <a href="./coco-aceites.html" class="svc-link"><span lang-es>Ver Línea II</span><span lang-en">View Line II</span><span lang-ar>الخط الثاني</span><span lang-zh>查看业务线 II</span><span lang-pt>Ver Linha II</span></a>
       </div>
 
       <!-- LINE 03 -->
       <div class="svc-card">
         <div class="svc-num">03</div>
         <div class="svc-icon">🌾</div>
-        <div class="svc-title"><span lang-es>Granos & Cereales</span><span lang-en">Grains & Cereals</span><span lang-ar>الحبوب والحبوب الكاملة</span><span lang-zh>谷物与粮食</span></div>
+        <div class="svc-title"><span lang-es>Granos & Cereales</span><span lang-en">Grains & Cereals</span><span lang-ar>الحبوب والحبوب الكاملة</span><span lang-zh>谷物与粮食</span><span lang-pt>Grãos & Cereais</span></div>
         <div class="svc-subtitle">India · Argentina · Colombia · MOQ desde 1 FCL</div>
         <p class="svc-desc">
           <span lang-es>Arroz Basmati y no-Basmati 17 variedades desde India. Marca propia Aternal Rice. Frijoles 9 variedades Argentina MOQ 12.500 MT. Garbanzos 7-9mm. Maíz, Trigo y Soya.</span>
           <span lang-en">Basmati and non-Basmati rice 17 varieties from India. Private label Aternal Rice. Beans 9 varieties Argentina MOQ 12,500 MT. Chickpeas 7-9mm. Corn, Wheat and Soybean.</span>
           <span lang-ar>أرز بسمتي وغير بسمتي 17 صنفاً من الهند. علامة Aternal Rice الخاصة. فاصوليا 9 أصناف.</span>
-          <span lang-zh">印度巴斯马蒂和非巴斯马蒂大米17个品种。自有品牌Aternal Rice。</span>
+          <span lang-zh">印度巴斯马蒂和非巴斯马蒂大米17个品种。自有品牌Aternal Rice。</span><span lang-pt>Arroz Basmati y no-Basmati 17 variedades desde India. Marca propia Aternal Rice. Frijoles 9 variedades Argentina MOQ 12.500 MT. Garbanzos 7-9mm. Maíz, Trigo y Soya.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">Basmati 1121·1509</span>
@@ -1056,20 +1208,20 @@ footer {
           <span class="svc-tag">Garbanzos 7-9mm</span>
           <span class="svc-tag">Aternal Rice</span>
         </div>
-        <a href="./granos-cereales.html" class="svc-link"><span lang-es>Ver Línea III</span><span lang-en">View Line III</span><span lang-ar>الخط الثالث</span><span lang-zh>查看业务线 III</span></a>
+        <a href="./granos-cereales.html" class="svc-link"><span lang-es>Ver Línea III</span><span lang-en">View Line III</span><span lang-ar>الخط الثالث</span><span lang-zh>查看业务线 III</span><span lang-pt>Ver Linha III</span></a>
       </div>
 
       <!-- LINE 04 — ANIMALES VIVOS -->
       <div class="svc-card">
         <div class="svc-num">04</div>
         <div class="svc-icon">🐄</div>
-        <div class="svc-title"><span lang-es>Animales Vivos & Cortes</span><span lang-en">Live Animals & Cuts</span><span lang-ar>الحيوانات الحية وقطع اللحوم</span><span lang-zh>活体动物与肉类切割</span></div>
+        <div class="svc-title"><span lang-es>Animales Vivos & Cortes</span><span lang-en">Live Animals & Cuts</span><span lang-ar>الحيوانات الحية وقطع اللحوم</span><span lang-zh>活体动物与肉类切割</span><span lang-pt>Animais Vivos & Cortes</span></div>
         <div class="svc-subtitle">Bovinos · Ovinos · Caprinos · MAPA · ICA · Halal</div>
         <p class="svc-desc">
           <span lang-es>Bovinos Nelore/Angus, ovinos Dorper/Ile de France y caprinos desde Brasil y Colombia. Cortes premium: Rib Eye, Striploin, Tenderloin, rack de cordero. Buques ganaderos certificados. Halal disponible. Destinos: Medio Oriente, Caribe, África.</span>
           <span lang-en">Nelore/Angus cattle, Dorper/Ile de France sheep and goats from Brazil and Colombia. Premium cuts: Rib Eye, Striploin, Tenderloin, lamb rack. Certified livestock vessels. Halal available. Destinations: Middle East, Caribbean, Africa.</span>
           <span lang-ar>أبقار وأغنام وماعز من البرازيل وكولومبيا. قطع ممتازة: ريب آي وستريبلوين وتندرلوين. Halal متاح.</span>
-          <span lang-zh">来自巴西和哥伦比亚的牛、羊和山羊。优质切割：肋眼、西冷、里脊。清真认证可选。</span>
+          <span lang-zh">来自巴西和哥伦比亚的牛、羊和山羊。优质切割：肋眼、西冷、里脊。清真认证可选。</span><span lang-pt>Bovinos Nelore/Angus, ovinos Dorper/Ile de France y caprinos desde Brasil y Colombia. Cortes premium: Rib Eye, Striploin, Tenderloin, rack de cordero. Buques ganaderos certificados. Halal disponible. Destinos: Medio Oriente, Caribe, África.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">Nelore · Angus · Dorper</span>
@@ -1077,20 +1229,20 @@ footer {
           <span class="svc-tag">MAPA · ICA · OIE</span>
           <span class="svc-tag">Halal Certified</span>
         </div>
-        <a href="./animales-vivos.html" class="svc-link"><span lang-es>Ver Línea IV</span><span lang-en">View Line IV</span><span lang-ar>الخط الرابع</span><span lang-zh>查看业务线 IV</span></a>
+        <a href="./animales-vivos.html" class="svc-link"><span lang-es>Ver Línea IV</span><span lang-en">View Line IV</span><span lang-ar>الخط الرابع</span><span lang-zh>查看业务线 IV</span><span lang-pt>Ver Linha IV</span></a>
       </div>
 
       <!-- LINE 05 — FRUTAS -->
       <div class="svc-card">
         <div class="svc-num">05</div>
         <div class="svc-icon">🥭</div>
-        <div class="svc-title"><span lang-es>Frutas Tropicales</span><span lang-en">Tropical Fruits</span><span lang-ar>الفواكه الاستوائية</span><span lang-zh>热带水果</span></div>
+        <div class="svc-title"><span lang-es>Frutas Tropicales</span><span lang-en">Tropical Fruits</span><span lang-ar>الفواكه الاستوائية</span><span lang-zh>热带水果</span><span lang-pt>Frutas Tropicais</span></div>
         <div class="svc-subtitle">Colombia · Brasil · Ecuador · GlobalGAP · ICA</div>
         <p class="svc-desc">
           <span lang-es>Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Gulupa, Papaya y frutas exóticas. Colombia líder mundial en maracuyá. Certificación GlobalGAP, ICA, MAPA. Orgánico disponible. Reefer FCL y aéreo.</span>
           <span lang-en">Tommy/Kent Mango, Hass Avocado, Cavendish Banana, MD2 Pineapple, Passion Fruit, Purple Granadilla, Papaya and exotic fruits. Colombia world leader in passion fruit. GlobalGAP, ICA, MAPA certified. Organic available. Reefer FCL and air freight.</span>
           <span lang-ar>مانجو وأفوكادو هاس وموز وأناناس MD2 وفاكهة الشغف وبابايا. كولومبيا رائدة عالمياً في فاكهة الشغف. GlobalGAP وICA معتمد.</span>
-          <span lang-zh">Tommy/Kent芒果、哈斯牛油果、卡文迪什香蕉、MD2菠萝、百香果、木瓜。哥伦比亚百香果全球领先。</span>
+          <span lang-zh">Tommy/Kent芒果、哈斯牛油果、卡文迪什香蕉、MD2菠萝、百香果、木瓜。哥伦比亚百香果全球领先。</span><span lang-pt>Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Gulupa, Papaya y frutas exóticas. Colombia líder mundial en maracuyá. Certificación GlobalGAP, ICA, MAPA. Orgánico disponible. Reefer FCL y aéreo.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">Mango · Aguacate · Piña</span>
@@ -1098,20 +1250,20 @@ footer {
           <span class="svc-tag">ICA Colombia</span>
           <span class="svc-tag">Organic Opt.</span>
         </div>
-        <a href="./frutas.html" class="svc-link"><span lang-es>Ver Línea V</span><span lang-en">View Line V</span><span lang-ar>الخط الخامس</span><span lang-zh>查看业务线 V</span></a>
+        <a href="./frutas.html" class="svc-link"><span lang-es>Ver Línea V</span><span lang-en">View Line V</span><span lang-ar>الخط الخامس</span><span lang-zh>查看业务线 V</span><span lang-pt>Ver Linha V</span></a>
       </div>
 
       <!-- LINE 06 — COMERCIO INTERNACIONAL -->
       <div class="svc-card">
         <div class="svc-num">06</div>
         <div class="svc-icon">🚢</div>
-        <div class="svc-title"><span lang-es>Comercio Internacional</span><span lang-en">International Trade</span><span lang-ar>التجارة الدولية</span><span lang-zh>国际贸易</span></div>
+        <div class="svc-title"><span lang-es>Comercio Internacional</span><span lang-en">International Trade</span><span lang-ar>التجارة الدولية</span><span lang-zh>国际贸易</span><span lang-pt>Comércio Internacional</span></div>
         <div class="svc-subtitle">Miami Hub · PortMIA · Import & Export</div>
         <p class="svc-desc">
           <span lang-es>Miami como hub de operaciones B2B: importación hacia USA, reexportación hacia el Caribe, y conexión directa con las entidades GLV en Colombia, Brasil, Dubai, Italia y Hong Kong. Operaciones en FOB, CIF, DDP y L/C.</span>
           <span lang-en">Miami as B2B operations hub: imports into USA, re-exports to Caribbean, and direct connection with GLV entities in Colombia, Brazil, Dubai, Italy and Hong Kong. Operations in FOB, CIF, DDP and L/C.</span>
           <span lang-ar>ميامي كمحور لعمليات B2B. استيراد وتصدير. الاتصال المباشر مع كيانات GLV العالمية.</span>
-          <span lang-zh">迈阿密作为B2B运营中心。进出口。与GLV全球实体直接对接。</span>
+          <span lang-zh">迈阿密作为B2B运营中心。进出口。与GLV全球实体直接对接。</span><span lang-pt>Miami como hub de operaciones B2B: importación hacia USA, reexportación hacia el Caribe, y conexión directa con las entidades GLV en Colombia, Brasil, Dubai, Italia y Hong Kong. Operaciones en FOB, CIF, DDP y L/C.</span>
         </p>
         <div class="svc-tags">
           <span class="svc-tag">FOB · CIF · DDP</span>
@@ -1119,7 +1271,7 @@ footer {
           <span class="svc-tag">PortMIA</span>
           <span class="svc-tag">B2B Institutional</span>
         </div>
-        <a href="./comercio-internacional.html" class="svc-link"><span lang-es>Ver Línea VI</span><span lang-en">View Line VI</span><span lang-ar>الخط السادس</span><span lang-zh>查看业务线 VI</span></a>
+        <a href="./comercio-internacional.html" class="svc-link"><span lang-es>Ver Línea VI</span><span lang-en">View Line VI</span><span lang-ar>الخط السادس</span><span lang-zh>查看业务线 VI</span><span lang-pt>Ver Linha VI</span></a>
       </div>
 
     </div>
@@ -1134,20 +1286,20 @@ footer {
         <span lang-es>Producto Estrella · USA</span>
         <span lang-en>Star Product · USA</span>
         <span lang-ar>المنتج الرئيسي · USA</span>
-        <span lang-zh>明星产品 · USA</span>
+        <span lang-zh>明星产品 · USA</span><span lang-pt>Produto Destaque · EUA</span>
       </p>
       <div class="products-big-num">331.200</div>
       <p style="font-size:0.98rem;color:var(--text-dim);margin-bottom:0.5rem;">
         <span lang-es>huevos por contenedor FCL · 920 cajas × 360 unidades</span>
         <span lang-en">eggs per FCL container · 920 boxes × 360 units</span>
         <span lang-ar>بيضة لكل حاوية FCL · 920 علبة × 360 وحدة</span>
-        <span lang-zh">每个集装箱鸡蛋数 · 920箱 × 360个</span>
+        <span lang-zh">每个集装箱鸡蛋数 · 920箱 × 360个</span><span lang-pt>ovos por contêiner FCL · 920 caixas × 360 unidades</span>
       </p>
       <p style="font-size:0.95rem;color:var(--text-dim);line-height:1.6;max-width:480px;margin-bottom:1.5rem;">
         <span lang-es>Certificación USDA Grade A y Doble AA. ICA Colombia + MAPA Brasil. <strong style="color:var(--text)">149 FCL entregados</strong> en 2024–2025 hacia el Caribe, México, Perú y USA. Personal local en Rep. Dominicana.</span>
         <span lang-en">USDA Grade A and AA certification. ICA Colombia + MAPA Brazil. <strong style="color:var(--text)">149 FCL delivered</strong> in 2024–2025 to the Caribbean, Mexico, Peru and USA. Local staff in the Dominican Republic.</span>
         <span lang-ar>شهادة USDA درجة A وAA. <strong style="color:var(--text)">149 حاوية تم تسليمها</strong> في 2024-2025.</span>
-        <span lang-zh">USDA A级和AA级认证。<strong style="color:var(--text)">149个FCL已交付</strong>至加勒比、墨西哥、秘鲁和美国。</span>
+        <span lang-zh">USDA A级和AA级认证。<strong style="color:var(--text)">149个FCL已交付</strong>至加勒比、墨西哥、秘鲁和美国。</span><span lang-pt>Certificación USDA Grade A y Doble AA. ICA Colombia + MAPA Brasil. <strong style="color:var(--text)">149 FCL entregados</strong> en 2024–2025 hacia el Caribe, México, Perú y USA. Personal local en Rep. Dominicana.</span>
       </p>
       <div class="market-tags">
         <span class="market-tag">🇩🇴 Caribe</span>
@@ -1163,7 +1315,7 @@ footer {
         <span lang-es>Cotizar Huevo FCL</span>
         <span lang-en">Quote Egg FCL</span>
         <span lang-ar>اطلب سعر البيض</span>
-        <span lang-zh">询价鸡蛋集装箱</span>
+        <span lang-zh">询价鸡蛋集装箱</span><span lang-pt>Cotar Ovos FCL</span>
       </a>
     </div>
     <div class="products-img">
@@ -1195,19 +1347,19 @@ footer {
         <span lang-es>Operaciones Reales · En Campo</span>
         <span lang-en>Real Operations · In the Field</span>
         <span lang-ar>عمليات حقيقية · في الميدان</span>
-        <span lang-zh>实地运营 · 现场作业</span>
+        <span lang-zh>实地运营 · 现场作业</span><span lang-pt>Operações Reais · Em Campo</span>
       </p>
       <h2 class="section-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem);">
         <span lang-es>Más de <em>15 años</em> trabajando en campo</span>
         <span lang-en">Over <em>15 years</em> working in the field</span>
         <span lang-ar>أكثر من <em>15 عاماً</em> من العمل الميداني</span>
-        <span lang-zh>超过 <em>15年</em> 实地工作经验</span>
+        <span lang-zh>超过 <em>15年</em> 实地工作经验</span><span lang-pt>Mais de <em>15 anos</em> trabalhando em campo</span>
       </h2>
       <p style="font-size:1rem;color:rgba(255,255,255,0.75);line-height:1.75;margin-bottom:2rem;">
         <span lang-es>Misael Valencia y su equipo inspeccionan personalmente cada lote, visitan las granjas y fazendas de origen, supervisan el proceso Halal y acompañan cada embarque desde el origen hasta el comprador final. No trabajamos desde una oficina — trabajamos donde se produce.</span>
         <span lang-en">Misael Valencia and his team personally inspect every lot, visit the source farms and fazendas, supervise the Halal process and accompany each shipment from origin to the final buyer. We don't work from an office — we work where it's produced.</span>
         <span lang-ar>يتفقد فريق Misael Valencia شخصياً كل دفعة ويزور مزارع المنشأ ويشرف على عملية الحلال ويرافق كل شحنة من المنشأ إلى المشتري النهائي.</span>
-        <span lang-zh">Misael Valencia和他的团队亲自检查每批货物，访问原产地农场，监督清真程序，并陪同每批货物从产地到最终买家。</span>
+        <span lang-zh">Misael Valencia和他的团队亲自检查每批货物，访问原产地农场，监督清真程序，并陪同每批货物从产地到最终买家。</span><span lang-pt>Misael Valencia y su equipo inspeccionan personalmente cada lote, visitan las granjas y fazendas de origen, supervisan el proceso Halal y acompañan cada embarque desde el origen hasta el comprador final. No trabajamos desde una oficina — trabajamos donde se produce.</span>
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem;">
         <div style="display:flex;align-items:center;gap:0.6rem;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);padding:0.5rem 1rem;border-radius:4px;">
@@ -1242,7 +1394,7 @@ footer {
           <div style="font-size:0.78rem;color:var(--gold);letter-spacing:0.08em;text-transform:uppercase;">CEO · GLV Global Holding</div>
           <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.2rem;">
             <span lang-es>15+ años en exportación agropecuaria</span>
-            <span lang-en">15+ years in agricultural exports</span>
+            <span lang-en">15+ years in agricultural exports</span><span lang-pt>15+ anos em exportação agropecuária</span>
           </div>
         </div>
       </div>
@@ -1257,13 +1409,13 @@ footer {
     <span lang-es>Testimonios · Socios de Campo</span>
     <span lang-en">Testimonials · Field Partners</span>
     <span lang-ar>شهادات · شركاء الميدان</span>
-    <span lang-zh">合作伙伴证言</span>
+    <span lang-zh">合作伙伴证言</span><span lang-pt>15+ anos em exportação agropecuária</span><span lang-pt>Depoimentos · Parceiros de Campo</span>
   </p>
   <h2 class="section-title" style="text-align:center;">
     <span lang-es>Lo que dicen nuestros <em>socios</em></span>
     <span lang-en">What our <em>partners</em> say</span>
     <span lang-ar>ما يقوله <em>شركاؤنا</em></span>
-    <span lang-zh">我们的<em>合作伙伴</em>如何评价我们</span>
+    <span lang-zh">我们的<em>合作伙伴</em>如何评价我们</span><span lang-pt>O que nossos <em>parceiros</em> dizem</span>
   </h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;">
     <div style="background:#242424;border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;">
@@ -1276,7 +1428,7 @@ footer {
         <div style="font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Fazenda Parceira · Ovinos</div>
         <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">
           <span lang-es>Productor certificado de ovinos en Brasil, socio comercial de GLV en la exportación de animales vivos hacia el Medio Oriente.</span>
-          <span lang-en">Certified sheep producer in Brazil, GLV commercial partner in live animal exports to the Middle East.</span>
+          <span lang-en">Certified sheep producer in Brazil, GLV commercial partner in live animal exports to the Middle East.</span><span lang-pt>Productor certificado de ovinos en Brasil, socio comercial de GLV en la exportación de animales vivos hacia el Medio Oriente.</span>
         </p>
       </div>
     </div>
@@ -1290,7 +1442,7 @@ footer {
         <div style="font-size:0.75rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Origen Certificado · MAPA</div>
         <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">
           <span lang-es>Recorrido por una de nuestras fazendas aliadas en Brasil. Ovinos de raza Dorper e Île de France para exportación Halal.</span>
-          <span lang-en">Tour of one of our allied fazendas in Brazil. Dorper and Île de France sheep for Halal export.</span>
+          <span lang-en">Tour of one of our allied fazendas in Brazil. Dorper and Île de France sheep for Halal export.</span><span lang-pt>Recorrido por una de nuestras fazendas aliadas en Brasil. Ovinos de raza Dorper e Île de France para exportación Halal.</span>
         </p>
       </div>
     </div>
@@ -1305,49 +1457,49 @@ footer {
       <span lang-es>Mercados Destino · Desde Miami</span>
       <span lang-en">Target Markets · From Miami</span>
       <span lang-ar>الأسواق المستهدفة · من ميامي</span>
-      <span lang-zh">目标市场 · 从迈阿密出发</span>
+      <span lang-zh">目标市场 · 从迈阿密出发</span><span lang-pt>Productor certificado de ovinos en Brasil, socio comercial de GLV en la exportación de animales vivos hacia el Medio Oriente.</span><span lang-pt>Mercados de Destino · A partir de Miami</span>
     </p>
     <h2 class="section-title">
       <span lang-es><em>Compradores serios</em> en todo el mundo</span>
       <span lang-en"><em>Serious buyers</em> worldwide</span>
       <span lang-ar><em>مشترون جادون</em> في جميع أنحاء العالم</span>
-      <span lang-zh">全球各地的<em>认真买家</em></span>
+      <span lang-zh">全球各地的<em>认真买家</em></span><span lang-pt><em>Compradores sérios</em> em todo o mundo</span>
     </h2>
     <div class="markets-grid">
       <div class="market-card">
         <div class="market-region">🌎 Caribe & USA</div>
-        <div class="market-title"><span lang-es>Rep. Dominicana, Cuba, Puerto Rico, USA</span><span lang-en">Dominican Republic, Cuba, Puerto Rico, USA</span><span lang-ar>جمهورية الدومينيكان، كوبا، بورتوريكو، الولايات المتحدة</span><span lang-zh">多明尼加、古巴、波多黎各、美国</span></div>
-        <p class="market-desc"><span lang-es>Mercado principal desde Miami. 149 contenedores de huevo entregados. Personal local en Rep. Dominicana. Arroz, aceites y proteínas con entrega DDP.</span><span lang-en">Main market from Miami. 149 egg containers delivered. Local staff in Dominican Republic. Rice, oils and proteins with DDP delivery.</span><span lang-ar>السوق الرئيسية من ميامي. 149 حاوية بيض تم تسليمها. موظفون محليون في الدومينيكان.</span><span lang-zh">迈阿密主要市场。已交付149个鸡蛋集装箱。多明尼加共和国设有本地员工。</span></p>
+        <div class="market-title"><span lang-es>Rep. Dominicana, Cuba, Puerto Rico, USA</span><span lang-en">Dominican Republic, Cuba, Puerto Rico, USA</span><span lang-ar>جمهورية الدومينيكان، كوبا، بورتوريكو، الولايات المتحدة</span><span lang-zh">多明尼加、古巴、波多黎各、美国</span><span lang-pt>Rep. Dominicana, Cuba, Puerto Rico, USA</span></div>
+        <p class="market-desc"><span lang-es>Mercado principal desde Miami. 149 contenedores de huevo entregados. Personal local en Rep. Dominicana. Arroz, aceites y proteínas con entrega DDP.</span><span lang-en">Main market from Miami. 149 egg containers delivered. Local staff in Dominican Republic. Rice, oils and proteins with DDP delivery.</span><span lang-ar>السوق الرئيسية من ميامي. 149 حاوية بيض تم تسليمها. موظفون محليون في الدومينيكان.</span><span lang-zh">迈阿密主要市场。已交付149个鸡蛋集装箱。多明尼加共和国设有本地员工。</span><span lang-pt>Mercado principal desde Miami. 149 contenedores de huevo entregados. Personal local en Rep. Dominicana. Arroz, aceites y proteínas con entrega DDP.</span></p>
         <div class="market-badges"><span class="badge">🇩🇴 Personal Local</span><span class="badge">149 FCL Huevo</span><span class="badge">DDP</span></div>
       </div>
       <div class="market-card">
         <div class="market-region">🌎 Latinoamérica</div>
-        <div class="market-title"><span lang-es>México, Perú, Colombia, Venezuela</span><span lang-en">Mexico, Peru, Colombia, Venezuela</span><span lang-ar>المكسيك، بيرو، كولومبيا، فنزويلا</span><span lang-zh">墨西哥、秘鲁、哥伦比亚、委内瑞拉</span></div>
-        <p class="market-desc"><span lang-es>Canal de reexportación desde Miami hacia toda Latinoamérica. Huevo, coco, arroz y aceites. Operaciones CIF y FOB desde PortMIA con trazabilidad completa.</span><span lang-en">Re-export channel from Miami to all of Latin America. Eggs, coconut, rice and oils. CIF and FOB operations from PortMIA with full traceability.</span><span lang-ar>قناة إعادة تصدير من ميامي إلى أمريكا اللاتينية. بيض وجوز الهند وأرز وزيوت.</span><span lang-zh">从迈阿密转口到整个拉丁美洲的渠道。鸡蛋、椰子、大米和油脂。</span></p>
+        <div class="market-title"><span lang-es>México, Perú, Colombia, Venezuela</span><span lang-en">Mexico, Peru, Colombia, Venezuela</span><span lang-ar>المكسيك، بيرو، كولومبيا، فنزويلا</span><span lang-zh">墨西哥、秘鲁、哥伦比亚、委内瑞拉</span><span lang-pt>México, Perú, Colombia, Venezuela</span></div>
+        <p class="market-desc"><span lang-es>Canal de reexportación desde Miami hacia toda Latinoamérica. Huevo, coco, arroz y aceites. Operaciones CIF y FOB desde PortMIA con trazabilidad completa.</span><span lang-en">Re-export channel from Miami to all of Latin America. Eggs, coconut, rice and oils. CIF and FOB operations from PortMIA with full traceability.</span><span lang-ar>قناة إعادة تصدير من ميامي إلى أمريكا اللاتينية. بيض وجوز الهند وأرز وزيوت.</span><span lang-zh">从迈阿密转口到整个拉丁美洲的渠道。鸡蛋、椰子、大米和油脂。</span><span lang-pt>Canal de reexportación desde Miami hacia toda Latinoamérica. Huevo, coco, arroz y aceites. Operaciones CIF y FOB desde PortMIA con trazabilidad completa.</span></p>
         <div class="market-badges"><span class="badge">CIF · FOB</span><span class="badge">PortMIA</span><span class="badge">Trazabilidad</span></div>
       </div>
       <div class="market-card">
         <div class="market-region">🇦🇪 Medio Oriente & Asia</div>
-        <div class="market-title"><span lang-es>UAE, Arabia Saudita, China, Hong Kong</span><span lang-en">UAE, Saudi Arabia, China, Hong Kong</span><span lang-ar>الإمارات والسعودية والصين وهونغ كونغ</span><span lang-zh">阿联酋、沙特、中国、香港</span></div>
-        <p class="market-desc"><span lang-es>Coordinación con GLV Global Commodities Dubai y GLV HK. Productos Halal, huevo USDA, coco certificado y commodities. Canal directo B2B sin intermediarios.</span><span lang-en">Coordination with GLV Global Commodities Dubai and GLV HK. Halal products, USDA eggs, certified coconut and commodities. Direct B2B channel, no intermediaries.</span><span lang-ar>تنسيق مع GLV دبي وGLV هونغ كونغ. منتجات حلال وبيض USDA وجوز الهند المعتمد.</span><span lang-zh">与GLV迪拜和GLV香港协调。清真产品、USDA鸡蛋、认证椰子和商品。</span></p>
+        <div class="market-title"><span lang-es>UAE, Arabia Saudita, China, Hong Kong</span><span lang-en">UAE, Saudi Arabia, China, Hong Kong</span><span lang-ar>الإمارات والسعودية والصين وهونغ كونغ</span><span lang-zh">阿联酋、沙特、中国、香港</span><span lang-pt>UAE, Arabia Saudita, China, Hong Kong</span></div>
+        <p class="market-desc"><span lang-es>Coordinación con GLV Global Commodities Dubai y GLV HK. Productos Halal, huevo USDA, coco certificado y commodities. Canal directo B2B sin intermediarios.</span><span lang-en">Coordination with GLV Global Commodities Dubai and GLV HK. Halal products, USDA eggs, certified coconut and commodities. Direct B2B channel, no intermediaries.</span><span lang-ar>تنسيق مع GLV دبي وGLV هونغ كونغ. منتجات حلال وبيض USDA وجوز الهند المعتمد.</span><span lang-zh">与GLV迪拜和GLV香港协调。清真产品、USDA鸡蛋、认证椰子和商品。</span><span lang-pt>Coordinación con GLV Global Commodities Dubai y GLV HK. Productos Halal, huevo USDA, coco certificado y commodities. Canal directo B2B sin intermediarios.</span></p>
         <div class="market-badges"><span class="badge">Halal</span><span class="badge">🇦🇪 Dubai</span><span class="badge">🇭🇰 HK</span></div>
       </div>
       <div class="market-card">
         <div class="market-region">🇮🇹 Europa</div>
-        <div class="market-title"><span lang-es>Italia, España, Unión Europea</span><span lang-en">Italy, Spain, European Union</span><span lang-ar>إيطاليا وإسبانيا والاتحاد الأوروبي</span><span lang-zh">意大利、西班牙、欧盟</span></div>
-        <p class="market-desc"><span lang-es>Canal vía GLV Global Foods Italia SRL. Coco certificado IFS/HACCP desde Brasil, aceites y proteínas con trazabilidad ambiental verificada y estándares UE.</span><span lang-en">Channel via GLV Global Foods Italia SRL. IFS/HACCP certified coconut from Brazil, oils and proteins with verified environmental traceability and EU standards.</span><span lang-ar>قناة عبر GLV إيطاليا. جوز الهند المعتمد IFS/HACCP من البرازيل، وزيوت وبروتينات بمعايير الاتحاد الأوروبي.</span><span lang-zh">通过GLV意大利公司渠道。来自巴西的IFS/HACCP认证椰子，符合欧盟标准的油脂和蛋白质。</span></p>
+        <div class="market-title"><span lang-es>Italia, España, Unión Europea</span><span lang-en">Italy, Spain, European Union</span><span lang-ar>إيطاليا وإسبانيا والاتحاد الأوروبي</span><span lang-zh">意大利、西班牙、欧盟</span><span lang-pt>Italia, España, Unión Europea</span></div>
+        <p class="market-desc"><span lang-es>Canal vía GLV Global Foods Italia SRL. Coco certificado IFS/HACCP desde Brasil, aceites y proteínas con trazabilidad ambiental verificada y estándares UE.</span><span lang-en">Channel via GLV Global Foods Italia SRL. IFS/HACCP certified coconut from Brazil, oils and proteins with verified environmental traceability and EU standards.</span><span lang-ar>قناة عبر GLV إيطاليا. جوز الهند المعتمد IFS/HACCP من البرازيل، وزيوت وبروتينات بمعايير الاتحاد الأوروبي.</span><span lang-zh">通过GLV意大利公司渠道。来自巴西的IFS/HACCP认证椰子，符合欧盟标准的油脂和蛋白质。</span><span lang-pt>Canal vía GLV Global Foods Italia SRL. Coco certificado IFS/HACCP desde Brasil, aceites y proteínas con trazabilidad ambiental verificada y estándares UE.</span></p>
         <div class="market-badges"><span class="badge">🇮🇹 GLV Italia</span><span class="badge">IFS/HACCP</span><span class="badge">EU Standards</span></div>
       </div>
       <div class="market-card">
         <div class="market-region">🛒 Mercado Doméstico USA</div>
-        <div class="market-title"><span lang-es>Importadores, Distribuidores & Retailers USA</span><span lang-en">US Importers, Distributors & Retailers</span><span lang-ar>المستوردون والموزعون في الولايات المتحدة</span><span lang-zh">美国进口商、分销商和零售商</span></div>
-        <p class="market-desc"><span lang-es>Suministro directo a importadores institucionales, supermercados étnicos, distribuidores de alimentos y restaurantes en el mercado americano. Registro FDA. Mínimo 1 FCL.</span><span lang-en">Direct supply to institutional importers, ethnic supermarkets, food distributors and restaurants in the American market. FDA registered. Minimum 1 FCL.</span><span lang-ar>توريد مباشر للمستوردين المؤسسيين والمتاجر العرقية وموزعي الأغذية في السوق الأمريكية. مسجل في FDA.</span><span lang-zh">直接供应给美国市场的机构进口商、民族超市、食品经销商和餐厅。FDA注册。最低1个FCL。</span></p>
+        <div class="market-title"><span lang-es>Importadores, Distribuidores & Retailers USA</span><span lang-en">US Importers, Distributors & Retailers</span><span lang-ar>المستوردون والموزعون في الولايات المتحدة</span><span lang-zh">美国进口商、分销商和零售商</span><span lang-pt>Importadores, Distribuidores & Retailers USA</span></div>
+        <p class="market-desc"><span lang-es>Suministro directo a importadores institucionales, supermercados étnicos, distribuidores de alimentos y restaurantes en el mercado americano. Registro FDA. Mínimo 1 FCL.</span><span lang-en">Direct supply to institutional importers, ethnic supermarkets, food distributors and restaurants in the American market. FDA registered. Minimum 1 FCL.</span><span lang-ar>توريد مباشر للمستوردين المؤسسيين والمتاجر العرقية وموزعي الأغذية في السوق الأمريكية. مسجل في FDA.</span><span lang-zh">直接供应给美国市场的机构进口商、民族超市、食品经销商和餐厅。FDA注册。最低1个FCL。</span><span lang-pt>Suministro directo a importadores institucionales, supermercados étnicos, distribuidores de alimentos y restaurantes en el mercado americano. Registro FDA. Mínimo 1 FCL.</span></p>
         <div class="market-badges"><span class="badge">FDA Registered</span><span class="badge">1 FCL Mínimo</span><span class="badge">Ethnic Markets</span></div>
       </div>
       <div class="market-card">
         <div class="market-region">🌍 África & Nuevos Mercados</div>
-        <div class="market-title"><span lang-es>Argelia, Marruecos, Namibia, Egipto</span><span lang-en">Algeria, Morocco, Namibia, Egypt</span><span lang-ar>الجزائر والمغرب وناميبيا ومصر</span><span lang-zh">阿尔及利亚、摩洛哥、纳米比亚、埃及</span></div>
-        <p class="market-desc"><span lang-es>Mercado en expansión para huevo certificado Halal, aceites y granos. Coordinación desde Miami con entidades GLV en Dubai y Colombia para destinos africanos de alta demanda.</span><span lang-en">Expanding market for Halal certified eggs, oils and grains. Coordination from Miami with GLV entities in Dubai and Colombia for high-demand African destinations.</span><span lang-ar>سوق متنامية لبيض حلال معتمد وزيوت وحبوب. تنسيق من ميامي مع كيانات GLV في دبي وكولومبيا.</span><span lang-zh">清真认证鸡蛋、油脂和谷物的扩张市场。从迈阿密与GLV在迪拜和哥伦比亚的实体协调。</span></p>
+        <div class="market-title"><span lang-es>Argelia, Marruecos, Namibia, Egipto</span><span lang-en">Algeria, Morocco, Namibia, Egypt</span><span lang-ar>الجزائر والمغرب وناميبيا ومصر</span><span lang-zh">阿尔及利亚、摩洛哥、纳米比亚、埃及</span><span lang-pt>Argelia, Marruecos, Namibia, Egipto</span></div>
+        <p class="market-desc"><span lang-es>Mercado en expansión para huevo certificado Halal, aceites y granos. Coordinación desde Miami con entidades GLV en Dubai y Colombia para destinos africanos de alta demanda.</span><span lang-en">Expanding market for Halal certified eggs, oils and grains. Coordination from Miami with GLV entities in Dubai and Colombia for high-demand African destinations.</span><span lang-ar>سوق متنامية لبيض حلال معتمد وزيوت وحبوب. تنسيق من ميامي مع كيانات GLV في دبي وكولومبيا.</span><span lang-zh">清真认证鸡蛋、油脂和谷物的扩张市场。从迈阿密与GLV在迪拜和哥伦比亚的实体协调。</span><span lang-pt>Mercado en expansión para huevo certificado Halal, aceites y granos. Coordinación desde Miami con entidades GLV en Dubai y Colombia para destinos africanos de alta demanda.</span></p>
         <div class="market-badges"><span class="badge">Halal</span><span class="badge">🇳🇦 Namibia</span><span class="badge">En expansión</span></div>
       </div>
     </div>
@@ -1361,39 +1513,39 @@ footer {
       <span lang-es>Proceso Operativo · Miami Hub</span>
       <span lang-en">Operations Process · Miami Hub</span>
       <span lang-ar>العملية التشغيلية · مركز ميامي</span>
-      <span lang-zh">运营流程 · 迈阿密中心</span>
+      <span lang-zh">运营流程 · 迈阿密中心</span><span lang-pt>Processo Operacional · Hub Miami</span>
     </p>
     <h2 class="section-title">
       <span lang-es>Proceso <em>de principio a fin</em></span>
       <span lang-en">Process <em>end to end</em></span>
       <span lang-ar>العملية <em>من البداية إلى النهاية</em></span>
-      <span lang-zh">从头到尾的<em>全流程</em></span>
+      <span lang-zh">从头到尾的<em>全流程</em></span><span lang-pt>Processo <em>de ponta a ponta</em></span>
     </h2>
     <div class="process-steps">
       <div class="step">
         <div class="step-num">01</div>
-        <div class="step-title"><span lang-es>Sourcing</span><span lang-en">Sourcing</span><span lang-ar>التوريد</span><span lang-zh">采购</span></div>
-        <p class="step-desc"><span lang-es>Visita personal en origen: Colombia, Brasil, India, Argentina</span><span lang-en">Personal visit at origin: Colombia, Brazil, India, Argentina</span><span lang-ar>زيارة شخصية: كولومبيا، البرازيل، الهند، الأرجنتين</span><span lang-zh">实地访问产地</span></p>
+        <div class="step-title"><span lang-es>Sourcing</span><span lang-en">Sourcing</span><span lang-ar>التوريد</span><span lang-zh">采购</span><span lang-pt>Sourcing</span></div>
+        <p class="step-desc"><span lang-es>Visita personal en origen: Colombia, Brasil, India, Argentina</span><span lang-en">Personal visit at origin: Colombia, Brazil, India, Argentina</span><span lang-ar>زيارة شخصية: كولومبيا، البرازيل، الهند، الأرجنتين</span><span lang-zh">实地访问产地</span><span lang-pt>Visita personal en origen: Colombia, Brasil, India, Argentina</span></p>
       </div>
       <div class="step">
         <div class="step-num">02</div>
-        <div class="step-title"><span lang-es>Certificación</span><span lang-en">Certification</span><span lang-ar>التوثيق</span><span lang-zh">认证</span></div>
+        <div class="step-title"><span lang-es>Certificación</span><span lang-en">Certification</span><span lang-ar>التوثيق</span><span lang-zh">认证</span><span lang-pt>Certificação</span></div>
         <p class="step-desc">USDA · FDA · ICA · MAPA · HACCP · IFS · Halal</p>
       </div>
       <div class="step">
         <div class="step-num">03</div>
-        <div class="step-title"><span lang-es>Documentación</span><span lang-en">Documentation</span><span lang-ar>التوثيق</span><span lang-zh">单证</span></div>
+        <div class="step-title"><span lang-es>Documentación</span><span lang-en">Documentation</span><span lang-ar>التوثيق</span><span lang-zh">单证</span><span lang-pt>Documentação</span></div>
         <p class="step-desc">L/C · BL · Invoice · Packing List · Phyto · Health Cert</p>
       </div>
       <div class="step">
         <div class="step-num">04</div>
-        <div class="step-title"><span lang-es>Tránsito Miami</span><span lang-en">Miami Transit</span><span lang-ar>عبور ميامي</span><span lang-zh">迈阿密中转</span></div>
-        <p class="step-desc"><span lang-es>PortMIA · Almacén · FDA Inspection · Cold Chain</span><span lang-en">PortMIA · Warehouse · FDA Inspection · Cold Chain</span><span lang-ar>ميناء ميامي · المستودع · فحص FDA · سلسلة التبريد</span><span lang-zh">迈阿密港 · 仓库 · FDA检验 · 冷链</span></p>
+        <div class="step-title"><span lang-es>Tránsito Miami</span><span lang-en">Miami Transit</span><span lang-ar>عبور ميامي</span><span lang-zh">迈阿密中转</span><span lang-pt>Trânsito Miami</span></div>
+        <p class="step-desc"><span lang-es>PortMIA · Almacén · FDA Inspection · Cold Chain</span><span lang-en">PortMIA · Warehouse · FDA Inspection · Cold Chain</span><span lang-ar>ميناء ميامي · المستودع · فحص FDA · سلسلة التبريد</span><span lang-zh">迈阿密港 · 仓库 · FDA检验 · 冷链</span><span lang-pt>PortMIA · Almacén · FDA Inspection · Cold Chain</span></p>
       </div>
       <div class="step">
         <div class="step-num">05</div>
-        <div class="step-title"><span lang-es>Entrega</span><span lang-en">Delivery</span><span lang-ar>التسليم</span><span lang-zh">交付</span></div>
-        <p class="step-desc"><span lang-es>DDP · CIF · FOB — Confirmación y seguimiento</span><span lang-en">DDP · CIF · FOB — Confirmation and tracking</span><span lang-ar>DDP · CIF · FOB — التأكيد والمتابعة</span><span lang-zh">DDP · CIF · FOB — 确认与跟踪</span></p>
+        <div class="step-title"><span lang-es>Entrega</span><span lang-en">Delivery</span><span lang-ar>التسليم</span><span lang-zh">交付</span><span lang-pt>Entrega</span></div>
+        <p class="step-desc"><span lang-es>DDP · CIF · FOB — Confirmación y seguimiento</span><span lang-en">DDP · CIF · FOB — Confirmation and tracking</span><span lang-ar>DDP · CIF · FOB — التأكيد والمتابعة</span><span lang-zh">DDP · CIF · FOB — 确认与跟踪</span><span lang-pt>DDP · CIF · FOB — Confirmación y seguimiento</span></p>
       </div>
     </div>
     <div class="certs-row">
@@ -1417,7 +1569,7 @@ footer {
     <div class="contact-item-box">
       <div class="contact-item-label">
         <span lang-es>Oficina Principal</span><span lang-en">Main Office</span>
-        <span lang-ar>المكتب الرئيسي</span><span lang-zh">总部</span>
+        <span lang-ar>المكتب الرئيسي</span><span lang-zh">总部</span><span lang-pt>Escritório Principal</span>
       </div>
       <div class="contact-item-value">
         🇺🇸 Miami, Florida, USA<br>
@@ -1425,7 +1577,7 @@ footer {
           <span lang-es>GLV Global Food Services LLC</span>
           <span lang-en">GLV Global Food Services LLC</span>
           <span lang-ar>GLV Global Food Services LLC</span>
-          <span lang-zh">GLV Global Food Services LLC</span>
+          <span lang-zh">GLV Global Food Services LLC</span><span lang-pt>GLV Global Food Services LLC</span>
         </span>
       </div>
     </div>
@@ -1445,7 +1597,7 @@ footer {
     <div class="contact-item-box">
       <div class="contact-item-label">
         <span lang-es>Parte del Holding</span><span lang-en">Part of Holding</span>
-        <span lang-ar>جزء من المجموعة</span><span lang-zh">集团成员</span>
+        <span lang-ar>جزء من المجموعة</span><span lang-zh">集团成员</span><span lang-pt>Parte do Holding</span>
       </div>
       <div class="contact-item-value">
         GLV Global Holding<br>
@@ -1462,28 +1614,28 @@ footer {
       <span lang-es>Cotización Rápida · Miami</span>
       <span lang-en">Quick Quote · Miami</span>
       <span lang-ar>عرض سعر سريع · ميامي</span>
-      <span lang-zh">快速报价 · 迈阿密</span>
+      <span lang-zh">快速报价 · 迈阿密</span><span lang-pt>Cotação Rápida · Miami</span>
     </p>
     <h2 class="section-title">
       <span lang-es><em>Cotice</em> con nosotros hoy</span>
       <span lang-en">Get a <em>quote</em> today</span>
       <span lang-ar>احصل على <em>عرض سعر</em> اليوم</span>
-      <span lang-zh">今天获取<em>报价</em></span>
+      <span lang-zh">今天获取<em>报价</em></span><span lang-pt><em>Cotar</em> com a gente hoje</span>
     </h2>
     <p style="font-size:0.95rem;color:var(--text-dim);margin-bottom:0.5rem;">
       <span lang-es>Respondemos en menos de 24 horas. Solo compradores serios con capacidad de FCL.</span>
       <span lang-en">We respond in less than 24 hours. Serious buyers with FCL capacity only.</span>
       <span lang-ar>نرد في أقل من 24 ساعة. المشترون الجادون فقط.</span>
-      <span lang-zh">24小时内回复。仅限有FCL采购能力的认真买家。</span>
+      <span lang-zh">24小时内回复。仅限有FCL采购能力的认真买家。</span><span lang-pt>Respondemos em menos de 24 horas. Somente compradores sérios com capacidade de FCL.</span>
     </p>
     <form class="quote-form" id="quoteForm" onsubmit="handleQuote(event)" novalidate>
       <input type="hidden" name="csrf_token" id="csrfToken" value="">
       <div class="form-group">
-        <label><span lang-es>Nombre completo *</span><span lang-en>Full Name *</span><span lang-ar>الاسم الكامل *</span><span lang-zh>姓名 *</span></label>
+        <label><span lang-es>Nombre completo *</span><span lang-en>Full Name *</span><span lang-ar>الاسم الكامل *</span><span lang-zh>姓名 *</span><span lang-pt>Nome completo *</span></label>
         <input type="text" id="fName" name="name" required placeholder="Full name / Nombre completo">
       </div>
       <div class="form-group">
-        <label><span lang-es>Empresa · País *</span><span lang-en>Company · Country *</span><span lang-ar>الشركة · البلد *</span><span lang-zh>公司 · 国家 *</span></label>
+        <label><span lang-es>Empresa · País *</span><span lang-en>Company · Country *</span><span lang-ar>الشركة · البلد *</span><span lang-zh>公司 · 国家 *</span><span lang-pt>Empresa · País *</span></label>
         <input type="text" id="fCompany" name="company" required placeholder="Company · Country">
       </div>
       <div class="form-group">
@@ -1491,12 +1643,12 @@ footer {
         <input type="email" id="fEmail" name="email" required placeholder="email@company.com">
       </div>
       <div class="form-group">
-        <label>WhatsApp / <span lang-es>Teléfono</span><span lang-en>Phone</span><span lang-ar>الهاتف</span><span lang-zh>电话</span></label>
+        <label>WhatsApp / <span lang-es>Teléfono</span><span lang-en>Phone</span><span lang-ar>الهاتف</span><span lang-zh>电话</span><span lang-pt>Telefone</span></label>
         <input type="tel" id="fPhone" name="phone" placeholder="+1 000 000 0000">
       </div>
 
       <div class="form-group">
-        <label><span lang-es>Producto de interés *</span><span lang-en>Product of interest *</span><span lang-ar>المنتج المطلوب *</span><span lang-zh>感兴趣的产品 *</span></label>
+        <label><span lang-es>Producto de interés *</span><span lang-en>Product of interest *</span><span lang-ar>المنتج المطلوب *</span><span lang-zh>感兴趣的产品 *</span><span lang-pt>Produto de interesse *</span></label>
         <select id="fProduct" name="product" required onchange="updateSmartFields(this.value)">
           <option value="">-- <span lang-es>Seleccionar producto</span> / Select product --</option>
           <optgroup label="🥚 Línea I — Huevo & Proteínas">
@@ -1542,7 +1694,7 @@ footer {
       </div>
 
       <div class="form-group">
-        <label><span lang-es>Destino *</span><span lang-en>Destination *</span><span lang-ar>الوجهة *</span><span lang-zh>目的地 *</span></label>
+        <label><span lang-es>Destino *</span><span lang-en>Destination *</span><span lang-ar>الوجهة *</span><span lang-zh>目的地 *</span><span lang-pt>Seleccionar producto</span> / Select product --</option> <optgroup label="🥚 Línea I — Huevo & Proteínas"> <option value="Huevo USDA Grade A FCL">Huevo USDA Grade A — FCL</option> <option value="Huevo AA MAPA Brasil">Huevo AA — MAPA Brasil</option> <option value="Pollo Certificado">Pollo Certificado</option> </optgroup> <optgroup label="🥥 Línea II — Coco & Aceites"> <option value="Coco Rayado IFS Brasil">Coco Rayado — IFS Brasil</option> <option value="Aceite de Coco Virgen">Aceite de Coco Virgen Extra</option> <option value="Agua de Coco Natural">Agua de Coco Natural</option> <option value="Aceite de Soja Argentina">Aceite de Soja — Argentina</option> <option value="Aceite de Girasol High Oleic">Aceite de Girasol High Oleic</option> <option value="Oleína de Palma Colombia">Oleína de Palma — Colombia</option> </optgroup> <optgroup label="🌾 Línea III — Granos & Cereales"> <option value="Arroz Basmati 1121">Arroz Basmati 1121</option> <option value="Arroz IR-64 / IR-36">Arroz IR-64 / IR-36</option> <option value="Frijoles / Beans">Frijoles / Beans (9 variedades)</option> <option value="Garbanzos Kabuli">Garbanzos Kabuli</option> <option value="Maíz Amarillo">Maíz Amarillo</option> <option value="Trigo / Soya">Trigo / Soya</option> </optgroup> <optgroup label="🐄 Línea V — Animales Vivos & Cortes"> <option value="Bovinos Vivos Nelore/Angus MAPA">Bovinos Vivos — Nelore/Angus MAPA</option> <option value="Ovinos Vivos Dorper/Ile de France">Ovinos Vivos — Dorper/Île de France</option> <option value="Caprinos Vivos ICA/MAPA">Caprinos Vivos — ICA/MAPA</option> <option value="Cortes Bovinos Premium IQF">Cortes Bovinos Premium — IQF Halal</option> <option value="Rack/Pierna Cordero Halal">Rack / Pierna de Cordero — Halal</option> </optgroup> <optgroup label="🥭 Línea VI — Frutas Tropicales"> <option value="Mango Tommy/Kent FCL">Mango Tommy / Kent — FCL</option> <option value="Aguacate Hass">Aguacate Hass — GlobalGAP</option> <option value="Banano Cavendish">Banano Cavendish — FCL</option> <option value="Piña MD2">Piña MD2 — ICA</option> <option value="Mix Frutas Tropicales">Mix Frutas Tropicales — FCL</option> </optgroup> <optgroup label="🚢 Línea IV — Comercio Internacional"> <option value="Múltiples productos FCL">Múltiples productos — FCL Mix</option> <option value="Otro / Other">Otro / Other</option> </optgroup> </select> </div> <div class="form-group"> <label><span lang-es>Destino *</span> / Select product --</option> <optgroup label="🥚 Línea I — Huevo & Proteínas"> <option value="Huevo USDA Grade A FCL">Huevo USDA Grade A — FCL</option> <option value="Huevo AA MAPA Brasil">Huevo AA — MAPA Brasil</option> <option value="Pollo Certificado">Pollo Certificado</option> </optgroup> <optgroup label="🥥 Línea II — Coco & Aceites"> <option value="Coco Rayado IFS Brasil">Coco Rayado — IFS Brasil</option> <option value="Aceite de Coco Virgen">Aceite de Coco Virgen Extra</option> <option value="Agua de Coco Natural">Agua de Coco Natural</option> <option value="Aceite de Soja Argentina">Aceite de Soja — Argentina</option> <option value="Aceite de Girasol High Oleic">Aceite de Girasol High Oleic</option> <option value="Oleína de Palma Colombia">Oleína de Palma — Colombia</option> </optgroup> <optgroup label="🌾 Línea III — Granos & Cereales"> <option value="Arroz Basmati 1121">Arroz Basmati 1121</option> <option value="Arroz IR-64 / IR-36">Arroz IR-64 / IR-36</option> <option value="Frijoles / Beans">Frijoles / Beans (9 variedades)</option> <option value="Garbanzos Kabuli">Garbanzos Kabuli</option> <option value="Maíz Amarillo">Maíz Amarillo</option> <option value="Trigo / Soya">Trigo / Soya</option> </optgroup> <optgroup label="🐄 Línea V — Animales Vivos & Cortes"> <option value="Bovinos Vivos Nelore/Angus MAPA">Bovinos Vivos — Nelore/Angus MAPA</option> <option value="Ovinos Vivos Dorper/Ile de France">Ovinos Vivos — Dorper/Île de France</option> <option value="Caprinos Vivos ICA/MAPA">Caprinos Vivos — ICA/MAPA</option> <option value="Cortes Bovinos Premium IQF">Cortes Bovinos Premium — IQF Halal</option> <option value="Rack/Pierna Cordero Halal">Rack / Pierna de Cordero — Halal</option> </optgroup> <optgroup label="🥭 Línea VI — Frutas Tropicales"> <option value="Mango Tommy/Kent FCL">Mango Tommy / Kent — FCL</option> <option value="Aguacate Hass">Aguacate Hass — GlobalGAP</option> <option value="Banano Cavendish">Banano Cavendish — FCL</option> <option value="Piña MD2">Piña MD2 — ICA</option> <option value="Mix Frutas Tropicales">Mix Frutas Tropicales — FCL</option> </optgroup> <optgroup label="🚢 Línea IV — Comercio Internacional"> <option value="Múltiples productos FCL">Múltiples productos — FCL Mix</option> <option value="Otro / Other">Otro / Other</option> </optgroup> </select> </div> <div class="form-group"> <label><span lang-es>Destino *</span> / Select product --</option> <optgroup label="🥚 Línea I — Huevo & Proteínas"> <option value="Huevo USDA Grade A FCL">Huevo USDA Grade A — FCL</option> <option value="Huevo AA MAPA Brasil">Huevo AA — MAPA Brasil</option> <option value="Pollo Certificado">Pollo Certificado</option> </optgroup> <optgroup label="🥥 Línea II — Coco & Aceites"> <option value="Coco Rayado IFS Brasil">Coco Rayado — IFS Brasil</option> <option value="Aceite de Coco Virgen">Aceite de Coco Virgen Extra</option> <option value="Agua de Coco Natural">Agua de Coco Natural</option> <option value="Aceite de Soja Argentina">Aceite de Soja — Argentina</option> <option value="Aceite de Girasol High Oleic">Aceite de Girasol High Oleic</option> <option value="Oleína de Palma Colombia">Oleína de Palma — Colombia</option> </optgroup> <optgroup label="🌾 Línea III — Granos & Cereales"> <option value="Arroz Basmati 1121">Arroz Basmati 1121</option> <option value="Arroz IR-64 / IR-36">Arroz IR-64 / IR-36</option> <option value="Frijoles / Beans">Frijoles / Beans (9 variedades)</option> <option value="Garbanzos Kabuli">Garbanzos Kabuli</option> <option value="Maíz Amarillo">Maíz Amarillo</option> <option value="Trigo / Soya">Trigo / Soya</option> </optgroup> <optgroup label="🐄 Línea V — Animales Vivos & Cortes"> <option value="Bovinos Vivos Nelore/Angus MAPA">Bovinos Vivos — Nelore/Angus MAPA</option> <option value="Ovinos Vivos Dorper/Ile de France">Ovinos Vivos — Dorper/Île de France</option> <option value="Caprinos Vivos ICA/MAPA">Caprinos Vivos — ICA/MAPA</option> <option value="Cortes Bovinos Premium IQF">Cortes Bovinos Premium — IQF Halal</option> <option value="Rack/Pierna Cordero Halal">Rack / Pierna de Cordero — Halal</option> </optgroup> <optgroup label="🥭 Línea VI — Frutas Tropicales"> <option value="Mango Tommy/Kent FCL">Mango Tommy / Kent — FCL</option> <option value="Aguacate Hass">Aguacate Hass — GlobalGAP</option> <option value="Banano Cavendish">Banano Cavendish — FCL</option> <option value="Piña MD2">Piña MD2 — ICA</option> <option value="Mix Frutas Tropicales">Mix Frutas Tropicales — FCL</option> </optgroup> <optgroup label="🚢 Línea IV — Comercio Internacional"> <option value="Múltiples productos FCL">Múltiples productos — FCL Mix</option> <option value="Otro / Other">Otro / Other</option> </optgroup> </select> </div> <div class="form-group"> <label><span lang-es>Destino *</span></label>
         <select id="fDest" name="destination" required>
           <option value="">-- Select Destination --</option>
           <option>USA — Domestic Market</option>
@@ -1559,12 +1711,12 @@ footer {
 
       <!-- SMART FIELDS — shown based on product -->
       <div class="form-group form-smart-extra" id="sfVolume">
-        <label id="sfVolumeLabel"><span lang-es>Volumen requerido</span><span lang-en>Required Volume</span></label>
+        <label id="sfVolumeLabel"><span lang-es>Volumen requerido</span><span lang-en>Required Volume</span><span lang-pt>Destino *</span> / Select product --</option> <optgroup label="🥚 Línea I — Huevo & Proteínas"> <option value="Huevo USDA Grade A FCL">Huevo USDA Grade A — FCL</option> <option value="Huevo AA MAPA Brasil">Huevo AA — MAPA Brasil</option> <option value="Pollo Certificado">Pollo Certificado</option> </optgroup> <optgroup label="🥥 Línea II — Coco & Aceites"> <option value="Coco Rayado IFS Brasil">Coco Rayado — IFS Brasil</option> <option value="Aceite de Coco Virgen">Aceite de Coco Virgen Extra</option> <option value="Agua de Coco Natural">Agua de Coco Natural</option> <option value="Aceite de Soja Argentina">Aceite de Soja — Argentina</option> <option value="Aceite de Girasol High Oleic">Aceite de Girasol High Oleic</option> <option value="Oleína de Palma Colombia">Oleína de Palma — Colombia</option> </optgroup> <optgroup label="🌾 Línea III — Granos & Cereales"> <option value="Arroz Basmati 1121">Arroz Basmati 1121</option> <option value="Arroz IR-64 / IR-36">Arroz IR-64 / IR-36</option> <option value="Frijoles / Beans">Frijoles / Beans (9 variedades)</option> <option value="Garbanzos Kabuli">Garbanzos Kabuli</option> <option value="Maíz Amarillo">Maíz Amarillo</option> <option value="Trigo / Soya">Trigo / Soya</option> </optgroup> <optgroup label="🐄 Línea V — Animales Vivos & Cortes"> <option value="Bovinos Vivos Nelore/Angus MAPA">Bovinos Vivos — Nelore/Angus MAPA</option> <option value="Ovinos Vivos Dorper/Ile de France">Ovinos Vivos — Dorper/Île de France</option> <option value="Caprinos Vivos ICA/MAPA">Caprinos Vivos — ICA/MAPA</option> <option value="Cortes Bovinos Premium IQF">Cortes Bovinos Premium — IQF Halal</option> <option value="Rack/Pierna Cordero Halal">Rack / Pierna de Cordero — Halal</option> </optgroup> <optgroup label="🥭 Línea VI — Frutas Tropicales"> <option value="Mango Tommy/Kent FCL">Mango Tommy / Kent — FCL</option> <option value="Aguacate Hass">Aguacate Hass — GlobalGAP</option> <option value="Banano Cavendish">Banano Cavendish — FCL</option> <option value="Piña MD2">Piña MD2 — ICA</option> <option value="Mix Frutas Tropicales">Mix Frutas Tropicales — FCL</option> </optgroup> <optgroup label="🚢 Línea IV — Comercio Internacional"> <option value="Múltiples productos FCL">Múltiples productos — FCL Mix</option> <option value="Otro / Other">Otro / Other</option> </optgroup> </select> </div> <div class="form-group"> <label><span lang-es>Destino *</span></label> <select id="fDest" name="destination" required> <option value="">-- Select Destination --</option> <option>USA — Domestic Market</option> <option>Dominican Republic / Rep. Dominicana</option> <option>Caribbean / Caribe</option> <option>Latin America / Latinoamérica</option> <option>Middle East / Medio Oriente</option> <option>Europe / Europa</option> <option>Africa / África</option> <option>Asia — China / HK / Japan</option> <option>Other / Otro</option> </select> </div> <!-- SMART FIELDS — shown based on product --> <div class="form-group form-smart-extra" id="sfVolume"> <label id="sfVolumeLabel"><span lang-es>Volumen requerido</span></label>
         <input type="text" id="fVolume" name="volume" placeholder="Ej: 2 FCL / 25 MT / 50,000 unidades">
         <div class="form-unit-hint" id="sfVolumeHint"></div>
       </div>
       <div class="form-group form-smart-extra" id="sfIncoterm">
-        <label><span lang-es>Incoterm preferido</span><span lang-en">Preferred Incoterm</span></label>
+        <label><span lang-es>Incoterm preferido</span><span lang-en">Preferred Incoterm</span><span lang-pt>Incoterm preferido</span></label>
         <select id="fIncoterm" name="incoterm">
           <option value="">-- Seleccionar --</option>
           <option value="FOB">FOB — Free On Board</option>
@@ -1574,7 +1726,7 @@ footer {
         </select>
       </div>
       <div class="form-group form-smart-extra" id="sfPayment">
-        <label><span lang-es>Método de pago</span><span lang-en">Payment Method</span></label>
+        <label><span lang-es>Método de pago</span><span lang-en">Payment Method</span><span lang-pt>Método de pagamento</span></label>
         <select id="fPayment" name="payment">
           <option value="">-- Seleccionar --</option>
           <option value="L/C">L/C — Carta de Crédito</option>
@@ -1585,7 +1737,7 @@ footer {
       </div>
 
       <div class="form-group form-full">
-        <label><span lang-es>Mensaje adicional</span><span lang-en">Additional message</span><span lang-ar>رسالة إضافية</span><span lang-zh>附加信息</span></label>
+        <label><span lang-es>Mensaje adicional</span><span lang-en">Additional message</span><span lang-ar>رسالة إضافية</span><span lang-zh>附加信息</span><span lang-pt>Volume necessário</span><span lang-pt>Destino *</span><span lang-pt>Mensagem adicional</span></label> <select id="fDest" name="destination" required> <option value="">-- Select Destination --</option> <option>USA — Domestic Market</option> <option>Dominican Republic / Rep. Dominicana</option> <option>Caribbean / Caribe</option> <option>Latin America / Latinoamérica</option> <option>Middle East / Medio Oriente</option> <option>Europe / Europa</option> <option>Africa / África</option> <option>Asia — China / HK / Japan</option> <option>Other / Otro</option> </select> </div> <!-- SMART FIELDS — shown based on product --> <div class="form-group form-smart-extra" id="sfVolume"> <label id="sfVolumeLabel"><span lang-es>Volumen requerido</span></label>
         <textarea id="fMessage" name="message" rows="3" placeholder="Especificaciones, certificaciones requeridas, frecuencia de compra..."></textarea>
       </div>
 
@@ -1593,19 +1745,19 @@ footer {
         ⚠️ <span lang-es>Los valores indicados son <strong style="color:var(--gold)">solo de referencia</strong>. La cotización oficial será enviada por nuestro equipo comercial según disponibilidad, volumen y condiciones del mercado.</span>
         <span lang-en">Values shown are <strong style="color:var(--gold)">reference only</strong>. The official quote will be sent by our commercial team based on availability, volume and market conditions.</span>
         <span lang-ar>القيم المشار إليها هي <strong style="color:var(--gold)">مرجعية فقط</strong>. سيتم إرسال عرض السعر الرسمي من قبل فريقنا التجاري.</span>
-        <span lang-zh">所示价值仅供<strong style="color:var(--gold)">参考</strong>。正式报价将由我们的商业团队根据可用性、数量和市场情况发送。</span>
+        <span lang-zh">所示价值仅供<strong style="color:var(--gold)">参考</strong>。正式报价将由我们的商业团队根据可用性、数量和市场情况发送。</span><span lang-pt>Los valores indicados son <strong style="color:var(--gold)">solo de referencia</strong>. La cotización oficial será enviada por nuestro equipo comercial según disponibilidad, volumen y condiciones del mercado.</span><span lang-pt>Volumen requerido</span></label> <textarea id="fMessage" name="message" rows="3" placeholder="Especificaciones, certificaciones requeridas, frecuencia de compra..."></textarea> </div> <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;"> ⚠️ <span lang-es>Los valores indicados son <strong style="color:var(--gold)">solo de referencia</strong>. La cotización oficial será enviada por nuestro equipo comercial según disponibilidad, volumen y condiciones del mercado.</span>
       </div>
       <div class="form-submit-dual">
         <button type="button" class="btn-wa-submit" onclick="sendViaWhatsApp()">
           💬 WhatsApp Directo
         </button>
         <button type="submit" class="btn-email-submit">
-          ✉ <span lang-es>Enviar por Email</span><span lang-en">Send by Email</span><span lang-ar>إرسال بالبريد</span><span lang-zh>发送邮件</span>
+          ✉ <span lang-es>Enviar por Email</span><span lang-en">Send by Email</span><span lang-ar>إرسال بالبريد</span><span lang-zh>发送邮件</span><span lang-pt>Enviar por E-mail</span>
         </button>
       </div>
       <div style="margin-top:1rem;">
         <button type="button" id="btnPDF" onclick="generatePDF()" style="display:none;width:100%;padding:12px;background:rgba(201,168,76,0.15);border:1px solid var(--gold);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:0;transition:all 0.2s;">
-          📄 <span lang-es>Descargar Cotización de Referencia (PDF)</span><span lang-en">Download Reference Quote (PDF)</span>
+          📄 <span lang-es>Descargar Cotización de Referencia (PDF)</span><span lang-en">Download Reference Quote (PDF)</span><span lang-pt>Baixar Cotação de Referência (PDF)</span>
         </button>
       </div>
     </form>
@@ -1617,7 +1769,7 @@ footer {
       ✓ <span lang-es>Mensaje enviado. Nos comunicamos en menos de 24 horas.</span>
       <span lang-en">Message sent. We'll get back to you within 24 hours.</span>
       <span lang-ar>تم إرسال الرسالة. سنرد في أقل من 24 ساعة.</span>
-      <span lang-zh">消息已发送。我们将在24小时内回复您。</span>
+      <span lang-zh">消息已发送。我们将在24小时内回复您。</span><span lang-pt>Baixar Cotação de Referência (PDF)</span><span lang-pt>Mensagem enviada. Entraremos em contato em menos de 24 horas.</span>
     </p>
     <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-dim);">
       📧 <a href="mailto:info@glvglobalfoodservices.com" style="color:var(--gold);">info@glvglobalfoodservices.com</a>
@@ -1639,7 +1791,7 @@ footer {
           <span lang-es>Canal USA del GLV Global Holding. Distribución e importación de alimentos certificados desde Miami, Florida — hacia USA, el Caribe, Latinoamérica y el mundo.</span>
           <span lang-en">USA channel of GLV Global Holding. Certified food distribution and import from Miami, Florida — to USA, Caribbean, Latin America and the world.</span>
           <span lang-ar>الذراع الأمريكية لمجموعة GLV القابضة. توزيع واستيراد الأغذية المعتمدة من ميامي، فلوريدا.</span>
-          <span lang-zh">GLV全球控股集团美国渠道。从迈阿密佛罗里达州进行认证食品分销和进口。</span>
+          <span lang-zh">GLV全球控股集团美国渠道。从迈阿密佛罗里达州进行认证食品分销和进口。</span><span lang-pt>Canal EUA do GLV Global Holding. Distribuição e importação de alimentos certificados de Miami, Flórida — para os EUA, Caribe, América Latina e o mundo.</span>
         </p>
         <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.8;">
           📍 Miami, Florida, USA<br>
@@ -1651,21 +1803,21 @@ footer {
       <div>
         <div class="footer-col-title">
           <span lang-es>Productos</span><span lang-en">Products</span>
-          <span lang-ar>المنتجات</span><span lang-zh">产品</span>
+          <span lang-ar>المنتجات</span><span lang-zh">产品</span><span lang-pt>Produtos</span>
         </div>
         <ul class="footer-links">
-          <li><a href="#productos"><span lang-es>Huevo USDA Grade A · AA</span><span lang-en">USDA Eggs Grade A · AA</span></a></li>
-          <li><a href="#productos"><span lang-es>Coco Rayado & Aceite de Coco</span><span lang-en">Shredded Coconut & Coconut Oil</span></a></li>
-          <li><a href="#productos"><span lang-es>Agua de Coco Certificada</span><span lang-en">Certified Coconut Water</span></a></li>
-          <li><a href="#productos"><span lang-es>Arroz Basmati · Aternal Rice</span><span lang-en">Basmati Rice · Aternal Rice</span></a></li>
-          <li><a href="#productos"><span lang-es>Granos & Legumbres</span><span lang-en">Grains & Pulses</span></a></li>
-          <li><a href="#productos"><span lang-es>Aceites & Grasas</span><span lang-en">Oils & Fats</span></a></li>
+          <li><a href="#productos"><span lang-es>Huevo USDA Grade A · AA</span><span lang-en">USDA Eggs Grade A · AA</span><span lang-pt>Ovos USDA Grau A · AA</span></a></li>
+          <li><a href="#productos"><span lang-es>Coco Rayado & Aceite de Coco</span><span lang-en">Shredded Coconut & Coconut Oil</span><span lang-pt>Coco Ralado & Óleo de Coco</span></a></li>
+          <li><a href="#productos"><span lang-es>Agua de Coco Certificada</span><span lang-en">Certified Coconut Water</span><span lang-pt>Água de Coco Certificada</span></a></li>
+          <li><a href="#productos"><span lang-es>Arroz Basmati · Aternal Rice</span><span lang-en">Basmati Rice · Aternal Rice</span><span lang-pt>Arroz Basmati · Aternal Rice</span></a></li>
+          <li><a href="#productos"><span lang-es>Granos & Legumbres</span><span lang-en">Grains & Pulses</span><span lang-pt>Grãos & Leguminosas</span></a></li>
+          <li><a href="#productos"><span lang-es>Aceites & Grasas</span><span lang-en">Oils & Fats</span><span lang-pt>Óleos & Gorduras</span></a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">
           <span lang-es>GLV Global Holding</span>
-          <span lang-en">GLV Global Holding</span>
+          <span lang-en">GLV Global Holding</span><span lang-pt>GLV Global Holding</span>
         </div>
         <ul class="footer-links">
           <li><a href="https://glvservicesexp.com" target="_blank" rel="noopener noreferrer">🇨🇴 GLV Services SAS · HQ</a></li>
@@ -1682,19 +1834,19 @@ footer {
           <span lang-es>Contacto & Operaciones</span>
           <span lang-en">Contact & Operations</span>
           <span lang-ar>الاتصال والعمليات</span>
-          <span lang-zh">联系与运营</span>
+          <span lang-zh">联系与运营</span><span lang-pt>Ovos USDA Grau A · AA</span><span lang-pt>Contato & Operações</span>
         </div>
         <ul class="footer-links">
-          <li><a href="#cotizar"><span lang-es>Solicitar Cotización →</span><span lang-en">Request Quote →</span></a></li>
-          <li><a href="#mercados"><span lang-es>Mercados Destino</span><span lang-en">Target Markets</span></a></li>
-          <li><a href="#servicios"><span lang-es>Nuestros Servicios</span><span lang-en">Our Services</span></a></li>
-          <li><a href="#holding"><span lang-es>Estructura Corporativa</span><span lang-en">Corporate Structure</span></a></li>
+          <li><a href="#cotizar"><span lang-es>Solicitar Cotización →</span><span lang-en">Request Quote →</span><span lang-pt>Solicitar Cotação →</span></a></li>
+          <li><a href="#mercados"><span lang-es>Mercados Destino</span><span lang-en">Target Markets</span><span lang-pt>Mercados de Destino</span></a></li>
+          <li><a href="#servicios"><span lang-es>Nuestros Servicios</span><span lang-en">Our Services</span><span lang-pt>Nossos Serviços</span></a></li>
+          <li><a href="#holding"><span lang-es>Estructura Corporativa</span><span lang-en">Corporate Structure</span><span lang-pt>Estrutura Corporativa</span></a></li>
           <li><a href="mailto:info@glvglobalfoodservices.com">Email Directo</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2025–2026 GLV Global Food Services LLC · GLV Global Holding. <span lang-es>Todos los derechos reservados.</span><span lang-en">All rights reserved.</span></div>
+      <div>© 2025–2026 GLV Global Food Services LLC · GLV Global Holding. <span lang-es>Todos los derechos reservados.</span><span lang-en">All rights reserved.</span><span lang-pt>Todos os direitos reservados.</span></div>
       <div>Where Food Moves Markets.</div>
     </div>
   </div>
@@ -1716,17 +1868,14 @@ footer {
 <script>
 /* ─── LANGUAGE SYSTEM ─── */
 function setLang(lang) {
-  if (!['es','en','ar','zh'].includes(lang)) return;
+  if (!['es','en','ar','zh','pt'].includes(lang)) return;
   document.body.className = 'lang-' + lang;
-  document.querySelectorAll('.lang-btn').forEach(function(b) {
-    b.classList.remove('active');
-    var t = b.textContent.trim();
-    if ((lang === 'es' && t === 'ES') ||
-        (lang === 'en' && t === 'EN') ||
-        (lang === 'ar' && b.textContent.includes('عربي')) ||
-        (lang === 'zh' && b.textContent.includes('中文'))) {
-      b.classList.add('active');
-    }
+  /* Sync dropdown */
+  var labels = { es:'ES · Español', en:'EN · English', pt:'PT · Português', ar:'AR · العربية', zh:'ZH · 中文' };
+  var el = document.getElementById('langLabel');
+  if (el) el.textContent = labels[lang] || lang.toUpperCase();
+  document.querySelectorAll('.lang-option').forEach(function(o) {
+    o.classList.toggle('active', o.getAttribute('data-lang') === lang);
   });
   localStorage.setItem('glv-lang', lang);
 }
@@ -1736,6 +1885,28 @@ function setLang(lang) {
   var saved = localStorage.getItem('glv-lang') || 'es';
   setLang(saved);
 })();
+
+/* ─── LANG DROPDOWN ─── */
+var _langLabels = {
+  es: 'ES · Español', en: 'EN · English',
+  pt: 'PT · Português', ar: 'AR · العربية', zh: 'ZH · 中文'
+};
+function toggleLangMenu() {
+  var w = document.getElementById('langSelect');
+  if (w) w.classList.toggle('open');
+}
+function closeLangMenu() {
+  var w = document.getElementById('langSelect');
+  if (w) w.classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  var w = document.getElementById('langSelect');
+  if (w && !w.contains(e.target)) w.classList.remove('open');
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLangMenu();
+});
+
 
 /* ─── NAV MOBILE ─── */
 function toggleNav() {
