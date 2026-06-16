@@ -23,6 +23,9 @@
     --gold:#C9A84C; --gold-light:#D4B96A; --dark:#0F0F0F; --dark2:#1A1A1A;
     --text:#E5E5E5; --muted:#999;
   }
+  [lang-es],[lang-en],[lang-ar],[lang-zh],[lang-pt]{display:none;}
+  body.lang-es [lang-es],body.lang-en [lang-en],body.lang-ar [lang-ar],body.lang-zh [lang-zh],body.lang-pt [lang-pt]{display:inline;}
+  body.lang-ar{direction:rtl;}
   *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; }
   body { background:var(--dark); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; display:flex; flex-direction:column; }
@@ -155,7 +158,16 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 <a href="/">GLV Global Food Services LLC</a> · Miami, Florida, USA · <a href="mailto:info@glvglobalfoodservices.com">info@glvglobalfoodservices.com</a></p>
+  <p>
+    &copy; 2025 <a href="/">GLV Global Food Services LLC</a> · Miami, Florida, USA ·
+    <a href="mailto:info@glvglobalfoodservices.com">info@glvglobalfoodservices.com</a>
+    <br>
+    <span lang-es>Todos los derechos reservados.</span>
+    <span lang-en>All rights reserved.</span>
+    <span lang-ar>جميع الحقوق محفوظة.</span>
+    <span lang-zh>版权所有。</span>
+    <span lang-pt>Todos os direitos reservados.</span>
+  </p>
 </footer>
 
 <script src="/js/i18n.js"></script>
