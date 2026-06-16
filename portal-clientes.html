@@ -34,8 +34,14 @@
   .nav-logo-text { font-size:1rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); }
   .nav-logo-sub { font-size:0.6rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; display:block; }
   .lang-switcher { display:flex; gap:0.25rem; }
-  .lang-btn { background:none; border:1px solid rgba(201,168,76,0.3); color:var(--muted); font-size:0.75rem; font-weight:700; padding:0.2rem 0.45rem; cursor:pointer; transition:all 0.2s; font-family:inherit; }
-  .lang-btn:hover,.lang-btn.active { background:var(--gold); color:var(--dark); border-color:var(--gold); }
+  .lang-select-wrap { position:relative; z-index:2000; }
+  .lang-select-btn { display:flex; align-items:center; gap:0.4rem; background:none; border:1px solid rgba(201,168,76,0.3); color:var(--muted); font-family:'Segoe UI',system-ui,sans-serif; font-size:0.75rem; font-weight:600; padding:0 0.7rem; cursor:pointer; min-height:44px; white-space:nowrap; transition:all 0.2s; }
+  .lang-select-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .lang-select-menu { display:none; position:absolute; top:calc(100% + 4px); right:0; background:rgba(15,15,15,0.99); border:1px solid rgba(201,168,76,0.25); min-width:190px; z-index:3000; }
+  .lang-select-wrap.open .lang-select-menu { display:block; }
+  .lang-option { display:flex; align-items:center; gap:0.7rem; width:100%; background:none; border:none; color:var(--muted); font-size:0.82rem; padding:0 1rem; cursor:pointer; min-height:44px; border-left:2px solid transparent; font-family:'Segoe UI',system-ui,sans-serif; }
+  .lang-option:hover { color:var(--text); background:rgba(201,168,76,0.08); }
+  .lang-option.active { color:var(--gold); border-left-color:var(--gold); }
   .nav-cta { background:var(--gold); color:var(--dark); text-decoration:none; font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:0.5rem 1.2rem; transition:all 0.2s; }
   .nav-cta:hover { background:var(--gold-light); }
   .nav-cta-portal { background:transparent; color:var(--gold); border:1px solid var(--gold); }
@@ -87,12 +93,17 @@
         <span class="nav-logo-sub">Miami · Florida · USA</span>
       </span>
     </a>
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
-      <button class="lang-btn" onclick="setLang('ar')">عربي</button>
-      <button class="lang-btn" onclick="setLang('zh')">中文</button>
+    <div class="lang-select-wrap" id="langSelect">
+      <button class="lang-select-btn" onclick="toggleLangMenu()" aria-label="Seleccionar idioma">
+        🌐 <span id="langLabel">ES · Español</span> ▼
+      </button>
+      <div class="lang-select-menu" role="listbox">
+        <button class="lang-option active" data-lang="es" onclick="setLang('es');closeLangMenu()">🇪🇸 ES · Español</button>
+        <button class="lang-option" data-lang="en" onclick="setLang('en');closeLangMenu()">🇺🇸 EN · English</button>
+        <button class="lang-option" data-lang="pt" onclick="setLang('pt');closeLangMenu()">🇧🇷 PT · Português</button>
+        <button class="lang-option" data-lang="ar" onclick="setLang('ar');closeLangMenu()">🇦🇪 AR · العربية</button>
+        <button class="lang-option" data-lang="zh" onclick="setLang('zh');closeLangMenu()">🇨🇳 ZH · 中文</button>
+      </div>
     </div>
     <a href="/portal-clientes" class="nav-cta nav-cta-portal" data-i18n="nav.portal">Portal Clientes</a>
     <a href="/#cotizar" class="nav-cta" data-i18n="nav.quote">Cotizar</a>
