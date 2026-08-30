@@ -161,7 +161,7 @@ nav {
   mask-size:100% 100%;
 }
 .hero-video {
-  width:100%; height:100%; object-fit:cover; object-position:center top;
+  width:100%; height:100%; object-fit:contain; object-position:center;
 }
 
 /* ── LOADING SCREEN ── */
@@ -722,6 +722,8 @@ footer {
   input, select, textarea {
     font-size:16px !important;
   }
+  #testimonios-video { padding:4rem 1.5rem !important; }
+  #testimonios-video > div > div { grid-template-columns:minmax(0,1fr) !important; }
   /* C-3: Hero height mobile */
   .hero {
     height:auto;
@@ -946,9 +948,8 @@ footer {
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="inicio">
   <div class="hero-video-container">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="./imagenes/video-corporativo-glv-foodservices.mp4" type="video/mp4">
-      <source src="https://www.glvservicesexp.com/assets/videos/glv%20videos%20ovinos%20brasil/video%20corporativo%20glv%20services.mp4" type="video/mp4">
+    <video class="hero-video" muted loop playsinline preload="metadata" poster="./imagenes/videos/posters/video-corporativo-glv.webp" data-autoplay aria-label="Video corporativo de GLV Global Food Services">
+      <source src="./imagenes/videos/video-corporativo-glv.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-content">
@@ -1333,8 +1334,8 @@ footer {
 
 <!-- ═══════════ CAMPO / FIELD OPERATIONS ═══════════ -->
 <section style="position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center;">
-  <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
-    <source src="./imagenes/video-corporativo-glv-foodservices.mp4" type="video/mp4">
+  <video muted loop playsinline preload="metadata" poster="./imagenes/videos/posters/video-corporativo-glv.webp" data-autoplay aria-label="Video corporativo de operaciones de GLV" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#0f0f0f;z-index:0;">
+    <source src="./imagenes/videos/video-corporativo-glv.mp4" type="video/mp4">
     <picture>
       <source srcset="./imagenes/operaciones-miami-glv.webp" type="image/webp">
       <img src="./imagenes/operaciones-miami-glv.jpg" alt="GLV Operaciones" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
@@ -1403,7 +1404,7 @@ footer {
 </section>
 
 <!-- ═══════════ TESTIMONIOS EN VIDEO ═══════════ -->
-<div style="background:#181818;padding:6rem 4rem;border-top:1px solid rgba(201,168,76,0.1);">
+<div id="testimonios-video" style="background:#181818;padding:6rem 4rem;border-top:1px solid rgba(201,168,76,0.1);">
 <div style="max-width:1400px;margin:0 auto;">
   <p class="section-eyebrow" style="justify-content:center;">
     <span lang-es>Testimonios · Socios de Campo</span>
@@ -1419,8 +1420,8 @@ footer {
   </h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;">
     <div style="background:#242424;border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;">
-      <video controls preload="metadata" style="width:100%;display:block;max-height:280px;object-fit:cover;background:#111;">
-        <source src="./imagenes/Video-marcio-recomendando%20a%20glv%20global%20food%20services.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-testimonio-marcio.webp" aria-label="Testimonio de Marcio, socio productor de GLV" style="width:100%;display:block;max-height:280px;object-fit:contain;object-position:center;background:#111;">
+        <source src="./imagenes/videos/video-testimonio-marcio.mp4" type="video/mp4">
         <p style="padding:1rem;color:#888;">Video no disponible</p>
       </video>
       <div style="padding:1.2rem 1.5rem;">
@@ -1433,8 +1434,8 @@ footer {
       </div>
     </div>
     <div style="background:#242424;border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;">
-      <video controls preload="metadata" style="width:100%;display:block;max-height:280px;object-fit:cover;background:#111;">
-        <source src="./imagenes/video%20fazenda%20ovinos%20marcio.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-fazenda-ovinos-brasil.webp" aria-label="Operación de una fazenda de ovinos en Brasil" style="width:100%;display:block;max-height:280px;object-fit:contain;object-position:center;background:#111;">
+        <source src="./imagenes/videos/video-fazenda-ovinos-brasil.mp4" type="video/mp4">
         <p style="padding:1rem;color:#888;">Video no disponible</p>
       </video>
       <div style="padding:1.2rem 1.5rem;">
@@ -2245,6 +2246,22 @@ td:last-child{color:#1a1a1a;font-weight:600;}
   w.document.close();
   setTimeout(()=>w.print(),500);
 }
+</script>
+
+<script>
+(function(){
+  var reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function syncCorporateVideos(){
+    document.querySelectorAll('video[data-autoplay]').forEach(function(video){
+      video.muted=true;
+      if(reducedMotion.matches){video.pause();return;}
+      video.play().catch(function(){});
+    });
+  }
+  syncCorporateVideos();
+  if(reducedMotion.addEventListener){reducedMotion.addEventListener('change',syncCorporateVideos);}
+  else if(reducedMotion.addListener){reducedMotion.addListener(syncCorporateVideos);}
+})();
 </script>
 
 </body>
