@@ -1,0 +1,55 @@
+.glv-icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  object-fit: contain;
+  vertical-align: -0.12em;
+  flex: 0 0 auto;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.glv-icon--nav { width: 1.15rem; height: 1.15rem; margin-right: .45rem; vertical-align: middle; }
+.glv-icon--card { width: 2.5rem; height: 2.5rem; display: block; }
+.glv-icon--small { width: 1.25rem; height: 1.25rem; }
+.glv-icon--contact { width: 1.35rem; height: 1.35rem; }
+
+.svc-card:hover .glv-icon,
+.product-card:hover .glv-icon,
+.prod-card:hover .glv-icon,
+.fruit-card:hover .glv-icon,
+.variety-card:hover .glv-icon,
+.srv-card:hover .glv-icon,
+.why-pt:hover .glv-icon,
+.agri-card:hover .glv-icon,
+a:hover > .glv-icon {
+  transform: translateY(-2px) scale(1.04);
+  filter: drop-shadow(0 4px 8px rgba(201,168,76,.22));
+}
+
+.country-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7em;
+  height: 1.35em;
+  padding: 0 .3em;
+  border: 1px solid rgba(201,168,76,.5);
+  color: #C9A84C;
+  background: rgba(201,168,76,.06);
+  font: 700 .68em/1 'Barlow Condensed', Arial, sans-serif;
+  letter-spacing: .06em;
+  vertical-align: .12em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glv-icon { transition: none; }
+  .svc-card:hover .glv-icon,
+  .product-card:hover .glv-icon,
+  .prod-card:hover .glv-icon,
+  .fruit-card:hover .glv-icon,
+  .variety-card:hover .glv-icon,
+  .srv-card:hover .glv-icon,
+  .why-pt:hover .glv-icon,
+  .agri-card:hover .glv-icon,
+  a:hover > .glv-icon { transform: none; }
+}

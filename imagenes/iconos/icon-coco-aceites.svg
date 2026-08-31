@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Coco y aceites</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <circle cx="26" cy="35" r="14" fill="none" stroke="#C9A84C" stroke-width="3"/>
+  <path d="M18 27c5 2 11 8 14 16M38 15c4 6 8 12 8 17a8 8 0 0 1-8 8" fill="none" stroke="#E7E3D8" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="22" cy="34" r="1.8" fill="#C9A84C"/><circle cx="28" cy="31" r="1.8" fill="#C9A84C"/>
+</svg>

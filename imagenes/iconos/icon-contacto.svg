@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Contacto</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <path d="M14 17h36v27H28L17 52l2-8h-5V17Z" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M22 27h20M22 35h14" stroke="#E7E3D8" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

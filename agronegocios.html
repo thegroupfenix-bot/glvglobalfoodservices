@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="./css/glv-icons.css">
+<title>GLV Agribusiness — División Internacional de Insumos Agrícolas</title>
+<meta name="description" content="GLV Agribusiness desarrolla operaciones internacionales de fertilizantes e insumos agrícolas para compradores, distribuidores y operadores agrícolas.">
+<link rel="canonical" href="https://glvglobalfoodservices.com/agronegocios.html">
+<style>
+:root{--gold:#C9A84C;--gold2:#E8C96A;--dark:#0f0f0f;--dark2:#151515;--dark3:#1d1d1d;--text:#f4f1e8;--dim:#aaa69d;--border:rgba(201,168,76,.24)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--dark);color:var(--text);font-family:Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;height:64px;z-index:1000;background:rgba(15,15,15,.96);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 4rem;backdrop-filter:blur(14px)}
+.brand{text-decoration:none;font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--gold);line-height:1.05}
+.brand span{display:block;color:var(--dim);font:700 .58rem/1.4 Arial,sans-serif;letter-spacing:.2em;margin-top:.2rem}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none}
+.nav-links a{text-decoration:none;text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;font-weight:700;color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{border:1px solid var(--gold);padding:.7rem 1rem;color:var(--gold)!important}
+.menu-btn{display:none;border:1px solid var(--border);background:transparent;color:var(--gold);padding:.55rem .75rem;font-size:1.1rem}
+.hero{min-height:720px;padding:150px 4rem 90px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 78% 25%,rgba(201,168,76,.13),transparent 34%),linear-gradient(135deg,#10100f,#171712 55%,#10100f)}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.035) 1px,transparent 1px);background-size:54px 54px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;width:min(1180px,100%);display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:5rem;align-items:center}
+.eyebrow{color:var(--gold);font-size:.75rem;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-bottom:1.2rem}
+h1{font-family:Georgia,serif;font-size:clamp(3rem,6vw,5.8rem);line-height:.98;margin-bottom:1.5rem;max-width:850px}
+h1 em{color:var(--gold);font-weight:400}
+.hero-copy{color:var(--dim);font-size:1.04rem;max-width:730px;margin-bottom:2.2rem}
+.btn{display:inline-flex;align-items:center;gap:.7rem;text-decoration:none;text-transform:uppercase;font-size:.76rem;font-weight:800;letter-spacing:.14em;padding:1rem 1.35rem;border:1px solid var(--gold);transition:background .2s,color .2s}
+.btn-primary{background:var(--gold);color:#111}
+.btn-primary:hover{background:var(--gold2)}
+.hero-mark{display:flex;align-items:center;justify-content:center;min-height:340px;border:1px solid var(--border);background:rgba(15,15,15,.5);position:relative}
+.hero-mark::before,.hero-mark::after{content:"";position:absolute;width:45px;height:45px;border-color:var(--gold);opacity:.6}
+.hero-mark::before{top:18px;left:18px;border-top:1px solid;border-left:1px solid}.hero-mark::after{right:18px;bottom:18px;border-right:1px solid;border-bottom:1px solid}
+.hero-mark .glv-icon{width:160px;height:160px}
+.section{padding:6rem 4rem}
+.section-dark{background:var(--dark2)}
+.inner{width:min(1280px,100%);margin:0 auto}
+.section-title{font-family:Georgia,serif;font-size:clamp(2.2rem,4vw,3.8rem);line-height:1.1;margin-bottom:1rem}
+.section-title em{color:var(--gold);font-weight:400}
+.section-lead{color:var(--dim);max-width:820px;margin-bottom:3rem}
+.agri-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.agri-card{background:var(--dark2);padding:2rem;min-height:250px;transition:background .2s}
+.section-dark .agri-card{background:var(--dark)}
+.agri-card:hover{background:var(--dark3)}
+.agri-card .glv-icon{width:2.8rem;height:2.8rem;margin-bottom:1.4rem}
+.agri-card h2{font-family:Georgia,serif;font-size:1.25rem;color:var(--text);margin-bottom:.8rem}
+.agri-card p{font-size:.9rem;color:var(--dim)}
+.origin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--border);border:1px solid var(--border)}
+.origin{display:flex;align-items:center;gap:1rem;background:var(--dark);padding:1.4rem 1.5rem;font-family:Georgia,serif;font-size:1.08rem}
+.origin .glv-icon{width:2.2rem;height:2.2rem;flex:0 0 auto}
+.terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.term{border-left:2px solid var(--gold);background:var(--dark3);padding:1.5rem 1.6rem;color:var(--dim)}
+.term strong{display:block;color:var(--text);margin-bottom:.35rem}
+.notice{margin-top:2rem;border:1px solid var(--border);padding:1.25rem 1.5rem;color:var(--dim);font-size:.9rem;background:rgba(201,168,76,.05)}
+.cta{padding:6rem 4rem;background:linear-gradient(125deg,#17150f,#0f0f0f);text-align:center;border-top:1px solid var(--border)}
+.cta p{color:var(--dim);max-width:720px;margin:1rem auto 2rem}
+footer{border-top:1px solid var(--border);background:#0b0b0b;padding:3rem 4rem}
+.footer-inner{width:min(1280px,100%);margin:0 auto;display:flex;justify-content:space-between;gap:2rem;color:var(--dim);font-size:.82rem}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}.footer-links a{text-decoration:none;color:var(--dim)}.footer-links a:hover{color:var(--gold)}
+@media(max-width:1024px){nav{padding:0 1.5rem}.hero-inner{grid-template-columns:1fr;gap:3rem}.hero-mark{min-height:260px}.agri-grid{grid-template-columns:repeat(2,1fr)}.origin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:720px){nav{padding:0 1rem}.menu-btn{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#111;border-bottom:1px solid var(--border);padding:1.2rem;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.hero{min-height:auto;padding:120px 1.25rem 65px}.hero-inner{gap:2rem}.hero-mark{min-height:210px}.hero-mark .glv-icon{width:120px;height:120px}.section,.cta{padding:4rem 1.25rem}.agri-grid,.origin-grid,.terms{grid-template-columns:1fr}.agri-card{min-height:0}.footer-inner{flex-direction:column}footer{padding:2.5rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="./index.html">GLV Global Food Services<span>LLC · MIAMI · FLORIDA · USA</span></a>
+  <button class="menu-btn" type="button" aria-label="Abrir navegación" aria-controls="agriNav" aria-expanded="false" onclick="toggleMenu(this)">&#9776;</button>
+  <ul class="nav-links" id="agriNav">
+    <li><a href="./index.html">Inicio</a></li>
+    <li><a href="#productos">Fertilizantes</a></li>
+    <li><a href="#operacion">Operación</a></li>
+    <li><a class="nav-cta" href="./index.html#cotizar">Solicitar oferta</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">División Internacional de Insumos Agrícolas</p>
+        <h1>GLV <em>Agribusiness</em></h1>
+        <p class="hero-copy">GLV Agribusiness desarrolla operaciones internacionales de fertilizantes e insumos agrícolas. La división nace de la participación de GLV en operaciones de consumo propio y amplía oportunidades de suministro para compradores, distribuidores y operadores agrícolas.</p>
+        <a class="btn btn-primary" href="./index.html#cotizar"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt="">Solicitar oferta de fertilizantes</a>
+      </div>
+      <div class="hero-mark" aria-hidden="true"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""></div>
+    </div>
+  </section>
+
+  <section class="section" id="productos">
+    <div class="inner">
+      <p class="eyebrow">Portafolio sujeto a confirmación</p>
+      <h2 class="section-title">Soluciones para <em>operaciones agrícolas.</em></h2>
+      <p class="section-lead">Cada operación se estructura según especificación técnica, volumen, documentación del proveedor y condiciones logísticas confirmadas para el comprador.</p>
+      <div class="agri-grid">
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>Urea N46</h2><p>Gestión de suministro internacional sujeta a especificación, documentación y confirmación de cada operación.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>Fertilizantes nitrogenados</h2><p>Alternativas nitrogenadas evaluadas según requerimiento técnico, presentación y condiciones comerciales.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>Fertilizantes NPK</h2><p>Formulaciones NPK sujetas a ficha técnica, aplicación prevista y disponibilidad documentada.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>DAP y MAP</h2><p>Opciones fosfatadas estructuradas conforme a especificación y documentación aplicable.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>MOP y fertilizantes potásicos</h2><p>Soluciones potásicas para operaciones internacionales sujetas a confirmación comercial y técnica.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>Sulfato de amonio</h2><p>Coordinación de propuestas según granulometría, presentación, volumen y requisitos del comprador.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-fertilizantes-agricultura.svg" alt=""><h2>Soluciones agrícolas especiales</h2><p>Evaluación de necesidades específicas para distribuidores, productores y operadores agrícolas.</p></article>
+        <article class="agri-card"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""><h2>Logística y suministro internacional</h2><p>Coordinación documental y logística acorde con el producto, el proveedor y el destino confirmado.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="origenes">
+    <div class="inner">
+      <p class="eyebrow">Catálogo GLV Agribusiness</p>
+      <h2 class="section-title">Orígenes de <em>suministro.</em></h2>
+      <p class="section-lead">El origen y la disponibilidad se confirman según el producto, la especificación técnica, el volumen, el proveedor, el destino y la validación documental de cada operación.</p>
+      <div class="origin-grid">
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Catar</div>
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Omán</div>
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Kazajistán</div>
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Estados Unidos</div>
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Europa</div>
+        <div class="origin"><img class="glv-icon" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="">Turquía</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="operacion">
+    <div class="inner">
+      <p class="eyebrow">Estructura de operación</p>
+      <h2 class="section-title">Condiciones claras. <em>Documentación verificable.</em></h2>
+      <div class="terms">
+        <div class="term"><strong>Presentaciones</strong>Sacos de 50 kg y big bags de 2 a 4 toneladas, según producto y proveedor.</div>
+        <div class="term"><strong>Volumen operativo</strong>Operaciones desde 25,000 toneladas cuando corresponda.</div>
+        <div class="term"><strong>Origen</strong>Origen sujeto a confirmación documental para cada propuesta.</div>
+        <div class="term"><strong>Control documental</strong>Inspección, COA y certificados según cada operación.</div>
+      </div>
+      <div class="notice"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-alerta.svg" alt=""> Las categorías presentadas no implican disponibilidad permanente. Las especificaciones, el origen, los documentos y las condiciones finales se confirman para cada operación.</div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="inner">
+      <p class="eyebrow">GLV Agribusiness</p>
+      <h2 class="section-title">Solicite una <em>oferta estructurada.</em></h2>
+      <p>Indique producto, especificación, volumen, destino y modalidad de compra en el formulario de cotización existente.</p>
+      <a class="btn btn-primary" href="./index.html#cotizar">Solicitar oferta de fertilizantes</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2025–2026 GLV Global Food Services LLC · GLV Global Holding.</div>
+    <div class="footer-links"><a href="./index.html">Inicio</a><a href="./comercio-internacional.html">Comercio Internacional</a><a href="./index.html#cotizar">Cotizar</a></div>
+  </div>
+</footer>
+<script>
+function toggleMenu(button){
+  var nav=document.getElementById('agriNav');
+  var open=nav.classList.toggle('open');
+  button.setAttribute('aria-expanded',String(open));
+}
+</script>
+</body>
+</html>

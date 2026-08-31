@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Fertilizantes y agricultura</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <path d="M32 52V27" stroke="#C9A84C" stroke-width="3" stroke-linecap="round"/>
+  <path d="M31 34c-10 0-16-5-17-14 10 0 16 5 17 14Zm2 8c10 0 16-5 17-14-10 0-16 5-17 14Z" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M17 52h30M22 16h20l-3-6H25l-3 6Z" fill="none" stroke="#E7E3D8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

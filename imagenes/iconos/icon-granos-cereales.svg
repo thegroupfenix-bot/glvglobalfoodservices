@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Granos y cereales</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <path d="M32 51V15M31 23c-7-1-10-5-10-10 7 1 10 5 10 10Zm2 8c7-1 10-5 10-10-7 1-10 5-10 10Zm-2 8c-7-1-10-5-10-10 7 1 10 5 10 10Zm2 8c7-1 10-5 10-10-7 1-10 5-10 10Z" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M25 52h14" stroke="#E7E3D8" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="./css/glv-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Comercio Internacional | GLV Global Food Services LLC</title>
 <meta name="description" content="GLV Global Food Services LLC — Miami Hub de Comercio Internacional. Conectamos productores latinoamericanos con mercados globales. FOB · CIF · DDP.">
@@ -55,12 +56,12 @@
 html{scroll-behavior:smooth}
 body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden}
 body.lang-ar{direction:rtl}
-[lang-es],[lang-en],[lang-ar],[lang-zh]{display:none}
-body.lang-es [lang-es],body.lang-en [lang-en],body.lang-ar [lang-ar],body.lang-zh [lang-zh]{display:inline}
+[lang-es],[lang-en],[lang-ar],[lang-zh],[lang-pt]{display:none}
+body.lang-es [lang-es],body.lang-en [lang-en],body.lang-ar [lang-ar],body.lang-zh [lang-zh],body.lang-pt [lang-pt]{display:inline}
 .block-es,.block-en,.block-ar,.block-zh{display:none}
-body.lang-es .block-es,body.lang-en .block-en,body.lang-ar .block-ar,body.lang-zh .block-zh{display:block}
+body.lang-es .block-es,body.lang-en .block-en,body.lang-ar .block-ar,body.lang-zh .block-zh,body.lang-pt .block-pt{display:block}
 .flex-es,.flex-en,.flex-ar,.flex-zh{display:none}
-body.lang-es .flex-es,body.lang-en .flex-en,body.lang-ar .flex-ar,body.lang-zh .flex-zh{display:flex}
+body.lang-es .flex-es,body.lang-en .flex-en,body.lang-ar .flex-ar,body.lang-zh .flex-zh,body.lang-pt .flex-pt{display:flex}
 
 /* ── NAVBAR ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,.15);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -97,7 +98,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,.9
 .hero-corner-tag .big-num{font-family:'Playfair Display',serif;font-size:72px;font-weight:900;color:rgba(201,168,76,.12);line-height:1;display:block}
 
 /* ── BLUE TICKER ── */
-.ticker-wrap{background:linear-gradient(90deg,#000d1a,#001830,#000d1a);padding:14px 0;overflow:hidden;border-top:1px solid rgba(42,106,170,.3);border-bottom:1px solid rgba(42,106,170,.3)}
+.ticker-wrap{background:linear-gradient(90deg,#000d1a,#001830,#000d1a);padding:14px 0;overflow:hidden;contain:layout paint;border-top:1px solid rgba(42,106,170,.3);border-bottom:1px solid rgba(42,106,170,.3)}
 .ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 35s linear infinite}
 .ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 40px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue-light)}
 .ticker-item .sep{color:var(--gold);font-size:16px}
@@ -263,7 +264,9 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   .hub-split{grid-template-columns:1fr}
   .hub-text{padding:40px 24px}
   .why-grid{grid-template-columns:1fr}
-  .finance-grid{grid-template-columns:1fr}
+  .why-points,.why-pt,.why-pt>div:last-child,.why-visual{min-width:0}
+  .finance-grid{grid-template-columns:minmax(0,1fr)}
+  .fin-block{min-width:0}
   .entities-section{padding:40px 24px}
   footer{padding:40px 24px}
   .footer-inner{flex-direction:column;text-align:center}
@@ -446,14 +449,14 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   </div>
   <div class="lang-select-wrap" id="langSelect">
     <button class="lang-select-btn" onclick="toggleLangMenu()" aria-label="Seleccionar idioma">
-      🌐 <span id="langLabel">ES · Español</span> ▼
+      <img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""> <span id="langLabel">ES · Español</span> ▼
     </button>
     <div class="lang-select-menu" role="listbox">
-      <button class="lang-option active" data-lang="es" onclick="setLang('es');closeLangMenu()">🇪🇸 ES · Español</button>
-      <button class="lang-option" data-lang="en" onclick="setLang('en');closeLangMenu()">🇺🇸 EN · English</button>
-      <button class="lang-option" data-lang="pt" onclick="setLang('pt');closeLangMenu()">🇧🇷 PT · Português</button>
-      <button class="lang-option" data-lang="ar" onclick="setLang('ar');closeLangMenu()">🇦🇪 AR · العربية</button>
-      <button class="lang-option" data-lang="zh" onclick="setLang('zh');closeLangMenu()">🇨🇳 ZH · 中文</button>
+      <button class="lang-option active" data-lang="es" onclick="setLang('es');closeLangMenu()">ES · Español</button>
+      <button class="lang-option" data-lang="en" onclick="setLang('en');closeLangMenu()">US EN · English</button>
+      <button class="lang-option" data-lang="pt" onclick="setLang('pt');closeLangMenu()">BR PT · Português</button>
+      <button class="lang-option" data-lang="ar" onclick="setLang('ar');closeLangMenu()">AE AR · العربية</button>
+      <button class="lang-option" data-lang="zh" onclick="setLang('zh');closeLangMenu()">CN ZH · 中文</button>
     </div>
   </div>
 </nav>
@@ -554,7 +557,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
     </picture>
     <div class="hub-visual-overlay" style="position:absolute;inset:0">
       <div style="text-align:center">
-        <div style="font-size:64px;margin-bottom:16px">🌎</div>
+        <div style="margin-bottom:16px"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></div>
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:4px;color:rgba(201,168,76,.8);text-transform:uppercase">Miami Hub</div>
         <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:#fff;line-height:1.1">PortMiami</div>
         <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;color:rgba(255,255,255,.5);margin-top:8px">FLORIDA · USA · 25°N 80°W</div>
@@ -577,28 +580,28 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
     <div class="blue-line"></div>
     <div class="hub-facts">
       <div class="hub-fact">
-        <span class="hub-fact-icon">🚢</span>
+        <span class="hub-fact-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></span>
         <div>
           <div class="hub-fact-title"><span lang-es>Puerto #1 de América</span><span lang-en>Americas #1 Port</span><span lang-ar>الميناء الأول في الأمريكتين</span><span lang-zh>美洲第一港口</span><span lang-pt>Puerto #1 de América</span></div>
           <p class="hub-fact-text"><span lang-es>PortMiami — mayor volumen de carga refrigerada en el hemisferio occidental</span><span lang-en>PortMiami — largest refrigerated cargo volume in the western hemisphere</span><span lang-ar>ميناء ميامي — أكبر حجم شحن مبرد في نصف الكرة الغربي</span><span lang-zh>迈阿密港 — 西半球最大冷藏货物量</span><span lang-pt>PortMiami — mayor volumen de carga refrigerada en el hemisferio occidental</span></p>
         </div>
       </div>
       <div class="hub-fact">
-        <span class="hub-fact-icon">✈️</span>
+        <span class="hub-fact-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></span>
         <div>
           <div class="hub-fact-title"><span lang-es>MIA — 1er Aeropuerto de Carga</span><span lang-en>MIA — #1 Cargo Airport</span><span lang-ar>MIA — مطار الشحن #1</span><span lang-zh>迈阿密国际机场 — 第一货运机场</span><span lang-pt>MIA — 1er Aeropuerto de Carga</span></div>
           <p class="hub-fact-text"><span lang-es>Miami International Airport: mayor importador de carga de EE.UU.</span><span lang-en>Miami International Airport: largest cargo importer in the US</span><span lang-ar>مطار ميامي الدولي: أكبر مستورد شحن في الولايات المتحدة</span><span lang-zh>迈阿密国际机场：美国最大货运进口商</span><span lang-pt>Miami International Airport: mayor importador de carga de EE.UU.</span></p>
         </div>
       </div>
       <div class="hub-fact">
-        <span class="hub-fact-icon">🏦</span>
+        <span class="hub-fact-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <div>
           <div class="hub-fact-title"><span lang-es>Centro Financiero LATAM</span><span lang-en>LATAM Financial Center</span><span lang-ar>المركز المالي لأمريكا اللاتينية</span><span lang-zh>拉美金融中心</span><span lang-pt>Centro Financiero LATAM</span></div>
           <p class="hub-fact-text"><span lang-es>Más de 100 bancos multinacionales — facilitamos L/C, wire transfers y financiación de comercio</span><span lang-en>100+ multinational banks — we facilitate L/C, wire transfers and trade finance</span><span lang-ar>أكثر من 100 بنك متعدد الجنسيات — نسهل خطابات الاعتماد والتحويلات البنكية وتمويل التجارة</span><span lang-zh>100+家跨国银行 — 促进信用证、电汇和贸易融资</span><span lang-pt>Más de 100 bancos multinacionales — facilitamos L/C, wire transfers y financiación de comercio</span></p>
         </div>
       </div>
       <div class="hub-fact">
-        <span class="hub-fact-icon">📋</span>
+        <span class="hub-fact-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <div>
           <div class="hub-fact-title"><span lang-es>Regulación FDA / USDA</span><span lang-en>FDA / USDA Compliance</span><span lang-ar>امتثال FDA / USDA</span><span lang-zh>FDA/USDA合规</span><span lang-pt>Regulación FDA / USDA</span></div>
           <p class="hub-fact-text"><span lang-es>Gestión completa de certificados sanitarios, fitosanitarios y aduaneros para importación a EE.UU.</span><span lang-en>Full management of sanitary, phytosanitary and customs certificates for US import</span><span lang-ar>إدارة كاملة للشهادات الصحية والنباتية والجمركية للاستيراد إلى الولايات المتحدة</span><span lang-zh>完整管理美国进口的卫生、植物检疫和海关证书</span><span lang-pt>Gestión completa de certificados sanitarios, fitosanitarios y aduaneros para importación a EE.UU.</span></p>
@@ -627,7 +630,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   </div>
   <div class="services-grid">
     <div class="srv-card reveal">
-      <span class="srv-icon">📦</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Sourcing & Procurement</span>
         <span lang-en>Sourcing & Procurement</span>
@@ -643,7 +646,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span class="srv-tag">B2B · B2G</span>
     </div>
     <div class="srv-card reveal">
-      <span class="srv-icon">🚢</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Logística & Freight</span>
         <span lang-en>Logistics & Freight</span>
@@ -659,7 +662,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span class="srv-tag">FCL · LCL · REEFER</span>
     </div>
     <div class="srv-card reveal">
-      <span class="srv-icon">🛃</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Despacho Aduanal</span>
         <span lang-en>Customs Clearance</span>
@@ -675,7 +678,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span class="srv-tag">FDA · USDA · CBP</span>
     </div>
     <div class="srv-card reveal">
-      <span class="srv-icon">🏦</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Trade Finance</span>
         <span lang-en>Trade Finance</span>
@@ -691,7 +694,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span class="srv-tag">L/C · D/P · WIRE</span>
     </div>
     <div class="srv-card reveal">
-      <span class="srv-icon">🔍</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Control de Calidad</span>
         <span lang-en>Quality Control</span>
@@ -707,7 +710,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span class="srv-tag">HACCP · IFS · USDA</span>
     </div>
     <div class="srv-card reveal">
-      <span class="srv-icon">📊</span>
+      <span class="srv-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
       <div class="srv-title">
         <span lang-es>Asesoría Comercial</span>
         <span lang-en>Trade Advisory</span>
@@ -807,7 +810,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   <div class="finance-grid">
     <div class="fin-block reveal">
       <div class="fin-block-title">
-        <span>🏦</span>
+        <span><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <span lang-es>Carta de Crédito (L/C)</span>
         <span lang-en>Letter of Credit (L/C)</span>
         <span lang-ar>خطاب الاعتماد</span>
@@ -822,7 +825,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
     </div>
     <div class="fin-block reveal">
       <div class="fin-block-title">
-        <span>💸</span>
+        <span><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <span lang-es>Transferencia Bancaria (TT)</span>
         <span lang-en>Bank Wire Transfer (TT)</span>
         <span lang-ar>التحويل البنكي</span>
@@ -837,7 +840,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
     </div>
     <div class="fin-block reveal">
       <div class="fin-block-title">
-        <span>📄</span>
+        <span><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <span lang-es>D/P — Documentos contra Pago</span>
         <span lang-en>D/P — Documents against Payment</span>
         <span lang-ar>مستندات مقابل الدفع D/P</span>
@@ -852,7 +855,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
     </div>
     <div class="fin-block reveal">
       <div class="fin-block-title">
-        <span>🤝</span>
+        <span><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></span>
         <span lang-es>Cuenta Abierta / Crédito</span>
         <span lang-en>Open Account / Credit</span>
         <span lang-ar>الحساب المفتوح / الائتمان</span>
@@ -887,49 +890,49 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   </div>
   <div class="dest-grid">
     <div class="dest-card reveal">
-      <span class="dest-flag">🇩🇴</span>
+      <span class="dest-flag">DO</span>
       <span class="dest-region">Caribe</span>
       <div class="dest-name">Rep. Dominicana</div>
       <p class="dest-products"><span lang-es>Huevo, Arroz, Frijoles, Coco</span><span lang-en>Egg, Rice, Beans, Coconut</span><span lang-ar>بيض، أرز، فاصوليا، جوز هند</span><span lang-zh>禽蛋、大米、豆类、椰子</span><span lang-pt>Huevo, Arroz, Frijoles, Coco</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇺🇸</span>
+      <span class="dest-flag">US</span>
       <span class="dest-region">North America</span>
       <div class="dest-name">United States</div>
       <p class="dest-products"><span lang-es>Aceites, Granos, Frutas Tropicales</span><span lang-en>Oils, Grains, Tropical Fruits</span><span lang-ar>زيوت، حبوب، فواكه استوائية</span><span lang-zh>油品、谷物、热带水果</span><span lang-pt>Aceites, Granos, Frutas Tropicales</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇲🇽</span>
+      <span class="dest-flag">MX</span>
       <span class="dest-region">LATAM</span>
       <div class="dest-name">México</div>
       <p class="dest-products"><span lang-es>Arroz, Aceite de Coco, Huevo</span><span lang-en>Rice, Coconut Oil, Egg</span><span lang-ar>أرز، زيت جوز الهند، بيض</span><span lang-zh>大米、椰子油、禽蛋</span><span lang-pt>Arroz, Aceite de Coco, Huevo</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇵🇪</span>
+      <span class="dest-flag">PE</span>
       <span class="dest-region">LATAM</span>
       <div class="dest-name">Perú</div>
       <p class="dest-products"><span lang-es>Maíz Amarillo, Soya, Trigo</span><span lang-en>Yellow Corn, Soy, Wheat</span><span lang-ar>ذرة صفراء، صويا، قمح</span><span lang-zh>黄玉米、大豆、小麦</span><span lang-pt>Maíz Amarillo, Soya, Trigo</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇨🇺</span>
+      <span class="dest-flag">CU</span>
       <span class="dest-region">Caribe</span>
       <div class="dest-name">Cuba</div>
       <p class="dest-products"><span lang-es>Huevo, Arroz, Aceites, Granos</span><span lang-en>Egg, Rice, Oils, Grains</span><span lang-ar>بيض، أرز، زيوت، حبوب</span><span lang-zh>禽蛋、大米、油品、谷物</span><span lang-pt>Huevo, Arroz, Aceites, Granos</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇦🇪</span>
+      <span class="dest-flag">AE</span>
       <span class="dest-region">MENA</span>
       <div class="dest-name">Emiratos Árabes</div>
       <p class="dest-products"><span lang-es>Huevo Grade A, Arroz Basmati, Aceite</span><span lang-en>Grade A Egg, Basmati Rice, Oil</span><span lang-ar>بيض درجة A، أرز بسمتي، زيت</span><span lang-zh>A级禽蛋、印度香米、油品</span><span lang-pt>Huevo Grade A, Arroz Basmati, Aceite</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇯🇵</span>
+      <span class="dest-flag">JP</span>
       <span class="dest-region">Asia-Pacific</span>
       <div class="dest-name">Japón</div>
       <p class="dest-products"><span lang-es>Huevo Certificado, Agua de Coco</span><span lang-en>Certified Egg, Coconut Water</span><span lang-ar>بيض معتمد، ماء جوز الهند</span><span lang-zh>认证禽蛋、椰子水</span><span lang-pt>Huevo Certificado, Agua de Coco</span></p>
     </div>
     <div class="dest-card reveal">
-      <span class="dest-flag">🇳🇦</span>
+      <span class="dest-flag">NA</span>
       <span class="dest-region">Africa</span>
       <div class="dest-name">Namibia</div>
       <p class="dest-products"><span lang-es>Huevo, Aceites Vegetales, Arroz</span><span lang-en>Egg, Vegetable Oils, Rice</span><span lang-ar>بيض، زيوت نباتية، أرز</span><span lang-zh>禽蛋、植物油、大米</span><span lang-pt>Huevo, Aceites Vegetales, Arroz</span></p>
@@ -1003,28 +1006,28 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   <div class="why-grid">
     <div class="why-points reveal">
       <div class="why-pt">
-        <div class="why-pt-icon">🌎</div>
+        <div class="why-pt-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
         <div>
           <div class="why-pt-title"><span lang-es>Centro Geográfico</span><span lang-en>Geographic Center</span><span lang-ar>المركز الجغرافي</span><span lang-zh>地理中心</span><span lang-pt>Centro Geográfico</span></div>
           <p class="why-pt-text"><span lang-es>Miami está a 3h de vuelo del 95% de la población de América Latina y a 8h de los principales hubs europeos.</span><span lang-en>Miami is 3h flight from 95% of Latin America's population and 8h from major European hubs.</span><span lang-ar>ميامي على بعد 3 ساعات طيران من 95% من سكان أمريكا اللاتينية و8 ساعات من المراكز الأوروبية الكبرى.</span><span lang-zh>迈阿密距拉丁美洲95%的人口仅3小时飞行，距欧洲主要枢纽8小时。</span><span lang-pt>Miami está a 3h de vuelo del 95% de la población de América Latina y a 8h de los principales hubs europeos.</span></p>
         </div>
       </div>
       <div class="why-pt">
-        <div class="why-pt-icon">🏦</div>
+        <div class="why-pt-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
         <div>
           <div class="why-pt-title"><span lang-es>Ecosistema Financiero</span><span lang-en>Financial Ecosystem</span><span lang-ar>النظام البيئي المالي</span><span lang-zh>金融生态系统</span><span lang-pt>Ecosistema Financiero</span></div>
           <p class="why-pt-text"><span lang-es>Ciudad con mayor concentración de bancos internacionales en EE.UU. — facilita todo instrumento de comercio exterior.</span><span lang-en>City with the highest concentration of international banks in the US — facilitates all foreign trade instruments.</span><span lang-ar>المدينة ذات أعلى تركيز للبنوك الدولية في الولايات المتحدة.</span><span lang-zh>美国国际银行密度最高的城市 — 便利所有对外贸易工具。</span><span lang-pt>Ciudad con mayor concentración de bancos internacionales en EE.UU. — facilita todo instrumento de comercio exterior.</span></p>
         </div>
       </div>
       <div class="why-pt">
-        <div class="why-pt-icon">📜</div>
+        <div class="why-pt-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
         <div>
           <div class="why-pt-title"><span lang-es>Marco Regulatorio USA</span><span lang-en>US Regulatory Framework</span><span lang-ar>الإطار التنظيمي الأمريكي</span><span lang-zh>美国监管框架</span><span lang-pt>Marco Regulatorio USA</span></div>
           <p class="why-pt-text"><span lang-es>Operar bajo regulación FDA, USDA y CBP garantiza estándares máximos y abre puertas a mercados premium.</span><span lang-en>Operating under FDA, USDA and CBP regulation guarantees maximum standards and opens doors to premium markets.</span><span lang-ar>العمل تحت لوائح FDA وUSDA وCBP يضمن أعلى المعايير ويفتح أبواب الأسواق المتميزة.</span><span lang-zh>在FDA、USDA和CBP监管下运营，保证最高标准并打开高端市场大门。</span><span lang-pt>Operar bajo regulación FDA, USDA y CBP garantiza estándares máximos y abre puertas a mercados premium.</span></p>
         </div>
       </div>
       <div class="why-pt">
-        <div class="why-pt-icon">🌐</div>
+        <div class="why-pt-icon"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
         <div>
           <div class="why-pt-title"><span lang-es>Red GLV Global Holding</span><span lang-en>GLV Global Holding Network</span><span lang-ar>شبكة GLV Global Holding</span><span lang-zh>GLV Global Holding网络</span><span lang-pt>Red GLV Global Holding</span></div>
           <p class="why-pt-text"><span lang-es>7 entidades en 3 continentes — sourcing directo sin intermediarios, con relaciones consolidadas con productores.</span><span lang-en>7 entities on 3 continents — direct sourcing without intermediaries, with consolidated producer relationships.</span><span lang-ar>7 كيانات في 3 قارات — توريد مباشر بدون وسطاء، مع علاقات راسخة مع المنتجين.</span><span lang-zh>3大洲7个实体 — 无中间商直接采购，与生产商建立稳固关系。</span><span lang-pt>7 entidades en 3 continentes — sourcing directo sin intermediarios, con relaciones consolidadas con productores.</span></p>
@@ -1068,37 +1071,37 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
   </div>
   <div class="entities-flow">
     <div class="entity-node">
-      <span class="entity-flag">🇨🇴</span>
+      <span class="entity-flag">CO</span>
       <div class="entity-name">Colombia SAS</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node">
-      <span class="entity-flag">🇧🇷</span>
+      <span class="entity-flag">BR</span>
       <div class="entity-name">Brasil LTDA</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node hub-node">
-      <span class="entity-flag">🇺🇸</span>
+      <span class="entity-flag">US</span>
       <div class="entity-name">Food Services LLC</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node">
-      <span class="entity-flag">🇦🇪</span>
+      <span class="entity-flag">AE</span>
       <div class="entity-name">Arabia FZCO</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node">
-      <span class="entity-flag">🇪🇸</span>
+      <span class="entity-flag">ES</span>
       <div class="entity-name">España SL</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node">
-      <span class="entity-flag">🇨🇳</span>
+      <span class="entity-flag">CN</span>
       <div class="entity-name">China Co. Ltd</div>
     </div>
     <span class="entity-arrow">→</span>
     <div class="entity-node">
-      <span class="entity-flag">🇮🇳</span>
+      <span class="entity-flag">IN</span>
       <div class="entity-name">India Pvt. Ltd</div>
     </div>
   </div>
@@ -1135,7 +1138,7 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
       <span lang-zh>发送邮件</span><span lang-pt>Enviar Email</span>
     </a>
     <a href="https://wa.me/573160865294" target="_blank" rel="noopener" class="btn-outline">
-      WhatsApp 🇨🇴
+      WhatsApp CO
     </a>
   </div>
 </div>
@@ -1161,10 +1164,10 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
         <span lang-es>Solicitar Cotización →</span><span lang-en">Request a Quote →</span><span lang-ar>← طلب عرض سعر</span><span lang-zh>申请报价 →</span><span lang-pt>Miami · Puerto PortMIA · Hub de Caribe y Latinoamérica. FOB · CIF · DDP · L/C. Respondemos en menos de 24h hábiles.</span><span lang-pt>Solicitar Cotação →</span>
       </a>
       <a href="https://wa.me/573160865294?text=Hola%20GLV%2C%20quisiera%20cotizar%20una%20operacion%20de%20comercio%20internacional" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1.1rem 2rem;">
-        💬 WhatsApp 🇨🇴
+         WhatsApp CO
       </a>
       <a href="https://wa.me/5511946610038?text=Hola%20GLV%2C%20quisiera%20cotizar%20comercio%20internacional" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1.1rem 2rem;">
-        💬 WhatsApp 🇧🇷
+         WhatsApp BR
       </a>
     </div>
   </div>
@@ -1173,13 +1176,13 @@ footer{background:var(--dark);border-top:1px solid rgba(201,168,76,.1);padding:4
 <!-- WHATSAPP FLOAT -->
 <div class="wa-float">
   <a href="https://wa.me/573160865294" target="_blank" rel="noopener" class="wa-btn">
-    <span class="wa-icon">💬</span>
-    <span class="wa-flag">🇨🇴</span>
+    <img class="glv-icon glv-icon--contact wa-icon" src="./imagenes/iconos/icon-contacto.svg" alt="">
+    <span class="wa-flag">CO</span>
     <span>+57 316 086 5294</span>
   </a>
   <a href="https://wa.me/5511946610038" target="_blank" rel="noopener" class="wa-btn">
-    <span class="wa-icon">💬</span>
-    <span class="wa-flag">🇧🇷</span>
+    <img class="glv-icon glv-icon--contact wa-icon" src="./imagenes/iconos/icon-contacto.svg" alt="">
+    <span class="wa-flag">BR</span>
     <span>+55 11 9466 10038</span>
   </a>
 </div>
