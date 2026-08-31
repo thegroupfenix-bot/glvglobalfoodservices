@@ -22,7 +22,7 @@
 <meta property="og:title" content="Coco & Aceites Certificados — Línea II · GLV Global Food Services LLC">
 <meta property="og:description" content="Coco Rayado, Aceite de Coco, Agua de Coco certificados Brasil. Aceite de Soja, Girasol, Palma. IFS, HACCP, GPM. Miami, Florida.">
 <meta property="og:url" content="https://glvglobalfoodservices.com/coco-aceites">
-<meta property="og:image" content="https://glvglobalfoodservices.com/imagenes/hero-coco-aceites.jpg">
+<meta property="og:image" content="https://glvglobalfoodservices.com/imagenes/aceites/aceite-jerry-20l-bodega.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_US">
@@ -31,7 +31,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Coco & Aceites Certificados — GLV Global Food Services LLC">
 <meta name="twitter:description" content="Coco Rayado, Aceite de Coco y Agua de Coco certificados. Aceite de Soja, Girasol, Palma. Miami, Florida.">
-<meta name="twitter:image" content="https://glvglobalfoodservices.com/imagenes/hero-coco-aceites.jpg">
+<meta name="twitter:image" content="https://glvglobalfoodservices.com/imagenes/aceites/aceite-jerry-20l-bodega.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
@@ -43,8 +43,8 @@ body{background:var(--dark);color:var(--text);font-family:'Barlow',sans-serif;fo
 body.lang-es [lang-es],body.lang-en [lang-en],body.lang-ar [lang-ar],body.lang-zh [lang-zh]{display:inline;}body.lang-pt [lang-pt]{display:inline;}
 body.lang-ar{direction:rtl;}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,168,76,0.15);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold);text-decoration:none;display:flex;align-items:center;gap:0.8rem;}
-.nav-logo-sub{font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);line-height:1.3;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--gold);text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;line-height:1;white-space:nowrap;}
+.nav-logo-sub{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);line-height:1.3;margin-top:0.18rem;}
 .nav-right{display:flex;align-items:center;gap:1rem;}
 .lang-switcher{display:flex;gap:0.3rem;}
 .lang-btn{background:none;border:1px solid rgba(201,168,76,0.25);color:var(--text-dim);font-size:0.65rem;font-weight:700;padding:0.25rem 0.55rem;cursor:pointer;transition:all 0.2s;font-family:'Barlow',sans-serif;}
@@ -53,11 +53,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .nav-back:hover{color:var(--gold);}
 .nav-cta{background:var(--gold);color:var(--dark);text-decoration:none;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.5rem 1.2rem;transition:all 0.2s;}
 .nav-cta:hover{background:var(--gold-light);}.nav-cta-portal{background:transparent;color:var(--gold);border:1px solid var(--gold);}.nav-cta-portal:hover{background:var(--gold);color:var(--dark);}
-.hero{position:relative;min-height:100vh;overflow:hidden;}
+.hero{position:relative;min-height:calc(100vh - 64px);margin-top:64px;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;z-index:0;}
 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(15,15,15,0.97) 0%,rgba(15,15,15,0.88) 42%,rgba(15,15,15,0.3) 68%,rgba(15,15,15,0.0) 100%);-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L60,0 Q70,50 60,100 L0,100 Z'/%3E%3C/svg%3E");-webkit-mask-size:100% 100%;mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L60,0 Q70,50 60,100 L0,100 Z'/%3E%3C/svg%3E");mask-size:100% 100%;}
-.hero-content{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:calc(64px + 3.5rem) 4rem 0;width:100%;}
+.hero-content{position:relative;z-index:1;max-width:1400px;margin:0 auto;padding:3.5rem 4rem 0;width:100%;}
 .hero-div-tag{display:inline-flex;align-items:center;gap:0.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;}
 .hero-div-tag::before{content:'II';background:var(--gold);color:var(--dark);font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:900;line-height:1.0;color:var(--white);margin-bottom:1.2rem;}
@@ -119,7 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .footer-mini-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
 .footer-mini-links a{font-size:0.85rem;color:var(--text-dim);text-decoration:none;transition:color 0.2s;}
 .footer-mini-links a:hover{color:var(--gold);}
-@media(max-width:768px){nav{padding:0 1.2rem;}.hero-content{padding:calc(64px + 2rem) 1.5rem 0;}.stats-inner{grid-template-columns:repeat(2,1fr);}.prod-grid,.cert-grid{grid-template-columns:1fr;}.oil-gallery{grid-template-columns:repeat(2,1fr);}.split{grid-template-columns:1fr;}.split-img{height:300px;}.footer-mini{padding:2rem 1.5rem;flex-direction:column;text-align:center;}.hero-bg::after{-webkit-mask-image:none;mask-image:none;background:rgba(15,15,15,0.82);}}
+@media(max-width:768px){nav{padding:0 1.2rem;}.hero-content{padding:2rem 1.5rem 0;}.stats-inner{grid-template-columns:repeat(2,1fr);}.prod-grid,.cert-grid{grid-template-columns:1fr;}.oil-gallery{grid-template-columns:repeat(2,1fr);}.split{grid-template-columns:1fr;}.split-img{height:300px;}.footer-mini{padding:2rem 1.5rem;flex-direction:column;text-align:center;}.hero-bg::after{-webkit-mask-image:none;mask-image:none;background:rgba(15,15,15,0.82);}}
 
 /* ─── LANG SELECT DROPDOWN ─── */
 .lang-switcher { display:none; } /* legacy hidden */
@@ -214,10 +214,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 /* ─── RESPONSIVE — 480px ─── */
 @media (max-width:480px) {
   /* H-1: 480px breakpoint */
-  nav { padding:0 1rem; height:56px; }
+  nav { padding:0 0.75rem; height:64px; gap:0.5rem; }
+  .nav-logo { flex:0 1 128px; max-width:128px; font-size:0.78rem; }
+  .nav-logo-sub { font-size:0.43rem; letter-spacing:0.08em; }
+  .nav-right { gap:0.3rem; flex-shrink:0; }
+  .nav-back { font-size:0.58rem; letter-spacing:0.02em; }
+  .nav-cta { display:flex; align-items:center; justify-content:center; min-height:40px; padding:0.35rem 0.42rem; font-size:0.56rem; letter-spacing:0.02em; white-space:nowrap; }
   /* C-3: Hero smaller devices */
-  .hero { min-height:min(100svh, 520px); }
-  .hero-content { padding:0 1rem; padding-top:56px; }
+  .hero { min-height:calc(100svh - 64px); }
+  .hero-content { padding:2rem 1rem 0; }
   .hero-title { font-size:clamp(2rem,8vw,2.8rem); }
   .hero-subtitle { font-size:0.88rem; }
   /* Stats */
@@ -260,7 +265,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   "name": "Coco & Aceites Certificados — Exportación FCL",
   "description": "Coco Rayado, Aceite de Coco, Agua de Coco certificados Brasil. Aceite de Soja, Girasol y Palma. Certificaciones IFS, HACCP, GPM. Exportación desde Miami, Florida.",
   "brand": { "@type": "Brand", "name": "GLV Global Food Services LLC" },
-  "image": "https://glvglobalfoodservices.com/imagenes/hero-coco-aceites.jpg",
+  "image": "https://glvglobalfoodservices.com/imagenes/aceites/aceite-jerry-20l-bodega.webp",
   "url": "https://glvglobalfoodservices.com/coco-aceites",
   "offers": {
     "@type": "Offer",
@@ -278,9 +283,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 }
 </script>
 </head>
-<body class="lang-es>
+<body class="lang-es">
 <nav>
-  <a href="./index.html" class="nav-logo">GLV Global Food Services<span class="nav-logo-sub">LLC · MIAMI · FLORIDA</span></a>
+  <a href="./index.html" class="nav-logo">GLV Global Food Services<span class="nav-logo-sub">LLC · MIAMI · FLORIDA · USA</span></a>
   <div class="nav-right">
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('es')">ES</button>
@@ -296,11 +301,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
 <section class="hero">
   <div class="hero-bg">
-    <picture>
-      <source srcset="./imagenes/hero-coco-aceites.webp" type="image/webp">
-      <img src="./imagenes/hero-coco-aceites.jpg" alt="Coco y Aceites GLV Miami"
-           onerror="this.style.display='none'">
-    </picture>
+    <img src="./imagenes/aceites/aceite-jerry-20l-bodega.webp" alt="Presentaciones de aceite en envases jerry listas para distribución" fetchpriority="high">
   </div>
   <div class="hero-content">
     <div class="hero-div-tag">
