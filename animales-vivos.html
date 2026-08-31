@@ -126,6 +126,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 .cut-name{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;}
 .cut-spec{font-size:0.82rem;color:var(--text-dim);line-height:1.5;}
 .cut-badge{display:inline-block;margin-top:0.6rem;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;border:1px solid rgba(139,26,26,0.4);color:#e87070;padding:0.15rem 0.5rem;text-transform:uppercase;}
+.media-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem;}
+.media-gallery figure{margin:0;background:var(--dark2);border:1px solid rgba(201,168,76,0.14);overflow:hidden;}
+.media-gallery img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#0f0f0f;}
+.media-gallery figcaption{padding:0.75rem 1rem;color:var(--text-dim);font-size:0.82rem;line-height:1.4;}
+.halal-gallery{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));padding:1rem;margin-top:0;}
 
 /* SPLIT */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:520px;}
@@ -350,7 +355,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 }
 </script>
 </head>
-<body class="lang-es">
+<body class="lang-es>
 
 <nav>
   <a href="./index.html" class="nav-logo">
@@ -389,15 +394,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
     <h1 class="hero-title">
       <span lang-es>Animales Vivos.<br><em>Fuerza</em> desde el origen.</span>
-      <span lang-en">Live Animals.<br><em>Strength</em> from origin.</span>
+      <span lang-en>Live Animals.<br><em>Strength</em> from origin.</span>
       <span lang-ar>الحيوانات الحية.<br><em>القوة</em> من المصدر.</span>
       <span lang-zh>活体动物.<br>来自<em>原产地</em>的力量.</span><span lang-pt>Animales Vivos.<br><em>Fuerza</em> desde el origen.</span>
     </h1>
     <p class="hero-sub">
       <span lang-es>Exportación de bovinos, ovinos y caprinos vivos desde Brasil, Uruguay, Argentina, Chile, Australia y Rumania. Coordinación logística desde Miami como hub. Cortes premium de carne bovina y ovina. Certificación MAPA, ICA, OIE. Halal disponible.</span>
-      <span lang-en">Export of live cattle, sheep and goats from Brazil, Uruguay, Argentina, Chile, Australia and Romania. Logistics coordination from Miami as hub. Premium beef and lamb cuts. MAPA, ICA, OIE certification. Halal available.</span>
+      <span lang-en>Export of live cattle, sheep and goats from Brazil, Uruguay, Argentina, Chile, Australia and Romania. Logistics coordination from Miami as hub. Premium beef and lamb cuts. MAPA, ICA, OIE certification. Halal available.</span>
       <span lang-ar>تصدير الأبقار والأغنام والماعز الأحياء من البرازيل وأوروغواي والأرجنتين وتشيلي وأستراليا ورومانيا. قطع لحوم بقري وضأن ممتازة. شهادة MAPA وICA وOIE. Halal متاح.</span>
-      <span lang-zh">从巴西、乌拉圭、阿根廷、智利、澳大利亚和罗马尼亚出口活牛、羊和山羊。迈阿密作为物流枢纽进行协调。优质牛肉和羊肉切割。MAPA、ICA、OIE认证。清真认证可选。</span><span lang-pt>Exportación de bovinos, ovinos y caprinos vivos desde Brasil, Uruguay, Argentina, Chile, Australia y Rumania. Coordinación logística desde Miami como hub. Cortes premium de carne bovina y ovina. Certificación MAPA, ICA, OIE. Halal disponible.</span>
+      <span lang-zh>从巴西、乌拉圭、阿根廷、智利、澳大利亚和罗马尼亚出口活牛、羊和山羊。迈阿密作为物流枢纽进行协调。优质牛肉和羊肉切割。MAPA、ICA、OIE认证。清真认证可选。</span><span lang-pt>Exportación de bovinos, ovinos y caprinos vivos desde Brasil, Uruguay, Argentina, Chile, Australia y Rumania. Coordinación logística desde Miami como hub. Cortes premium de carne bovina y ovina. Certificación MAPA, ICA, OIE. Halal disponible.</span>
     </p>
     <div class="hero-origins">
       <div class="hero-origin">🇧🇷 <strong>Brasil</strong> — <span lang-es>Bovinos · Ovinos · MAPA</span><span lang-en>Cattle · Sheep · MAPA</span><span lang-pt>Bovinos · Ovinos · MAPA</span></div>
@@ -405,15 +410,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
       <div class="hero-origin">🇦🇷 <strong>Argentina</strong> — <span lang-es>Bovinos · Ovinos · SENASA</span><span lang-en>Cattle · Sheep · SENASA</span><span lang-pt>Bovinos · Ovinos · SENASA</span></div>
       <div class="hero-origin">🇨🇱 <strong>Chile</strong> — <span lang-es>Ovinos · SAG</span><span lang-en>Sheep · SAG</span><span lang-pt>Ovinos · SAG</span></div>
       <div class="hero-origin">🇦🇺 <strong>Australia</strong> — <span lang-es>Ovinos Merino · DAFF</span><span lang-en>Merino Sheep · DAFF</span><span lang-pt>Ovinos Merino · DAFF</span></div>
-      <div class="hero-origin">🇷🇴 <strong>Rumania</strong> — <span lang-es>Ovinos UE · ANSVSA</span><span lang-en">EU Sheep · ANSVSA</span><span lang-pt>Ovinos UE · ANSVSA</span></div>
+      <div class="hero-origin">🇷🇴 <strong>Rumania</strong> — <span lang-es>Ovinos UE · ANSVSA</span><span lang-en>EU Sheep · ANSVSA</span><span lang-pt>Ovinos UE · ANSVSA</span></div>
     </div>
     <div class="hero-btns">
       <a href="./index.html#cotizar" class="btn-gold">
-        <span lang-es>Cotizar Animales / Cortes</span><span lang-en">Quote Animals / Cuts</span>
+        <span lang-es>Cotizar Animales / Cortes</span><span lang-en>Quote Animals / Cuts</span>
         <span lang-ar>اطلب سعر الحيوانات</span><span lang-zh>询价活体动物</span><span lang-pt>Bovinos · Ovinos · MAPA</span><span lang-pt>Cotizar Animales / Cortes</span>
       </a>
       <a href="#buques" class="btn-outline">
-        <span lang-es>Ver Buques Ganaderos →</span><span lang-en">Livestock Vessels →</span>
+        <span lang-es>Ver Buques Ganaderos →</span><span lang-en>Livestock Vessels →</span>
         <span lang-ar>← السفن الماشية</span><span lang-zh>查看牲畜船 →</span><span lang-pt>Ver Buques Ganaderos →</span>
       </a>
     </div>
@@ -423,11 +428,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat"><div class="stat-num">3</div><span class="stat-label"><span lang-es>Países Origen</span><span lang-en">Origin Countries</span><span lang-ar>دول المصدر</span><span lang-zh>原产地国家</span><span lang-pt>Países Origen</span></span></div>
-    <div class="stat"><div class="stat-num">Halal</div><span class="stat-label"><span lang-es>Certificado</span><span lang-en">Certified</span><span lang-ar>معتمد</span><span lang-zh>认证</span><span lang-pt>Certificado</span></span></div>
-    <div class="stat"><div class="stat-num">MAPA</div><span class="stat-label"><span lang-es>Brasil Cert.</span><span lang-en">Brazil Cert.</span><span lang-ar>شهادة برازيلية</span><span lang-zh>巴西认证</span><span lang-pt>Brasil Cert.</span></span></div>
-    <div class="stat"><div class="stat-num">10+</div><span class="stat-label"><span lang-es>Razas & Cortes</span><span lang-en">Breeds & Cuts</span><span lang-ar>السلالات والقطع</span><span lang-zh>品种与切割</span><span lang-pt>Razas & Cortes</span></span></div>
-    <div class="stat"><div class="stat-num">24/7</div><span class="stat-label"><span lang-es>Logística Viva</span><span lang-en">Live Logistics</span><span lang-ar>لوجستيات حية</span><span lang-zh>活体物流</span><span lang-pt>Logística Viva</span></span></div>
+    <div class="stat"><div class="stat-num">3</div><span class="stat-label"><span lang-es>Países Origen</span><span lang-en>Origin Countries</span><span lang-ar>دول المصدر</span><span lang-zh>原产地国家</span><span lang-pt>Países Origen</span></span></div>
+    <div class="stat"><div class="stat-num">Halal</div><span class="stat-label"><span lang-es>Certificado</span><span lang-en>Certified</span><span lang-ar>معتمد</span><span lang-zh>认证</span><span lang-pt>Certificado</span></span></div>
+    <div class="stat"><div class="stat-num">MAPA</div><span class="stat-label"><span lang-es>Brasil Cert.</span><span lang-en>Brazil Cert.</span><span lang-ar>شهادة برازيلية</span><span lang-zh>巴西认证</span><span lang-pt>Brasil Cert.</span></span></div>
+    <div class="stat"><div class="stat-num">10+</div><span class="stat-label"><span lang-es>Razas & Cortes</span><span lang-en>Breeds & Cuts</span><span lang-ar>السلالات والقطع</span><span lang-zh>品种与切割</span><span lang-pt>Razas & Cortes</span></span></div>
+    <div class="stat"><div class="stat-num">24/7</div><span class="stat-label"><span lang-es>Logística Viva</span><span lang-en>Live Logistics</span><span lang-ar>لوجستيات حية</span><span lang-zh>活体物流</span><span lang-pt>Logística Viva</span></span></div>
   </div>
 </div>
 
@@ -443,54 +448,54 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <div style="background:var(--dark2);padding:6rem 4rem;border-top:1px solid rgba(139,26,26,0.2);">
 <div style="max-width:1400px;margin:0 auto;">
   <p class="eyebrow eyebrow-red"><span lang-es>Animales Vivos · Exportación Certificada</span><span lang-en>Live Animals · Certified Export</span><span lang-ar>الحيوانات الحية · تصدير معتمد</span><span lang-zh>活体动物 · 认证出口</span><span lang-pt>Animales Vivos · Exportación Certificada</span></p>
-  <h2 class="sec-title"><span lang-es>Ganado <em>de élite</em>. Origen trazado.</span><span lang-en">Elite <em>livestock</em>. Traced origin.</span><span lang-ar">ماشية <em>نخبوية</em>. مصدر موثق.</span><span lang-zh>精英<em>牲畜</em>。可追溯的来源。</span><span lang-pt>Ganado <em>de élite</em>. Origen trazado.</span></h2>
+  <h2 class="sec-title"><span lang-es>Ganado <em>de élite</em>. Origen trazado.</span><span lang-en>Elite <em>livestock</em>. Traced origin.</span><span lang-ar>ماشية <em>نخبوية</em>. مصدر موثق.</span><span lang-zh>精英<em>牲畜</em>。可追溯的来源。</span><span lang-pt>Ganado <em>de élite</em>. Origen trazado.</span></h2>
   <div class="prod-grid">
     <div class="prod-card">
       <div class="prod-icon">🐄</div>
-      <div class="prod-name"><span lang-es>Bovinos Vivos</span><span lang-en">Live Cattle</span><span lang-ar>أبقار حية</span><span lang-zh>活牛</span><span lang-pt>Ganado <em>de élite</em>. Origen trazado.</span><span lang-pt>Bovinos Vivos</span></div>
+      <div class="prod-name"><span lang-es>Bovinos Vivos</span><span lang-en>Live Cattle</span><span lang-ar>أبقار حية</span><span lang-zh>活牛</span><span lang-pt>Ganado <em>de élite</em>. Origen trazado.</span><span lang-pt>Bovinos Vivos</span></div>
       <div class="prod-sub prod-sub-red">Nelore · Angus · Brahman · Brasil · Colombia</div>
       <p class="prod-desc">
-        <span lang-es">Bovinos vivos de razas Nelore, Angus Cruzado y Brahman desde Brasil y Colombia. Peso promedio 350–500 kg. Certificación sanitaria MAPA e ICA con historial completo de vacunación y origen. Aptos para engorde, reproducción y faena con Halal.</span>
-        <span lang-en">Live cattle of Nelore, Angus Cross and Brahman breeds from Brazil and Colombia. Average weight 350–500 kg. MAPA and ICA sanitary certification with full vaccination history and origin. Suitable for fattening, breeding and Halal slaughter.</span>
+        <span lang-es>Bovinos vivos de razas Nelore, Angus Cruzado y Brahman desde Brasil y Colombia. Peso promedio 350–500 kg. Certificación sanitaria MAPA e ICA con historial completo de vacunación y origen. Aptos para engorde, reproducción y faena con Halal.</span>
+        <span lang-en>Live cattle of Nelore, Angus Cross and Brahman breeds from Brazil and Colombia. Average weight 350–500 kg. MAPA and ICA sanitary certification with full vaccination history and origin. Suitable for fattening, breeding and Halal slaughter.</span>
         <span lang-ar>أبقار حية من سلالات نيلور وأنجوس وبراهمان من البرازيل وكولومبيا. وزن متوسط 350-500 كجم. شهادة صحية MAPA وICA. مناسبة للتسمين والتربية والذبح الحلال.</span>
-        <span lang-zh">来自巴西和哥伦比亚的尼罗尔、安格斯杂交和婆罗门品种活牛。平均重量350-500公斤。MAPA和ICA卫生认证。适合育肥、繁育和清真屠宰。</span>
+        <span lang-zh>来自巴西和哥伦比亚的尼罗尔、安格斯杂交和婆罗门品种活牛。平均重量350-500公斤。MAPA和ICA卫生认证。适合育肥、繁育和清真屠宰。</span>
       </p>
       <div class="prod-tags"><span class="ptag ptag-red">Nelore</span><span class="ptag ptag-red">Angus</span><span class="ptag ptag-red">Brahman</span><span class="ptag">350–500 kg</span><span class="ptag">Halal Opt.</span><span class="ptag">MAPA · ICA</span></div>
     </div>
     <div class="prod-card">
       <div class="prod-icon">🐑</div>
-      <div class="prod-name"><span lang-es>Ovinos Vivos</span><span lang-en">Live Sheep</span><span lang-ar>أغنام حية</span><span lang-zh>活羊</span><span lang-pt>Ovinos Vivos</span></div>
+      <div class="prod-name"><span lang-es>Ovinos Vivos</span><span lang-en>Live Sheep</span><span lang-ar>أغنام حية</span><span lang-zh>活羊</span><span lang-pt>Ovinos Vivos</span></div>
       <div class="prod-sub prod-sub-red">Dorper · Ile de France · Santa Inês · Brasil</div>
       <p class="prod-desc">
-        <span lang-es">Ovinos vivos de razas Dorper, Ile de France y Santa Inês desde Brasil. Alta demanda en Medio Oriente y Caribe. Peso 35–65 kg. Vacunación completa MAPA. Certificados OIE. Operaciones directas GLV en fincas ganaderas del sur de Brasil.</span>
-        <span lang-en">Live sheep of Dorper, Ile de France and Santa Inês breeds from Brazil. High demand in Middle East and Caribbean. Weight 35–65 kg. Full MAPA vaccination. OIE certificates. Direct GLV operations on livestock farms in southern Brazil.</span>
-        <span lang-ar">أغنام حية من سلالات دوربر وإيل دو فرانس وسانتا إينيس من البرازيل. طلب مرتفع في الشرق الأوسط. وزن 35-65 كجم. شهادات OIE.</span>
-        <span lang-zh">来自巴西的多尔珀、法国岛和圣伊内斯品种活羊。中东和加勒比需求旺盛。重量35-65公斤。OIE证书。</span>
+        <span lang-es>Ovinos vivos de razas Dorper, Ile de France y Santa Inês desde Brasil. Alta demanda en Medio Oriente y Caribe. Peso 35–65 kg. Vacunación completa MAPA. Certificados OIE. Operaciones directas GLV en fincas ganaderas del sur de Brasil.</span>
+        <span lang-en>Live sheep of Dorper, Ile de France and Santa Inês breeds from Brazil. High demand in Middle East and Caribbean. Weight 35–65 kg. Full MAPA vaccination. OIE certificates. Direct GLV operations on livestock farms in southern Brazil.</span>
+        <span lang-ar>أغنام حية من سلالات دوربر وإيل دو فرانس وسانتا إينيس من البرازيل. طلب مرتفع في الشرق الأوسط. وزن 35-65 كجم. شهادات OIE.</span>
+        <span lang-zh>来自巴西的多尔珀、法国岛和圣伊内斯品种活羊。中东和加勒比需求旺盛。重量35-65公斤。OIE证书。</span>
       </p>
       <div class="prod-tags"><span class="ptag ptag-red">Dorper</span><span class="ptag ptag-red">Ile de France</span><span class="ptag ptag-red">Santa Inês</span><span class="ptag">35–65 kg</span><span class="ptag">OIE Cert.</span><span class="ptag">MAPA</span></div>
     </div>
     <div class="prod-card">
       <div class="prod-icon">🐐</div>
-      <div class="prod-name"><span lang-es>Caprinos Vivos</span><span lang-en">Live Goats</span><span lang-ar>ماعز حية</span><span lang-zh>活山羊</span><span lang-pt>Caprinos Vivos</span></div>
+      <div class="prod-name"><span lang-es>Caprinos Vivos</span><span lang-en>Live Goats</span><span lang-ar>ماعز حية</span><span lang-zh>活山羊</span><span lang-pt>Caprinos Vivos</span></div>
       <div class="prod-sub prod-sub-red">Anglo Nubiana · Boer · Colombia · Brasil</div>
       <p class="prod-desc">
-        <span lang-es">Caprinos vivos de razas Anglo Nubiana y Boer desde Colombia y Brasil. Ideal para mercado étnico USA, Caribe, Medio Oriente y África. Peso 25–50 kg. Certificación ICA Colombia y MAPA Brasil. Halal certificado disponible.</span>
-        <span lang-en">Live goats of Anglo Nubian and Boer breeds from Colombia and Brazil. Ideal for ethnic market USA, Caribbean, Middle East and Africa. Weight 25–50 kg. ICA Colombia and MAPA Brazil certification. Halal certified available.</span>
-        <span lang-ar">ماعز حية من سلالات أنجلو نوبيان وبوير من كولومبيا والبرازيل. مثالية للسوق الإثنية والشرق الأوسط. وزن 25-50 كجم. شهادة ICA وMAPA.</span>
-        <span lang-zh">来自哥伦比亚和巴西的盎格鲁努比亚和波尔品种活山羊。适合族裔市场、美国、加勒比、中东和非洲。重量25-50公斤。</span>
+        <span lang-es>Caprinos vivos de razas Anglo Nubiana y Boer desde Colombia y Brasil. Ideal para mercado étnico USA, Caribe, Medio Oriente y África. Peso 25–50 kg. Certificación ICA Colombia y MAPA Brasil. Halal certificado disponible.</span>
+        <span lang-en>Live goats of Anglo Nubian and Boer breeds from Colombia and Brazil. Ideal for ethnic market USA, Caribbean, Middle East and Africa. Weight 25–50 kg. ICA Colombia and MAPA Brazil certification. Halal certified available.</span>
+        <span lang-ar>ماعز حية من سلالات أنجلو نوبيان وبوير من كولومبيا والبرازيل. مثالية للسوق الإثنية والشرق الأوسط. وزن 25-50 كجم. شهادة ICA وMAPA.</span>
+        <span lang-zh>来自哥伦比亚和巴西的盎格鲁努比亚和波尔品种活山羊。适合族裔市场、美国、加勒比、中东和非洲。重量25-50公斤。</span>
       </p>
       <div class="prod-tags"><span class="ptag ptag-red">Anglo Nubiana</span><span class="ptag ptag-red">Boer</span><span class="ptag">ICA · MAPA</span><span class="ptag">Halal Cert.</span><span class="ptag">25–50 kg</span></div>
     </div>
   </div>
 
   <!-- RAZAS -->
-  <p class="eyebrow eyebrow-red" style="margin-top:4rem;"><span lang-es>Razas Certificadas</span><span lang-en">Certified Breeds</span><span lang-ar>السلالات المعتمدة</span><span lang-zh>认证品种</span><span lang-pt>Razas Certificadas</span></p>
-  <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:0;"><span lang-es>Genética de <em>élite</em></span><span lang-en">Elite <em>genetics</em></span><span lang-ar">وراثة <em>نخبوية</em></span><span lang-zh>精英<em>基因</em></span><span lang-pt>Genética de <em>élite</em></span></h3>
+  <p class="eyebrow eyebrow-red" style="margin-top:4rem;"><span lang-es>Razas Certificadas</span><span lang-en>Certified Breeds</span><span lang-ar>السلالات المعتمدة</span><span lang-zh>认证品种</span><span lang-pt>Razas Certificadas</span></p>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;margin-bottom:0;"><span lang-es>Genética de <em>élite</em></span><span lang-en>Elite <em>genetics</em></span><span lang-ar>وراثة <em>نخبوية</em></span><span lang-zh>精英<em>基因</em></span><span lang-pt>Genética de <em>élite</em></span></h3>
   <div class="breed-grid">
-    <div class="breed-card"><div class="breed-name">Nelore</div><div class="breed-type"><span lang-es>Bovino · Brasil</span><span lang-en">Cattle · Brazil</span><span lang-pt>Bovino · Brasil</span></div><p class="breed-desc"><span lang-es">Raza Zebu de alta rusticidad y adaptabilidad tropical. Carne magra, alta tolerancia al calor. 80% del rebaño ganadero brasileño.</span><span lang-en">Zebu breed of high rusticity and tropical adaptability. Lean meat, high heat tolerance. 80% of Brazil's livestock herd.</span></p></div>
-    <div class="breed-card"><div class="breed-name">Angus Cruzado</div><div class="breed-type"><span lang-es>Bovino Premium</span><span lang-en">Premium Cattle</span><span lang-pt>Bovino Premium</span></div><p class="breed-desc"><span lang-es">Cruce Angus × Nelore. Carne con mayor marmoleado. Ideal para mercados premium y cortes especiales de exportación.</span><span lang-en">Angus × Nelore cross. Higher marbled meat. Ideal for premium markets and special export cuts.</span></p></div>
-    <div class="breed-card"><div class="breed-name">Dorper</div><div class="breed-type"><span lang-es>Ovino · Brasil</span><span lang-en">Sheep · Brazil</span><span lang-pt>Ovino · Brasil</span></div><p class="breed-desc"><span lang-es">Raza ovino de doble propósito, carne y piel. Alta prolificidad. Preferida en Medio Oriente por su sabor intenso y conformación corporal.</span><span lang-en">Dual-purpose sheep breed, meat and skin. High prolificacy. Preferred in the Middle East for its intense flavor and body conformation.</span></p></div>
-    <div class="breed-card"><div class="breed-name">Ile de France</div><div class="breed-type"><span lang-es>Ovino Premium</span><span lang-en">Premium Sheep</span><span lang-pt>Ovino Premium</span></div><p class="breed-desc"><span lang-es">Ovino carnicero de origen francés. Musculatura superior, poca grasa. Muy apreciado en mercados gourmet y restauración de alta gama.</span><span lang-en">French-origin meat sheep. Superior musculature, little fat. Highly appreciated in gourmet markets and high-end restaurants.</span></p></div>
+    <div class="breed-card"><div class="breed-name">Nelore</div><div class="breed-type"><span lang-es>Bovino · Brasil</span><span lang-en>Cattle · Brazil</span><span lang-pt>Bovino · Brasil</span></div><p class="breed-desc"><span lang-es>Raza Zebu de alta rusticidad y adaptabilidad tropical. Carne magra, alta tolerancia al calor. 80% del rebaño ganadero brasileño.</span><span lang-en>Zebu breed of high rusticity and tropical adaptability. Lean meat, high heat tolerance. 80% of Brazil's livestock herd.</span></p></div>
+    <div class="breed-card"><div class="breed-name">Angus Cruzado</div><div class="breed-type"><span lang-es>Bovino Premium</span><span lang-en>Premium Cattle</span><span lang-pt>Bovino Premium</span></div><p class="breed-desc"><span lang-es>Cruce Angus × Nelore. Carne con mayor marmoleado. Ideal para mercados premium y cortes especiales de exportación.</span><span lang-en>Angus × Nelore cross. Higher marbled meat. Ideal for premium markets and special export cuts.</span></p></div>
+    <div class="breed-card"><div class="breed-name">Dorper</div><div class="breed-type"><span lang-es>Ovino · Brasil</span><span lang-en>Sheep · Brazil</span><span lang-pt>Ovino · Brasil</span></div><p class="breed-desc"><span lang-es>Raza ovino de doble propósito, carne y piel. Alta prolificidad. Preferida en Medio Oriente por su sabor intenso y conformación corporal.</span><span lang-en>Dual-purpose sheep breed, meat and skin. High prolificacy. Preferred in the Middle East for its intense flavor and body conformation.</span></p></div>
+    <div class="breed-card"><div class="breed-name">Ile de France</div><div class="breed-type"><span lang-es>Ovino Premium</span><span lang-en>Premium Sheep</span><span lang-pt>Ovino Premium</span></div><p class="breed-desc"><span lang-es>Ovino carnicero de origen francés. Musculatura superior, poca grasa. Muy apreciado en mercados gourmet y restauración de alta gama.</span><span lang-en>French-origin meat sheep. Superior musculature, little fat. Highly appreciated in gourmet markets and high-end restaurants.</span></p></div>
   </div>
 </div>
 </div>
@@ -498,23 +503,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <!-- CORTES DE CARNE -->
 <div style="background:var(--dark);padding:6rem 4rem;">
 <div style="max-width:1400px;margin:0 auto;">
-  <p class="eyebrow"><span lang-es>Cortes Premium · Exportación</span><span lang-en">Premium Cuts · Export</span><span lang-ar>قطع ممتازة · تصدير</span><span lang-zh>优质切割 · 出口</span><span lang-pt>Genética de <em>élite</em></span><span lang-pt>Bovino · Brasil</span><span lang-pt>Cortes Premium · Exportación</span></p>
-  <h2 class="sec-title"><span lang-es>Cortes <em>certificados</em> de élite</span><span lang-en">Certified <em>elite</em> cuts</span><span lang-ar">قطع <em>معتمدة</em> نخبوية</span><span lang-zh>认证<em>精英</em>切割</span><span lang-pt>Cortes <em>certificados</em> de élite</span></h2>
+  <p class="eyebrow"><span lang-es>Cortes Premium · Exportación</span><span lang-en>Premium Cuts · Export</span><span lang-ar>قطع ممتازة · تصدير</span><span lang-zh>优质切割 · 出口</span><span lang-pt>Genética de <em>élite</em></span><span lang-pt>Bovino · Brasil</span><span lang-pt>Cortes Premium · Exportación</span></p>
+  <h2 class="sec-title"><span lang-es>Cortes <em>certificados</em> de élite</span><span lang-en>Certified <em>elite</em> cuts</span><span lang-ar>قطع <em>معتمدة</em> نخبوية</span><span lang-zh>认证<em>精英</em>切割</span><span lang-pt>Cortes <em>certificados</em> de élite</span></h2>
   <div class="cuts-grid">
-    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Rib Eye</div><p class="cut-spec"><span lang-es">Lomo ancho con hueso. Alta marmorización. Ref. IMPS 112A. Congelado o fresco.</span><span lang-en">Bone-in ribeye. High marbling. Ref. IMPS 112A. Frozen or fresh.</span></p><span class="cut-badge">USDA Ref.</span></div>
-    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Striploin</div><p class="cut-spec"><span lang-es">Lomo fino sin hueso. Corte NY Strip. Congelado IQF. Halal disponible.</span><span lang-en">Boneless fine loin. NY Strip cut. IQF frozen. Halal available.</span></p><span class="cut-badge">NY Strip</span></div>
-    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Tenderloin</div><p class="cut-spec"><span lang-es">Solomillo. El corte más tierno. Empaque individual. MOQ 500 kg.</span><span lang-en">Tenderloin. The most tender cut. Individual packaging. MOQ 500 kg.</span></p><span class="cut-badge">Premium</span></div>
-    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Chuck / Paleta</div><p class="cut-spec"><span lang-es">Paleta bovina. Ideal para guisos, mercado masivo. Precio competitivo.</span><span lang-en">Chuck roast. Ideal for stews, mass market. Competitive price.</span></p><span class="cut-badge">Mass Market</span></div>
-    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Rack de Cordero</div><p class="cut-spec"><span lang-es">Costillar de cordero Halal. 8 costillas. Premium gastronómico.</span><span lang-en">Halal lamb rack. 8 ribs. Gastronomic premium.</span></p><span class="cut-badge">Halal</span></div>
-    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Pierna de Cordero</div><p class="cut-spec"><span lang-es">Pierna entera o deshuesada. Congelado. MOQ 1 MT. Medio Oriente.</span><span lang-en">Whole or boneless leg. Frozen. MOQ 1 MT. Middle East.</span></p><span class="cut-badge">Halal</span></div>
-    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Hombro de Cordero</div><p class="cut-spec"><span lang-es">Paleta de cordero entera. Cocción lenta. Mercado árabe y mediterráneo.</span><span lang-en">Whole lamb shoulder. Slow cooking. Arab and Mediterranean market.</span></p><span class="cut-badge">Arab Market</span></div>
-    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Cortes Especiales</div><p class="cut-spec"><span lang-es">Flank, skirt, brisket, short rib. Por pedido. MOQ flexible.</span><span lang-en">Flank, skirt, brisket, short rib. By order. Flexible MOQ.</span></p><span class="cut-badge">Custom</span></div>
+    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Rib Eye</div><p class="cut-spec"><span lang-es>Lomo ancho con hueso. Alta marmorización. Ref. IMPS 112A. Congelado o fresco.</span><span lang-en>Bone-in ribeye. High marbling. Ref. IMPS 112A. Frozen or fresh.</span></p><span class="cut-badge">USDA Ref.</span></div>
+    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Striploin</div><p class="cut-spec"><span lang-es>Lomo fino sin hueso. Corte NY Strip. Congelado IQF. Halal disponible.</span><span lang-en>Boneless fine loin. NY Strip cut. IQF frozen. Halal available.</span></p><span class="cut-badge">NY Strip</span></div>
+    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Tenderloin</div><p class="cut-spec"><span lang-es>Solomillo. El corte más tierno. Empaque individual. MOQ 500 kg.</span><span lang-en>Tenderloin. The most tender cut. Individual packaging. MOQ 500 kg.</span></p><span class="cut-badge">Premium</span></div>
+    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Chuck / Paleta</div><p class="cut-spec"><span lang-es>Paleta bovina. Ideal para guisos, mercado masivo. Precio competitivo.</span><span lang-en>Chuck roast. Ideal for stews, mass market. Competitive price.</span></p><span class="cut-badge">Mass Market</span></div>
+    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Rack de Cordero</div><p class="cut-spec"><span lang-es>Costillar de cordero Halal. 8 costillas. Premium gastronómico.</span><span lang-en>Halal lamb rack. 8 ribs. Gastronomic premium.</span></p><span class="cut-badge">Halal</span></div>
+    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Pierna de Cordero</div><p class="cut-spec"><span lang-es>Pierna entera o deshuesada. Congelado. MOQ 1 MT. Medio Oriente.</span><span lang-en>Whole or boneless leg. Frozen. MOQ 1 MT. Middle East.</span></p><span class="cut-badge">Halal</span></div>
+    <div class="cut-card"><div class="cut-icon">🐑</div><div class="cut-name">Hombro de Cordero</div><p class="cut-spec"><span lang-es>Paleta de cordero entera. Cocción lenta. Mercado árabe y mediterráneo.</span><span lang-en>Whole lamb shoulder. Slow cooking. Arab and Mediterranean market.</span></p><span class="cut-badge">Arab Market</span></div>
+    <div class="cut-card"><div class="cut-icon">🥩</div><div class="cut-name">Cortes Especiales</div><p class="cut-spec"><span lang-es>Flank, skirt, brisket, short rib. Por pedido. MOQ flexible.</span><span lang-en>Flank, skirt, brisket, short rib. By order. Flexible MOQ.</span></p><span class="cut-badge">Custom</span></div>
+  </div>
+  <div class="media-gallery" aria-label="Imágenes de cortes premium y carcasa de cordero">
+    <figure><img src="./imagenes/animales/cortes/cordero-carcasa-completa.webp" alt="Carcasa completa de cordero preparada para exportación" loading="lazy"><figcaption><span lang-es>Carcasa completa de cordero</span><span lang-en>Whole lamb carcass</span><span lang-ar>ذبيحة خروف كاملة</span><span lang-zh>整只羊胴体</span><span lang-pt>Carcaça completa de cordeiro</span></figcaption></figure>
+    <figure><img src="./imagenes/animales/cortes/cordero-corte-01.webp" alt="Corte premium de cordero" loading="lazy"><figcaption><span lang-es>Corte premium de cordero</span><span lang-en>Premium lamb cut</span><span lang-ar>قطعة لحم ضأن ممتازة</span><span lang-zh>优质羊肉切割</span><span lang-pt>Corte premium de cordeiro</span></figcaption></figure>
+    <figure><img src="./imagenes/animales/cortes/cordero-corte-02.webp" alt="Presentación de corte de cordero" loading="lazy"><figcaption><span lang-es>Presentación de corte</span><span lang-en>Cut presentation</span><span lang-ar>عرض القطع</span><span lang-zh>切割展示</span><span lang-pt>Apresentação do corte</span></figcaption></figure>
+    <figure><img src="./imagenes/animales/cortes/cordero-corte-03.webp" alt="Corte de cordero empacado" loading="lazy"><figcaption><span lang-es>Corte de cordero</span><span lang-en>Lamb cut</span><span lang-ar>قطعة لحم ضأن</span><span lang-zh>羊肉切割</span><span lang-pt>Corte de cordeiro</span></figcaption></figure>
+    <figure><img src="./imagenes/animales/cortes/cordero-corte-04.webp" alt="Detalle de corte premium de cordero" loading="lazy"><figcaption><span lang-es>Detalle de corte premium</span><span lang-en>Premium cut detail</span><span lang-ar>تفاصيل القطعة الممتازة</span><span lang-zh>优质切割细节</span><span lang-pt>Detalhe do corte premium</span></figcaption></figure>
   </div>
 </div>
 </div>
 
 <!-- SPLIT — BUQUES GANADEROS -->
-<div class="split" id="buques">
+<div class="split" id="logistica-viva">
   <div class="split-img">
     <picture>
       <source srcset="./imagenes/mv-alkuwait-glv.webp" type="image/webp">
@@ -524,70 +536,70 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </picture>
   </div>
   <div class="split-content">
-    <p class="eyebrow eyebrow-red"><span lang-es>Logística Viva · Buques Ganaderos</span><span lang-en">Live Logistics · Livestock Vessels</span><span lang-ar>اللوجستيات الحية · سفن الماشية</span><span lang-zh">活体物流 · 牲畜运输船</span><span lang-pt>Cortes <em>certificados</em> de élite</span><span lang-pt>Logística Viva · Buques Ganaderos</span></p>
-    <h2 class="sec-title"><span lang-es>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span><span lang-en">Specialized <em>fleet</em>.<br>Maximum animal welfare.</span><span lang-ar">أسطول <em>متخصص</em>.<br>أقصى رعاية للحيوان.</span><span lang-zh">专业<em>船队</em>.<br>最大化动物福利.</span><span lang-pt>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span></h2>
+    <p class="eyebrow eyebrow-red"><span lang-es>Logística Viva · Buques Ganaderos</span><span lang-en>Live Logistics · Livestock Vessels</span><span lang-ar>اللوجستيات الحية · سفن الماشية</span><span lang-zh>活体物流 · 牲畜运输船</span><span lang-pt>Cortes <em>certificados</em> de élite</span><span lang-pt>Logística Viva · Buques Ganaderos</span></p>
+    <h2 class="sec-title"><span lang-es>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span><span lang-en>Specialized <em>fleet</em>.<br>Maximum animal welfare.</span><span lang-ar>أسطول <em>متخصص</em>.<br>أقصى رعاية للحيوان.</span><span lang-zh>专业<em>船队</em>.<br>最大化动物福利.</span><span lang-pt>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span></h2>
     <p style="font-size:1rem;color:var(--text-dim);line-height:1.75;margin-bottom:1.5rem;">
-      <span lang-es">El transporte de animales vivos exige logística de precisión. GLV Global Food Services coordina el embarque en buques ganaderos certificados con sistemas de ventilación, alimentación automatizada y veterinarios a bordo. Orígenes: Brasil, Uruguay, Argentina, Chile, Australia y Rumania. Destinos: UAE, Kuwait, Jordania, Caribe y África.</span>
-      <span lang-en">Transporting live animals requires precision logistics. GLV Global Food Services coordinates shipment on certified livestock vessels with ventilation systems, automated feeding and onboard veterinarians. Origins: Brazil, Uruguay, Argentina, Chile, Australia and Romania. Destinations: UAE, Kuwait, Jordan, Caribbean and Africa.</span>
-      <span lang-ar">نقل الحيوانات الحية يتطلب لوجستيات دقيقة. تنسق GLV الشحن على سفن ماشية معتمدة. المسارات الرئيسية: ميامي → الإمارات، الكويت، الأردن، الكاريبي.</span>
-      <span lang-zh">活体动物运输需要精准物流。GLV协调在认证牲畜船上装运，配备通风系统、自动喂料和船上兽医。主要航线：迈阿密→阿联酋、科威特、约旦、加勒比。</span>
+      <span lang-es>El transporte de animales vivos exige logística de precisión. GLV Global Food Services coordina el embarque en buques ganaderos certificados con sistemas de ventilación, alimentación automatizada y veterinarios a bordo. Orígenes: Brasil, Uruguay, Argentina, Chile, Australia y Rumania. Destinos: UAE, Kuwait, Jordania, Caribe y África.</span>
+      <span lang-en>Transporting live animals requires precision logistics. GLV Global Food Services coordinates shipment on certified livestock vessels with ventilation systems, automated feeding and onboard veterinarians. Origins: Brazil, Uruguay, Argentina, Chile, Australia and Romania. Destinations: UAE, Kuwait, Jordan, Caribbean and Africa.</span>
+      <span lang-ar>نقل الحيوانات الحية يتطلب لوجستيات دقيقة. تنسق GLV الشحن على سفن ماشية معتمدة. المسارات الرئيسية: ميامي → الإمارات، الكويت، الأردن، الكاريبي.</span>
+      <span lang-zh>活体动物运输需要精准物流。GLV协调在认证牲畜船上装运，配备通风系统、自动喂料和船上兽医。主要航线：迈阿密→阿联酋、科威特、约旦、加勒比。</span>
     </p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem;">
       <div style="background:rgba(139,26,26,0.12);border-left:2px solid var(--red);padding:1rem 1.2rem;">
-        <div style="font-size:0.78rem;color:#e87070;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;"><span lang-es>Bienestar Animal</span><span lang-en">Animal Welfare</span><span lang-pt>Bienestar Animal</span></div>
-        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Vet. a bordo 24/7</span><span lang-en">Vet. onboard 24/7</span><span lang-pt>Vet. a bordo 24/7</span></div>
+        <div style="font-size:0.78rem;color:#e87070;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;"><span lang-es>Bienestar Animal</span><span lang-en>Animal Welfare</span><span lang-pt>Bienestar Animal</span></div>
+        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Vet. a bordo 24/7</span><span lang-en>Vet. onboard 24/7</span><span lang-pt>Vet. a bordo 24/7</span></div>
       </div>
       <div style="background:rgba(139,26,26,0.12);border-left:2px solid var(--red);padding:1rem 1.2rem;">
         <div style="font-size:0.78rem;color:#e87070;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Halal</div>
-        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Certificado destino</span><span lang-en">Destination certified</span><span lang-pt>Certificado destino</span></div>
+        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Certificado destino</span><span lang-en>Destination certified</span><span lang-pt>Certificado destino</span></div>
       </div>
       <div style="background:rgba(139,26,26,0.12);border-left:2px solid var(--red);padding:1rem 1.2rem;">
         <div style="font-size:0.78rem;color:#e87070;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">OIE</div>
-        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Certificados sanidad</span><span lang-en">Health certificates</span><span lang-pt>Certificados sanidad</span></div>
+        <div style="font-size:0.9rem;color:var(--text-dim);"><span lang-es>Certificados sanidad</span><span lang-en>Health certificates</span><span lang-pt>Certificados sanidad</span></div>
       </div>
       <div style="background:rgba(139,26,26,0.12);border-left:2px solid var(--red);padding:1rem 1.2rem;">
         <div style="font-size:0.78rem;color:#e87070;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;">Trazabilidad</div>
         <div style="font-size:0.9rem;color:var(--text-dim);">GPS + Chip ID</div>
       </div>
     </div>
-    <a href="./index.html#cotizar" class="btn-gold"><span lang-es>Cotizar Embarque →</span><span lang-en">Quote Shipment →</span><span lang-ar>← طلب شحن</span><span lang-zh>询价货运 →</span><span lang-pt>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span><span lang-pt>Bienestar Animal</span><span lang-pt>Cotizar Embarque →</span></a>
+    <a href="./index.html#cotizar" class="btn-gold"><span lang-es>Cotizar Embarque →</span><span lang-en>Quote Shipment →</span><span lang-ar>← طلب شحن</span><span lang-zh>询价货运 →</span><span lang-pt>Flota <em>especializada</em>.<br>Máximo bienestar animal.</span><span lang-pt>Bienestar Animal</span><span lang-pt>Cotizar Embarque →</span></a>
   </div>
 </div>
 
 <!-- BUQUES OPERADOS -->
 <div id="buques" style="background:var(--dark2);padding:6rem 4rem;border-top:1px solid rgba(139,26,26,0.2);">
 <div style="max-width:1400px;margin:0 auto;">
-  <p class="eyebrow eyebrow-red" style="justify-content:center;"><span lang-es>Buques Ganaderos Referencia</span><span lang-en">Reference Livestock Vessels</span><span lang-ar>سفن الماشية المرجعية</span><span lang-zh">参考牲畜运输船</span><span lang-pt>Buques Ganaderos Referencia</span></p>
-  <h2 class="sec-title" style="text-align:center;"><span lang-es>Logística <em>de precisión</em> para vida</span><span lang-en">Precision <em>logistics</em> for life</span><span lang-ar">لوجستيات <em>دقيقة</em> للحياة</span><span lang-zh">生命的<em>精准</em>物流</span><span lang-pt>Logística <em>de precisión</em> para vida</span></h2>
+  <p class="eyebrow eyebrow-red" style="justify-content:center;"><span lang-es>Buques Ganaderos Referencia</span><span lang-en>Reference Livestock Vessels</span><span lang-ar>سفن الماشية المرجعية</span><span lang-zh>参考牲畜运输船</span><span lang-pt>Buques Ganaderos Referencia</span></p>
+  <h2 class="sec-title" style="text-align:center;"><span lang-es>Logística <em>de precisión</em> para vida</span><span lang-en>Precision <em>logistics</em> for life</span><span lang-ar>لوجستيات <em>دقيقة</em> للحياة</span><span lang-zh>生命的<em>精准</em>物流</span><span lang-pt>Logística <em>de precisión</em> para vida</span></h2>
   <div class="ship-grid">
     <div class="ship-card">
       <div class="ship-name">MV Al Kuwait</div>
-      <div class="ship-type"><span lang-es>Buque Ganadero · Clase Jumbo</span><span lang-en">Livestock Carrier · Jumbo Class</span><span lang-pt>Buque Ganadero · Clase Jumbo</span></div>
+      <div class="ship-type"><span lang-es>Buque Ganadero · Clase Jumbo</span><span lang-en>Livestock Carrier · Jumbo Class</span><span lang-pt>Buque Ganadero · Clase Jumbo</span></div>
       <ul class="ship-specs">
-        <li><strong><span lang-es>Capacidad:</span><span lang-en">Capacity:</span><span lang-pt>Capacidad:</span></strong> 100,000+ <span lang-es>animales</span><span lang-en">animals</span><span lang-pt>animales</span></li>
+        <li><strong><span lang-es>Capacidad:</span><span lang-en>Capacity:</span><span lang-pt>Capacidad:</span></strong> 100,000+ <span lang-es>animales</span><span lang-en>animals</span><span lang-pt>animales</span></li>
         <li><strong>Ruta:</strong> Brasil · UY · AR · AU · RO → ME · Caribe · África</li>
-        <li><strong><span lang-es>Ventilación:</span><span lang-en">Ventilation:</span><span lang-pt>Ventilación:</span></strong> <span lang-es>Forzada + natural</span><span lang-en">Forced + natural</span><span lang-pt>Forzada + natural</span></li>
+        <li><strong><span lang-es>Ventilación:</span><span lang-en>Ventilation:</span><span lang-pt>Ventilación:</span></strong> <span lang-es>Forzada + natural</span><span lang-en>Forced + natural</span><span lang-pt>Forzada + natural</span></li>
         <li><strong>Vet. a bordo:</strong> 24/7</li>
       </ul>
     </div>
     <div class="ship-card">
       <div class="ship-name">MV Ocean Shearer</div>
-      <div class="ship-type"><span lang-es>Buque Ovino · Australia–Medio Oriente</span><span lang-en">Sheep Carrier · Australia–Middle East</span><span lang-pt>Buque Ovino · Australia–Medio Oriente</span></div>
+      <div class="ship-type"><span lang-es>Buque Ovino · Australia–Medio Oriente</span><span lang-en>Sheep Carrier · Australia–Middle East</span><span lang-pt>Buque Ovino · Australia–Medio Oriente</span></div>
       <ul class="ship-specs">
-        <li><strong><span lang-es>Especialidad:</span><span lang-en">Specialty:</span><span lang-pt>Especialidad:</span></strong> <span lang-es>Ovinos vivos</span><span lang-en">Live sheep</span><span lang-pt>Ovinos vivos</span></li>
+        <li><strong><span lang-es>Especialidad:</span><span lang-en>Specialty:</span><span lang-pt>Especialidad:</span></strong> <span lang-es>Ovinos vivos</span><span lang-en>Live sheep</span><span lang-pt>Ovinos vivos</span></li>
         <li><strong>Ruta:</strong> Brasil → Caribe → ME</li>
         <li><strong>Certificación:</strong> OIE · MAPA · ICA</li>
-        <li><strong>Halal:</strong> <span lang-es>Supervisión a bordo</span><span lang-en">Onboard supervision</span><span lang-pt>Supervisión a bordo</span></li>
+        <li><strong>Halal:</strong> <span lang-es>Supervisión a bordo</span><span lang-en>Onboard supervision</span><span lang-pt>Supervisión a bordo</span></li>
       </ul>
     </div>
     <div class="ship-card">
       <div class="ship-name">MV Gelbray</div>
-      <div class="ship-type"><span lang-es>Buque Ganadero · Bovinos</span><span lang-en">Livestock Carrier · Cattle</span><span lang-pt>Buque Ganadero · Bovinos</span></div>
+      <div class="ship-type"><span lang-es>Buque Ganadero · Bovinos</span><span lang-en>Livestock Carrier · Cattle</span><span lang-pt>Buque Ganadero · Bovinos</span></div>
       <ul class="ship-specs">
-        <li><strong><span lang-es>Capacidad:</span><span lang-en">Capacity:</span><span lang-pt>Capacidad:</span></strong> <span lang-es>Bovinos + caprinos</span><span lang-en">Cattle + goats</span><span lang-pt>Bovinos + caprinos</span></li>
+        <li><strong><span lang-es>Capacidad:</span><span lang-en>Capacity:</span><span lang-pt>Capacidad:</span></strong> <span lang-es>Bovinos + caprinos</span><span lang-en>Cattle + goats</span><span lang-pt>Bovinos + caprinos</span></li>
         <li><strong>Ruta:</strong> Colombia · Brasil → Caribe</li>
-        <li><strong>GPS:</strong> <span lang-es>Trazabilidad total</span><span lang-en">Full traceability</span><span lang-pt>Trazabilidad total</span></li>
-        <li><strong><span lang-es>Sistema:</span><span lang-en">System:</span><span lang-pt>Sistema:</span></strong> <span lang-es>Chip ID individual</span><span lang-en">Individual chip ID</span><span lang-pt>Chip ID individual</span></li>
+        <li><strong>GPS:</strong> <span lang-es>Trazabilidad total</span><span lang-en>Full traceability</span><span lang-pt>Trazabilidad total</span></li>
+        <li><strong><span lang-es>Sistema:</span><span lang-en>System:</span><span lang-pt>Sistema:</span></strong> <span lang-es>Chip ID individual</span><span lang-en>Individual chip ID</span><span lang-pt>Chip ID individual</span></li>
       </ul>
     </div>
   </div>
@@ -597,17 +609,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <!-- MERCADOS -->
 <div style="padding:6rem 4rem;background:var(--dark);">
 <div style="max-width:1400px;margin:0 auto;">
-  <p class="eyebrow"><span lang-es>Mercados Destino</span><span lang-en">Destination Markets</span><span lang-ar>الأسواق المستهدفة</span><span lang-zh>目标市场</span><span lang-pt>Logística <em>de precisión</em> para vida</span><span lang-pt>Buque Ganadero · Clase Jumbo</span><span lang-pt>Mercados de Destino</span></p>
-  <h2 class="sec-title"><span lang-es>Desde <em>el origen al mundo</em></span><span lang-en">From <em>origin to the world</em></span><span lang-ar>من <em>المصدر إلى العالم</em></span><span lang-zh>从<em>产地走向世界</em></span><span lang-pt>Desde <em>el origen al mundo</em></span></h2>
+  <p class="eyebrow"><span lang-es>Mercados Destino</span><span lang-en>Destination Markets</span><span lang-ar>الأسواق المستهدفة</span><span lang-zh>目标市场</span><span lang-pt>Logística <em>de precisión</em> para vida</span><span lang-pt>Buque Ganadero · Clase Jumbo</span><span lang-pt>Mercados de Destino</span></p>
+  <h2 class="sec-title"><span lang-es>Desde <em>el origen al mundo</em></span><span lang-en>From <em>origin to the world</em></span><span lang-ar>من <em>المصدر إلى العالم</em></span><span lang-zh>从<em>产地走向世界</em></span><span lang-pt>Desde <em>el origen al mundo</em></span></h2>
   <div class="mkt-grid">
-    <div class="mkt-card"><span class="mkt-flag">🇦🇪</span><div class="mkt-name">UAE · Dubai</div><div class="mkt-detail"><span lang-es">Halal · Ovinos premium</span><span lang-en">Halal · Premium sheep</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇸🇦</span><div class="mkt-name">Arabia Saudita</div><div class="mkt-detail">Halal · <span lang-es>Alta demanda</span><span lang-en">High demand</span><span lang-pt>Alta demanda</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇯🇴</span><div class="mkt-name">Jordania</div><div class="mkt-detail"><span lang-es">Ovinos · Caprinos</span><span lang-en">Sheep · Goats</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇰🇼</span><div class="mkt-name">Kuwait</div><div class="mkt-detail">Halal · <span lang-es>Cortes bovinos</span><span lang-en">Beef cuts</span><span lang-pt>Cortes bovinos</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇩🇴</span><div class="mkt-name">Rep. Dominicana</div><div class="mkt-detail"><span lang-es">Caprinos · Mercado étnico</span><span lang-en">Goats · Ethnic market</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇹🇹</span><div class="mkt-name">Trinidad & Tobago</div><div class="mkt-detail"><span lang-es">Caprinos vivos</span><span lang-en">Live goats</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇳🇦</span><div class="mkt-name">Namibia · África</div><div class="mkt-detail"><span lang-es">Bovinos engorde</span><span lang-en">Fattening cattle</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇺🇸</span><div class="mkt-name">USA · Mercado Étnico</div><div class="mkt-detail"><span lang-es">Caprinos · Cordero Halal</span><span lang-en">Goats · Halal Lamb</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇦🇪</span><div class="mkt-name">UAE · Dubai</div><div class="mkt-detail"><span lang-es>Halal · Ovinos premium</span><span lang-en>Halal · Premium sheep</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇸🇦</span><div class="mkt-name">Arabia Saudita</div><div class="mkt-detail">Halal · <span lang-es>Alta demanda</span><span lang-en>High demand</span><span lang-pt>Alta demanda</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇯🇴</span><div class="mkt-name">Jordania</div><div class="mkt-detail"><span lang-es>Ovinos · Caprinos</span><span lang-en>Sheep · Goats</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇰🇼</span><div class="mkt-name">Kuwait</div><div class="mkt-detail">Halal · <span lang-es>Cortes bovinos</span><span lang-en>Beef cuts</span><span lang-pt>Cortes bovinos</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇩🇴</span><div class="mkt-name">Rep. Dominicana</div><div class="mkt-detail"><span lang-es>Caprinos · Mercado étnico</span><span lang-en>Goats · Ethnic market</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇹🇹</span><div class="mkt-name">Trinidad & Tobago</div><div class="mkt-detail"><span lang-es>Caprinos vivos</span><span lang-en>Live goats</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇳🇦</span><div class="mkt-name">Namibia · África</div><div class="mkt-detail"><span lang-es>Bovinos engorde</span><span lang-en>Fattening cattle</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">🇺🇸</span><div class="mkt-name">USA · Mercado Étnico</div><div class="mkt-detail"><span lang-es>Caprinos · Cordero Halal</span><span lang-en>Goats · Halal Lamb</span></div></div>
   </div>
   <div class="certs-row">
     <span class="cert">MAPA Brasil</span><span class="cert">ICA Colombia</span><span class="cert">INAC Uruguay</span>
@@ -620,14 +632,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <!-- PROCESO -->
 <div style="background:var(--dark2);padding:6rem 4rem;border-top:1px solid rgba(139,26,26,0.15);">
 <div style="max-width:1400px;margin:0 auto;">
-  <p class="eyebrow eyebrow-red" style="justify-content:center;"><span lang-es>Proceso Operativo</span><span lang-en">Operational Process</span><span lang-ar>العملية التشغيلية</span><span lang-zh>运营流程</span><span lang-pt>Alta demanda</span><span lang-pt>Proceso Operativo</span></p>
-  <h2 class="sec-title" style="text-align:center;"><span lang-es>De <em>origen</em> a destino vivo</span><span lang-en">From <em>origin</em> to live destination</span><span lang-ar>من <em>المصدر</em> إلى الوجهة حياً</span><span lang-zh">从<em>产地</em>到目的地</span><span lang-pt>De <em>origen</em> a destino vivo</span></h2>
+  <p class="eyebrow eyebrow-red" style="justify-content:center;"><span lang-es>Proceso Operativo</span><span lang-en>Operational Process</span><span lang-ar>العملية التشغيلية</span><span lang-zh>运营流程</span><span lang-pt>Alta demanda</span><span lang-pt>Proceso Operativo</span></p>
+  <h2 class="sec-title" style="text-align:center;"><span lang-es>De <em>origen</em> a destino vivo</span><span lang-en>From <em>origin</em> to live destination</span><span lang-ar>من <em>المصدر</em> إلى الوجهة حياً</span><span lang-zh>从<em>产地</em>到目的地</span><span lang-pt>De <em>origen</em> a destino vivo</span></h2>
   <div class="process-grid">
-    <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">Sourcing</div><p class="proc-desc"><span lang-es">Selección en fincas Colombia y Brasil. Visita personal GLV. Registro sanitario individual.</span><span lang-en">Selection on farms Colombia and Brazil. GLV personal visit. Individual health registry.</span></p></div>
-    <div class="proc-step"><div class="proc-num">02</div><div class="proc-title"><span lang-es">Sanidad</span><span lang-en">Health</span></div><p class="proc-desc"><span lang-es">Exámenes veterinarios completos. Certificados MAPA / ICA. Cuarentena pre-embarque.</span><span lang-en">Complete veterinary exams. MAPA / ICA certificates. Pre-shipment quarantine.</span></p></div>
-    <div class="proc-step"><div class="proc-num">03</div><div class="proc-title"><span lang-es">Embarque</span><span lang-en">Loading</span></div><p class="proc-desc"><span lang-es">Carga en buque ganadero certificado. Supervisión veterinaria. Capacidad según especie.</span><span lang-en">Loading on certified livestock vessel. Veterinary supervision. Capacity according to species.</span></p></div>
-    <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">Miami Hub</div><p class="proc-desc"><span lang-es">Tránsito PortMIA si aplica. Inspección USDA/FDA. Documentación completa.</span><span lang-en">PortMIA transit if applicable. USDA/FDA inspection. Complete documentation.</span></p></div>
-    <div class="proc-step"><div class="proc-num">05</div><div class="proc-title"><span lang-es">Entrega</span><span lang-en">Delivery</span></div><p class="proc-desc"><span lang-es">Desembarque supervisado. Certificados Halal si aplica. Soporte post-entrega.</span><span lang-en">Supervised disembarkation. Halal certificates if applicable. Post-delivery support.</span></p></div>
+    <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">Sourcing</div><p class="proc-desc"><span lang-es>Selección en fincas Colombia y Brasil. Visita personal GLV. Registro sanitario individual.</span><span lang-en>Selection on farms Colombia and Brazil. GLV personal visit. Individual health registry.</span></p></div>
+    <div class="proc-step"><div class="proc-num">02</div><div class="proc-title"><span lang-es>Sanidad</span><span lang-en>Health</span></div><p class="proc-desc"><span lang-es>Exámenes veterinarios completos. Certificados MAPA / ICA. Cuarentena pre-embarque.</span><span lang-en>Complete veterinary exams. MAPA / ICA certificates. Pre-shipment quarantine.</span></p></div>
+    <div class="proc-step"><div class="proc-num">03</div><div class="proc-title"><span lang-es>Embarque</span><span lang-en>Loading</span></div><p class="proc-desc"><span lang-es>Carga en buque ganadero certificado. Supervisión veterinaria. Capacidad según especie.</span><span lang-en>Loading on certified livestock vessel. Veterinary supervision. Capacity according to species.</span></p></div>
+    <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">Miami Hub</div><p class="proc-desc"><span lang-es>Tránsito PortMIA si aplica. Inspección USDA/FDA. Documentación completa.</span><span lang-en>PortMIA transit if applicable. USDA/FDA inspection. Complete documentation.</span></p></div>
+    <div class="proc-step"><div class="proc-num">05</div><div class="proc-title"><span lang-es>Entrega</span><span lang-en>Delivery</span></div><p class="proc-desc"><span lang-es>Desembarque supervisado. Certificados Halal si aplica. Soporte post-entrega.</span><span lang-en>Supervised disembarkation. Halal certificates if applicable. Post-delivery support.</span></p></div>
   </div>
 </div>
 </div>
@@ -637,15 +649,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <div style="max-width:1400px;margin:0 auto;">
   <p class="section-eyebrow">
     <span lang-es>Operaciones Reales · Nuestro Proceso</span>
-    <span lang-en">Real Operations · Our Process</span>
+    <span lang-en>Real Operations · Our Process</span>
     <span lang-ar>عمليات حقيقية · عمليتنا</span>
-    <span lang-zh">实际运营 · 我们的流程</span><span lang-pt>Operaciones Reales · Nuestro Proceso</span>
+    <span lang-zh>实际运营 · 我们的流程</span><span lang-pt>Operaciones Reales · Nuestro Proceso</span>
   </p>
   <h2 class="section-title">
     <span lang-es>Vea cómo trabajamos <em>en campo</em></span>
-    <span lang-en">See how we work <em>in the field</em></span>
+    <span lang-en>See how we work <em>in the field</em></span>
     <span lang-ar>شاهد كيف نعمل <em>في الميدان</em></span>
-    <span lang-zh">观看我们如何在<em>实地</em>工作</span><span lang-pt>Vea cómo trabajamos <em>en campo</em></span>
+    <span lang-zh>观看我们如何在<em>实地</em>工作</span><span lang-pt>Vea cómo trabajamos <em>en campo</em></span>
   </h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;">
 
@@ -659,7 +671,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <div style="font-family:'Playfair Display',serif;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Fazenda de Ovinos — Marcio</div>
         <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;">
           <span lang-es>Recorrido por una fazenda aliada en Brasil. Ovinos Dorper e Île de France certificados MAPA para exportación.</span>
-          <span lang-en">Tour of an allied fazenda in Brazil. Dorper and Île de France sheep, MAPA certified for export.</span><span lang-pt>Recorrido por una fazenda aliada en Brasil. Ovinos Dorper e Île de France certificados MAPA para exportación.</span>
+          <span lang-en>Tour of an allied fazenda in Brazil. Dorper and Île de France sheep, MAPA certified for export.</span><span lang-pt>Recorrido por una fazenda aliada en Brasil. Ovinos Dorper e Île de France certificados MAPA para exportación.</span>
         </p>
       </div>
     </div>
@@ -674,7 +686,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <div style="font-family:'Playfair Display',serif;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Rendimiento de Cordero en Cortes</div>
         <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;">
           <span lang-es>Demostración real del rendimiento de un cordero en cortes premium. Proceso Halal supervisado. Cortes IQF para exportación.</span>
-          <span lang-en">Real demonstration of lamb cut yield. Supervised Halal process. IQF cuts for export.</span><span lang-pt>Demostración real del rendimiento de un cordero en cortes premium. Proceso Halal supervisado. Cortes IQF para exportación.</span>
+          <span lang-en>Real demonstration of lamb cut yield. Supervised Halal process. IQF cuts for export.</span><span lang-pt>Demostración real del rendimiento de un cordero en cortes premium. Proceso Halal supervisado. Cortes IQF para exportación.</span>
         </p>
       </div>
     </div>
@@ -689,7 +701,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <div style="font-family:'Playfair Display',serif;color:#fff;font-size:0.95rem;margin-bottom:0.4rem;">Marcio — Recomendando GLV</div>
         <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;">
           <span lang-es>Productor ganadero brasileiro comparte su experiencia trabajando con GLV Global Food Services en la exportación de ovinos.</span>
-          <span lang-en">Brazilian livestock producer shares his experience working with GLV Global Food Services in sheep exports.</span><span lang-pt>Productor ganadero brasileiro comparte su experiencia trabajando con GLV Global Food Services en la exportación de ovinos.</span>
+          <span lang-en>Brazilian livestock producer shares his experience working with GLV Global Food Services in sheep exports.</span><span lang-pt>Productor ganadero brasileiro comparte su experiencia trabajando con GLV Global Food Services en la exportación de ovinos.</span>
         </p>
       </div>
     </div>
@@ -703,22 +715,36 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
       <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.4rem;">Certificación Halal</div>
       <div style="font-family:'Playfair Display',serif;color:#fff;font-size:1.1rem;margin-bottom:0.5rem;">
         <span lang-es>Proceso Halal certificado — Supervisión desde la granja</span>
-        <span lang-en">Certified Halal Process — Farm-level supervision</span><span lang-pt>Proceso Halal certificado — Supervisión desde la granja</span>
+        <span lang-en>Certified Halal Process — Farm-level supervision</span><span lang-pt>Proceso Halal certificado — Supervisión desde la granja</span>
       </div>
       <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;">
         <span lang-es>Supervisión Halal desde la granja de origen hasta el punto de destino. Certificados emitidos por autoridades reconocidas. Cadena de custodia documentada para Medio Oriente, Asia y mercados musulmanes de USA.</span>
-        <span lang-en">Halal supervision from the source farm to the point of destination. Certificates issued by recognized authorities. Documented chain of custody for the Middle East, Asia and US Muslim markets.</span><span lang-pt>Supervisión Halal desde la granja de origen hasta el punto de destino. Certificados emitidos por autoridades reconocidas. Cadena de custodia documentada para Medio Oriente, Asia y mercados musulmanes de USA.</span>
+        <span lang-en>Halal supervision from the source farm to the point of destination. Certificates issued by recognized authorities. Documented chain of custody for the Middle East, Asia and US Muslim markets.</span><span lang-pt>Supervisión Halal desde la granja de origen hasta el punto de destino. Certificados emitidos por autoridades reconocidas. Cadena de custodia documentada para Medio Oriente, Asia y mercados musulmanes de USA.</span>
       </p>
     </div>
     <a href="./index.html#cotizar" style="background:var(--gold);color:#0f0f0f;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;white-space:nowrap;">
-      <span lang-es>Cotizar Halal →</span><span lang-en">Quote Halal →</span><span lang-pt>Cotizar Halal →</span>
+      <span lang-es>Cotizar Halal →</span><span lang-en>Quote Halal →</span><span lang-pt>Cotizar Halal →</span>
     </a>
     <div id="proceso-halal" data-halal-gate style="flex-basis:100%;background:#0f0f0f;border:1px solid rgba(201,168,76,0.2);border-radius:6px;overflow:hidden;">
       <div data-halal-warning style="padding:1.2rem 1.5rem;text-align:center;">
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1rem;">Contenido sensible. Este video documenta un proceso halal certificado realizado bajo controles operativos y sanitarios.</p>
-        <button type="button" aria-controls="video-proceso-halal" onclick="enableHalalVideo(this)" style="background:var(--gold);color:#0f0f0f;border:0;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;">Ver proceso halal</button>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1rem;"><span lang-es>Contenido sensible. Las imágenes y el video documentan un proceso industrial halal realizado bajo controles operativos y sanitarios.</span><span lang-en>Sensitive content. The images and video document an industrial Halal process carried out under operational and sanitary controls.</span><span lang-ar>محتوى حساس. توثق الصور والفيديو عملية صناعية حلال تتم تحت ضوابط تشغيلية وصحية.</span><span lang-zh>敏感内容。这些图片和视频记录了在操作和卫生控制下进行的清真工业流程。</span><span lang-pt>Conteúdo sensível. As imagens e o vídeo documentam um processo industrial Halal realizado sob controles operacionais e sanitários.</span></p>
+        <button type="button" aria-controls="contenido-proceso-halal" aria-expanded="false" onclick="enableHalalVideo(this)" style="background:var(--gold);color:#0f0f0f;border:0;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;"><span lang-es>Abrir proceso halal</span><span lang-en>Open Halal process</span><span lang-ar>فتح عملية الحلال</span><span lang-zh>打开清真流程</span><span lang-pt>Abrir processo Halal</span></button>
       </div>
-      <video id="video-proceso-halal" hidden controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-proceso-halal-certificado.webp" data-src="./imagenes/videos/video-proceso-halal-certificado.mp4" aria-label="Evidencia técnica del proceso halal certificado" style="width:100%;max-height:420px;object-fit:contain;object-position:center;background:#0f0f0f;"></video>
+      <div id="contenido-proceso-halal" data-halal-content hidden>
+        <div class="media-gallery halal-gallery" aria-label="Imágenes del proceso industrial halal">
+          <figure><img src="./imagenes/animales/halal/personal-proceso-planta.webp" alt="Personal durante el proceso industrial halal" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/corderos-proceso-planta.webp" alt="Proceso industrial en planta" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/carcasa-congelada.webp" alt="Carcasa congelada en planta" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/carcasa-limpia.webp" alt="Carcasa limpia en planta" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/carcasa-para-desposte.webp" alt="Carcasa preparada para desposte" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/carcasa-en-proceso.webp" alt="Carcasa durante el proceso industrial" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/linea-desangre.webp" alt="Línea industrial de proceso" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/linea-proceso.webp" alt="Línea de proceso en planta" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/patio-preparacion.webp" alt="Patio de preparación de la planta" loading="lazy"></figure>
+          <figure><img src="./imagenes/animales/halal/supervision-planta.webp" alt="Supervisión operativa en planta" loading="lazy"></figure>
+        </div>
+        <video id="video-proceso-halal" controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-proceso-halal-certificado.webp" data-src="./imagenes/videos/video-proceso-halal-certificado.mp4" aria-label="Evidencia técnica del proceso halal certificado" style="width:100%;max-height:420px;object-fit:contain;object-position:center;background:#0f0f0f;"></video>
+      </div>
     </div>
   </div>
 </div>
@@ -765,11 +791,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   <div class="footer-mini-logo">GLV Global Food Services LLC</div>
   <div class="footer-mini-links">
     <a href="./index.html"><span lang-es>Inicio</span><span lang-en>Home</span><span lang-pt>Início</span></a>
-    <a href="./huevo-proteinas.html"><span lang-es>Huevo & Proteínas</span><span lang-en">Eggs</span><span lang-pt>Ovos & Proteínas</span></a>
-    <a href="./coco-aceites.html"><span lang-es>Coco & Aceites</span><span lang-en">Oils</span><span lang-pt>Coco & Óleos</span></a>
-    <a href="./granos-cereales.html"><span lang-es>Granos</span><span lang-en">Grains</span><span lang-pt>Granos</span></a>
-    <a href="./frutas.html"><span lang-es>Frutas</span><span lang-en">Fruits</span><span lang-pt>Frutas</span></a>
-    <a href="./comercio-internacional.html"><span lang-es>Comercio</span><span lang-en">Trade</span><span lang-pt>Comercio</span></a>
+    <a href="./huevo-proteinas.html"><span lang-es>Huevo & Proteínas</span><span lang-en>Eggs</span><span lang-pt>Ovos & Proteínas</span></a>
+    <a href="./coco-aceites.html"><span lang-es>Coco & Aceites</span><span lang-en>Oils</span><span lang-pt>Coco & Óleos</span></a>
+    <a href="./granos-cereales.html"><span lang-es>Granos</span><span lang-en>Grains</span><span lang-pt>Granos</span></a>
+    <a href="./frutas.html"><span lang-es>Frutas</span><span lang-en>Fruits</span><span lang-pt>Frutas</span></a>
+    <a href="./comercio-internacional.html"><span lang-es>Comercio</span><span lang-en>Trade</span><span lang-pt>Comercio</span></a>
     <a href="./index.html#cotizar"><span lang-es>Cotizar</span><span lang-en>Quote</span><span lang-pt>Cotar</span></a>
   </div>
   <div style="font-size:0.82rem;color:var(--text-dim);">📧 <a href="mailto:info@glvglobalfoodservices.com" style="color:var(--gold);">info@glvglobalfoodservices.com</a></div>
@@ -781,7 +807,8 @@ function enableHalalVideo(button){
   var video=gate.querySelector('video[data-src]');
   if(!video.getAttribute('src')){video.setAttribute('src',video.getAttribute('data-src'));video.load();}
   gate.querySelector('[data-halal-warning]').hidden=true;
-  video.hidden=false;
+  gate.querySelector('[data-halal-content]').hidden=false;
+  button.setAttribute('aria-expanded','true');
   video.focus();
 }
 function setLang(l){if(!['es','en','ar','zh','pt'].includes(l))return;document.body.className='lang-'+l;var labels={es:'ES · Español',en:'EN · English',pt:'PT · Português',ar:'AR · العربية',zh:'ZH · 中文'};var el=document.getElementById('langLabel');if(el)el.textContent=labels[l]||l.toUpperCase();document.querySelectorAll('.lang-option').forEach(function(o){o.classList.toggle('active',o.getAttribute('data-lang')===l);});localStorage.setItem('glv-lang',l);}
