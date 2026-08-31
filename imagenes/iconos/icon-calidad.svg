@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Calidad verificada</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <path d="M32 9 49 15v14c0 12-7 21-17 26-10-5-17-14-17-26V15l17-6Z" fill="none" stroke="#C9A84C" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m23 31 6 6 12-14" fill="none" stroke="#E7E3D8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

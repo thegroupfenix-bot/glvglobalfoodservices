@@ -6,6 +6,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="./css/glv-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Frutas Tropicales — Línea VI · GLV Global Food Services LLC</title>
 <meta name="description" content="GLV Global Food Services — Frutas tropicales certificadas: Mango Tommy/Kent, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Papaya. ICA Colombia, MAPA Brasil, GlobalGAP. Miami, Florida.">
@@ -164,6 +165,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   .variety-grid,.mkt-grid{grid-template-columns:repeat(2,1fr);}
   .cert-grid{grid-template-columns:1fr;}
   .process-grid{grid-template-columns:repeat(2,1fr);}
+  .iqf-grid{grid-template-columns:1fr !important;}
+  .frozen-advantages-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
   .footer-mini{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
   div[style*="padding:6rem 4rem"]{padding:4rem 1.5rem!important;}
 }
@@ -291,6 +294,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   .markets-grid { grid-template-columns:1fr; }
   /* Services */
   .services-grid { grid-template-columns:1fr; }
+  .mkt-grid, .process-grid, .frozen-advantages-grid { grid-template-columns:1fr !important; }
   /* Product img */
   .products-img { height:220px; }
   /* WhatsApp float compact on very small screens */
@@ -368,12 +372,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
       <span lang-zh">芒果、哈斯牛油果、卡文迪什香蕉、MD2菠萝、百香果、木瓜等。哥伦比亚、巴西和厄瓜多尔GlobalGAP、ICA和MAPA认证。从迈阿密直接渠道。</span><span lang-pt>Mango, Aguacate Hass, Banano Cavendish, Piña MD2, Maracuyá, Papaya y más. Colombia, Brasil y Ecuador certificados GlobalGAP, ICA y MAPA. Canal directo sin intermediarios desde Miami a USA, Europa, Caribe y Medio Oriente.</span>
     </p>
     <div class="hero-fruits-row">
-      <div class="fruit-badge"><span>🥭</span> <strong>Mango</strong></div>
-      <div class="fruit-badge"><span>🥑</span> <strong>Aguacate</strong></div>
-      <div class="fruit-badge"><span>🍌</span> <strong>Banano</strong></div>
-      <div class="fruit-badge"><span>🍍</span> <strong>Piña MD2</strong></div>
-      <div class="fruit-badge"><span>🌟</span> <strong>Maracuyá</strong></div>
-      <div class="fruit-badge"><span>🍈</span> <strong>Papaya</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Mango</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Aguacate</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Banano</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Piña MD2</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Maracuyá</strong></div>
+      <div class="fruit-badge"><img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""> <strong>Papaya</strong></div>
     </div>
     <div class="hero-btns">
       <a href="./index.html#cotizar" class="btn-gold">
@@ -385,8 +389,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <span lang-ar>← الأصناف</span><span lang-zh>查看品种 →</span><span lang-pt>Ver Variedades →</span>
       </a>
       <a href="#congeladas" class="btn-outline" style="border-color:rgba(212,97,26,0.5);color:var(--orange-light);">
-        <span lang-es>❄️ Congeladas & Pulpa</span><span lang-en>❄️ Frozen & Pulp</span>
-        <span lang-ar>❄️ مجمد وعصير</span><span lang-zh>❄️ 冷冻 & 果浆</span><span lang-pt>❄️ Congeladas & Pulpa</span>
+        <span lang-es>Congeladas & Pulpa</span><span lang-en>Frozen & Pulp</span>
+        <span lang-ar>مجمد وعصير</span><span lang-zh>冷冻 & 果浆</span><span lang-pt>Congeladas & Pulpa</span>
       </a>
     </div>
   </div>
@@ -406,8 +410,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    🥭 MANGO TOMMY · KENT · ATAULFO &nbsp;·&nbsp; 🥑 AGUACATE HASS · BOOTH 8 &nbsp;·&nbsp; 🍌 BANANO CAVENDISH &nbsp;·&nbsp; 🍍 PIÑA MD2 · GOLDEN SWEET &nbsp;·&nbsp; 🌟 MARACUYÁ · GULUPA &nbsp;·&nbsp; 🍈 PAPAYA TAINUNG &nbsp;·&nbsp; 🍊 NARANJA VALENCIA &nbsp;·&nbsp; 🇨🇴 ICA COLOMBIA &nbsp;·&nbsp; 🇧🇷 MAPA BRASIL &nbsp;·&nbsp; GlobalGAP &nbsp;·&nbsp; ORGANIC OPT. &nbsp;·&nbsp;
-    🥭 MANGO TOMMY · KENT · ATAULFO &nbsp;·&nbsp; 🥑 AGUACATE HASS · BOOTH 8 &nbsp;·&nbsp; 🍌 BANANO CAVENDISH &nbsp;·&nbsp; 🍍 PIÑA MD2 · GOLDEN SWEET &nbsp;·&nbsp; 🌟 MARACUYÁ · GULUPA &nbsp;·&nbsp; 🍈 PAPAYA TAINUNG &nbsp;·&nbsp; 🍊 NARANJA VALENCIA &nbsp;·&nbsp; 🇨🇴 ICA COLOMBIA &nbsp;·&nbsp; 🇧🇷 MAPA BRASIL &nbsp;·&nbsp; GlobalGAP &nbsp;·&nbsp; ORGANIC OPT. &nbsp;·&nbsp;
+    MANGO TOMMY · KENT · ATAULFO &nbsp;·&nbsp; AGUACATE HASS · BOOTH 8 &nbsp;·&nbsp; BANANO CAVENDISH &nbsp;·&nbsp; PIÑA MD2 · GOLDEN SWEET &nbsp;·&nbsp; MARACUYÁ · GULUPA &nbsp;·&nbsp; PAPAYA TAINUNG &nbsp;·&nbsp; NARANJA VALENCIA &nbsp;·&nbsp; CO ICA COLOMBIA &nbsp;·&nbsp; BR MAPA BRASIL &nbsp;·&nbsp; GlobalGAP &nbsp;·&nbsp; ORGANIC OPT. &nbsp;·&nbsp;
+    MANGO TOMMY · KENT · ATAULFO &nbsp;·&nbsp; AGUACATE HASS · BOOTH 8 &nbsp;·&nbsp; BANANO CAVENDISH &nbsp;·&nbsp; PIÑA MD2 · GOLDEN SWEET &nbsp;·&nbsp; MARACUYÁ · GULUPA &nbsp;·&nbsp; PAPAYA TAINUNG &nbsp;·&nbsp; NARANJA VALENCIA &nbsp;·&nbsp; CO ICA COLOMBIA &nbsp;·&nbsp; BR MAPA BRASIL &nbsp;·&nbsp; GlobalGAP &nbsp;·&nbsp; ORGANIC OPT. &nbsp;·&nbsp;
   </div>
 </div>
 
@@ -420,10 +424,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- MANGO -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🥭</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Mango</span><span lang-en">Mango</span><span lang-ar>مانجو</span><span lang-zh>芒果</span><span lang-pt>Frutas <em>de exportación</em>. Calibre real.</span><span lang-pt>Mango</span></div>
       <div class="fruit-var">Tommy Atkins · Kent · Ataulfo · Haden</div>
-      <p class="fruit-origin">🇨🇴 Colombia · 🇧🇷 Brasil · 🇲🇽 México</p>
+      <p class="fruit-origin">CO Colombia · BR Brasil · MX México</p>
       <p class="fruit-desc">
         <span lang-es>Mango de exportación grado 1 y 2. Variedades Tommy Atkins (el más exportado a USA/Europa), Kent (sabor premium), Ataulfo (mercado asiático) y Haden (coloración roja). Calibres 8 – 16. Empaque en cajas de 4kg, 10kg y 18kg. Certificado GlobalGAP e ICA. Disponible convencional y orgánico.</span>
         <span lang-en">Grade 1 and 2 export mango. Tommy Atkins (most exported to USA/Europe), Kent (premium flavor), Ataulfo (Asian market) and Haden (red coloring) varieties. Calibers 8 – 16. Packaging in 4kg, 10kg and 18kg boxes. GlobalGAP and ICA certified. Conventional and organic available.</span>
@@ -435,10 +439,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- AGUACATE -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🥑</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Aguacate</span><span lang-en">Avocado</span><span lang-ar>أفوكادو</span><span lang-zh>牛油果</span><span lang-pt>Aguacate</span></div>
       <div class="fruit-var">Hass · Booth 8 · Lorena</div>
-      <p class="fruit-origin">🇨🇴 Colombia · 🇵🇪 Perú · 🇲🇽 México</p>
+      <p class="fruit-origin">CO Colombia · PE Perú · MX México</p>
       <p class="fruit-desc">
         <span lang-es>Aguacate Hass grado exportación. Colombia produce durante todo el año por su variedad de pisos térmicos — ventaja competitiva única vs. México o Perú. Calibres 20 – 36. Empaque en cajas de 4kg. ICA Colombia certificado. También Booth 8 (aguacate criollo) para mercado étnico USA/Caribe.</span>
         <span lang-en">Export grade Hass avocado. Colombia produces year-round due to its variety of thermal floors — a unique competitive advantage vs. Mexico or Peru. Calibers 20 – 36. Packaging in 4kg boxes. ICA Colombia certified. Also Booth 8 (creole avocado) for ethnic USA/Caribbean market.</span>
@@ -450,10 +454,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- BANANO -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🍌</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Banano</span><span lang-en">Banana</span><span lang-ar>موز</span><span lang-zh>香蕉</span><span lang-pt>Banano</span></div>
       <div class="fruit-var">Cavendish · Gross Michel · Rojo</div>
-      <p class="fruit-origin">🇨🇴 Colombia · 🇪🇨 Ecuador · 🇧🇷 Brasil</p>
+      <p class="fruit-origin">CO Colombia · EC Ecuador · BR Brasil</p>
       <p class="fruit-desc">
         <span lang-es>Banano Cavendish grado A para exportación. El banano más consumido del mundo. Colombia y Ecuador, las plataformas de exportación más importantes de América. Calibre 35 – 45 cm. Cajas de 18.14 kg (40 lbs) estándar. GlobalGAP y certificación Fair Trade disponible. Orgánico disponible.</span>
         <span lang-en">Grade A Cavendish banana for export. The world's most consumed banana. Colombia and Ecuador, the most important export platforms in the Americas. Caliber 35 – 45 cm. Standard 18.14 kg (40 lbs) boxes. GlobalGAP and Fair Trade certification available. Organic available.</span>
@@ -465,10 +469,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- PIÑA -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🍍</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Piña</span><span lang-en">Pineapple</span><span lang-ar>أناناس</span><span lang-zh>菠萝</span><span lang-pt>Piña</span></div>
       <div class="fruit-var">MD2 · Golden Sweet · Cayena</div>
-      <p class="fruit-origin">🇨🇴 Colombia · 🇨🇷 Costa Rica · 🇧🇷 Brasil</p>
+      <p class="fruit-origin">CO Colombia · CR Costa Rica · BR Brasil</p>
       <p class="fruit-desc">
         <span lang-es>Piña MD2 (Golden Sweet), el estándar de exportación mundial. Mayor dulzor, menor acidez, corona más corta. Calibres 5 – 10. Cajas de 13 kg. GlobalGAP e ICA certificado. Alta demanda en USA, Europa y Medio Oriente. También disponible piña Cayena para industria conservera.</span>
         <span lang-en">MD2 Pineapple (Golden Sweet), the world export standard. Higher sweetness, lower acidity, shorter crown. Calibers 5 – 10. 13 kg boxes. GlobalGAP and ICA certified. High demand in USA, Europe and Middle East. Cayena pineapple also available for canning industry.</span>
@@ -480,10 +484,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- MARACUYÁ -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🌟</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Maracuyá & Gulupa</span><span lang-en">Passion Fruit</span><span lang-ar>فاكهة الشغف</span><span lang-zh>百香果</span><span lang-pt>Maracuyá & Gulupa</span></div>
       <div class="fruit-var">Maracuyá Amarillo · Gulupa (Purple)</div>
-      <p class="fruit-origin">🇨🇴 Colombia</p>
+      <p class="fruit-origin">CO Colombia</p>
       <p class="fruit-desc">
         <span lang-es>Colombia es el mayor exportador mundial de maracuyá y gulupa. Fruta fresca y jugos concentrados. Maracuyá amarillo con alto contenido de jugo (30–40%). Gulupa morada, sabor más intenso, alta demanda gourmet en Europa. ICA certificado. Orgánico disponible. MOQ 1 FCL refrigerado.</span>
         <span lang-en">Colombia is the world's largest exporter of passion fruit and purple granadilla. Fresh fruit and concentrated juices. Yellow passion fruit with high juice content (30–40%). Purple granadilla, more intense flavor, high gourmet demand in Europe. ICA certified. Organic available. MOQ 1 refrigerated FCL.</span>
@@ -495,10 +499,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- PAPAYA + OTROS -->
     <div class="fruit-card">
-      <span class="fruit-emoji">🍈</span>
+      <span class="fruit-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span>
       <div class="fruit-name"><span lang-es>Papaya & Exóticos</span><span lang-en">Papaya & Exotic</span><span lang-ar>بابايا وفواكه نادرة</span><span lang-zh>木瓜与异国水果</span><span lang-pt>Papaya & Exóticos</span></div>
       <div class="fruit-var">Papaya Tainung · Formosa · Uchuva · Tomate de Árbol</div>
-      <p class="fruit-origin">🇨🇴 Colombia · 🇧🇷 Brasil</p>
+      <p class="fruit-origin">CO Colombia · BR Brasil</p>
       <p class="fruit-desc">
         <span lang-es>Papaya Tainung y Formosa de Brasil (las más exportadas). Uchuva (Cape Gooseberry) de Colombia — alta demanda en Europa y Asia. Tomate de árbol para jugos y gastronomía. Lulo, granadilla, guanábana bajo pedido. ICA y MAPA certificados. Mercado premium gourmet y étnico.</span>
         <span lang-en">Tainung and Formosa papaya from Brazil (most exported). Uchuva (Cape Gooseberry) from Colombia — high demand in Europe and Asia. Tree tomato for juices and gastronomy. Lulo, granadilla, soursop on request. ICA and MAPA certified. Premium gourmet and ethnic market.</span>
@@ -517,14 +521,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   <p class="eyebrow eyebrow-orange"><span lang-es>Variedades Estrella</span><span lang-en">Star Varieties</span><span lang-ar>الأصناف النجمة</span><span lang-zh>明星品种</span><span lang-pt>Papaya Tainung y Formosa de Brasil (las más exportadas). Uchuva (Cape Gooseberry) de Colombia — alta demanda en Europa y Asia. Tomate de árbol para jugos y gastronomía. Lulo, granadilla, guanábana bajo pedido. ICA y MAPA certificados. Mercado premium gourmet y étnico.</span><span lang-pt>Variedades Estrella</span></p>
   <h2 class="sec-title"><span lang-es>Cada fruta. <em>Cada mercado.</em></span><span lang-en">Every fruit. <em>Every market.</em></span><span lang-ar>كل فاكهة. <em>كل سوق.</em></span><span lang-zh">每种水果。<em>每个市场。</em></span><span lang-pt>Cada fruta. <em>Cada mercado.</em></span></h2>
   <div class="variety-grid">
-    <div class="variety-card"><span class="variety-emoji">🥭</span><div class="variety-name">Tommy Atkins</div><div class="variety-type">Mango · Colombia · USA Market</div><p class="variety-desc"><span lang-es">El mango más vendido en USA. Color rojizo, larga vida útil, resistente al transporte.</span><span lang-en">The best-selling mango in USA. Reddish color, long shelf life, transport resistant.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🥭</span><div class="variety-name">Kent</div><div class="variety-type">Mango · Brasil · EU Premium</div><p class="variety-desc"><span lang-es">Sabor excepcional, bajo contenido de fibra. Muy demandado en Europa por su dulzor y tamaño grande.</span><span lang-en">Exceptional flavor, low fiber content. Highly demanded in Europe for its sweetness and large size.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🥑</span><div class="variety-name">Hass</div><div class="variety-type">Aguacate · Colombia · Global</div><p class="variety-desc"><span lang-es">El aguacate más consumido del mundo. Piel rugosa, alto contenido de grasa, sabor cremoso premium.</span><span lang-en">The world's most consumed avocado. Rough skin, high fat content, creamy premium flavor.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🍌</span><div class="variety-name">Cavendish G9</div><div class="variety-type">Banano · Ecuador · World Std.</div><p class="variety-desc"><span lang-es">El banano estándar mundial. Productor de élite. Alto rendimiento, larga vida útil.</span><span lang-en">The world standard banana. Elite producer. High yield, long shelf life.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🍍</span><div class="variety-name">MD2 / 73-114</div><div class="variety-type">Piña · Costa Rica · Global</div><p class="variety-desc"><span lang-es">El estándar de piña dulce global. Bajo pH, corona corta, mayor azúcar. Preferido en supermercados USA y UE.</span><span lang-en">Global sweet pineapple standard. Low pH, short crown, higher sugar. Preferred in USA and EU supermarkets.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🌟</span><div class="variety-name">Gulupa Morada</div><div class="variety-type">Maracuyá · Colombia · EU Gourmet</div><p class="variety-desc"><span lang-es">Sabor intenso y aromático. Exportación fresca y como pulpa. Alta demanda en restauración europea.</span><span lang-en">Intense and aromatic flavor. Fresh export and as pulp. High demand in European food service.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🍊</span><div class="variety-name">Valencia Late</div><div class="variety-type">Naranja · Colombia · Jugos</div><p class="variety-desc"><span lang-es">Naranja para jugos. Alto rendimiento de jugo (45–55%). Sin semillas. ICA certificado. Destino industria.</span><span lang-en">Juice orange. High juice yield (45–55%). Seedless. ICA certified. Industry destination.</span></p></div>
-    <div class="variety-card"><span class="variety-emoji">🫐</span><div class="variety-name">Uchuva / Physalis</div><div class="variety-type">Gooseberry · Colombia · Asia · EU</div><p class="variety-desc"><span lang-es">Superfruto colombiano. Alta en vitamina C. Mercado gourmet y saludable en Europa y Asia.</span><span lang-en">Colombian superfruit. High in vitamin C. Gourmet and health market in Europe and Asia.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Tommy Atkins</div><div class="variety-type">Mango · Colombia · USA Market</div><p class="variety-desc"><span lang-es">El mango más vendido en USA. Color rojizo, larga vida útil, resistente al transporte.</span><span lang-en">The best-selling mango in USA. Reddish color, long shelf life, transport resistant.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Kent</div><div class="variety-type">Mango · Brasil · EU Premium</div><p class="variety-desc"><span lang-es">Sabor excepcional, bajo contenido de fibra. Muy demandado en Europa por su dulzor y tamaño grande.</span><span lang-en">Exceptional flavor, low fiber content. Highly demanded in Europe for its sweetness and large size.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Hass</div><div class="variety-type">Aguacate · Colombia · Global</div><p class="variety-desc"><span lang-es">El aguacate más consumido del mundo. Piel rugosa, alto contenido de grasa, sabor cremoso premium.</span><span lang-en">The world's most consumed avocado. Rough skin, high fat content, creamy premium flavor.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Cavendish G9</div><div class="variety-type">Banano · Ecuador · World Std.</div><p class="variety-desc"><span lang-es">El banano estándar mundial. Productor de élite. Alto rendimiento, larga vida útil.</span><span lang-en">The world standard banana. Elite producer. High yield, long shelf life.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">MD2 / 73-114</div><div class="variety-type">Piña · Costa Rica · Global</div><p class="variety-desc"><span lang-es">El estándar de piña dulce global. Bajo pH, corona corta, mayor azúcar. Preferido en supermercados USA y UE.</span><span lang-en">Global sweet pineapple standard. Low pH, short crown, higher sugar. Preferred in USA and EU supermarkets.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Gulupa Morada</div><div class="variety-type">Maracuyá · Colombia · EU Gourmet</div><p class="variety-desc"><span lang-es">Sabor intenso y aromático. Exportación fresca y como pulpa. Alta demanda en restauración europea.</span><span lang-en">Intense and aromatic flavor. Fresh export and as pulp. High demand in European food service.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Valencia Late</div><div class="variety-type">Naranja · Colombia · Jugos</div><p class="variety-desc"><span lang-es">Naranja para jugos. Alto rendimiento de jugo (45–55%). Sin semillas. ICA certificado. Destino industria.</span><span lang-en">Juice orange. High juice yield (45–55%). Seedless. ICA certified. Industry destination.</span></p></div>
+    <div class="variety-card"><span class="variety-emoji"><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></span><div class="variety-name">Uchuva / Physalis</div><div class="variety-type">Gooseberry · Colombia · Asia · EU</div><p class="variety-desc"><span lang-es">Superfruto colombiano. Alta en vitamina C. Mercado gourmet y saludable en Europa y Asia.</span><span lang-en">Colombian superfruit. High in vitamin C. Gourmet and health market in Europe and Asia.</span></p></div>
   </div>
 </div>
 </div>
@@ -562,14 +566,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   <p class="eyebrow eyebrow-orange"><span lang-es>Mercados Destino</span><span lang-en">Destination Markets</span><span lang-ar>الأسواق المستهدفة</span><span lang-zh>目标市场</span><span lang-pt>Mercados de Destino</span></p>
   <h2 class="sec-title"><span lang-es>Desde Miami <em>al mundo</em></span><span lang-en">From Miami <em>to the world</em></span><span lang-ar>من ميامي <em>إلى العالم</em></span><span lang-zh">从迈阿密<em>走向世界</em></span><span lang-pt>Desde Miami <em>al mundo</em></span></h2>
   <div class="mkt-grid">
-    <div class="mkt-card"><span class="mkt-flag">🇺🇸</span><div class="mkt-name">USA</div><div class="mkt-detail"><span lang-es">Supermercados + Étnico</span><span lang-en">Supermarkets + Ethnic</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇩🇴</span><div class="mkt-name">Rep. Dominicana</div><div class="mkt-detail"><span lang-es">Distribución activa</span><span lang-en">Active distribution</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇲🇽</span><div class="mkt-name">México</div><div class="mkt-detail">CIF · <span lang-es">Mercado retail</span><span lang-en">Retail market</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇩🇪</span><div class="mkt-name">Europa</div><div class="mkt-detail">GlobalGAP · <span lang-es">Supermercados</span><span lang-en">Supermarkets</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇦🇪</span><div class="mkt-name">UAE · Medio Oriente</div><div class="mkt-detail"><span lang-es">Frutas premium</span><span lang-en">Premium fruits</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇯🇵</span><div class="mkt-name">Japón</div><div class="mkt-detail"><span lang-es">Premium · Gourmet</span><span lang-en">Premium · Gourmet</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇨🇳</span><div class="mkt-name">China</div><div class="mkt-detail"><span lang-es">Aguacate · Maracuyá</span><span lang-en">Avocado · Passion Fruit</span></div></div>
-    <div class="mkt-card"><span class="mkt-flag">🇨🇦</span><div class="mkt-name">Canadá</div><div class="mkt-detail"><span lang-es">Mercado étnico</span><span lang-en">Ethnic market</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">US</span><div class="mkt-name">USA</div><div class="mkt-detail"><span lang-es">Supermercados + Étnico</span><span lang-en">Supermarkets + Ethnic</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">DO</span><div class="mkt-name">Rep. Dominicana</div><div class="mkt-detail"><span lang-es">Distribución activa</span><span lang-en">Active distribution</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">MX</span><div class="mkt-name">México</div><div class="mkt-detail">CIF · <span lang-es">Mercado retail</span><span lang-en">Retail market</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">DE</span><div class="mkt-name">Europa</div><div class="mkt-detail">GlobalGAP · <span lang-es">Supermercados</span><span lang-en">Supermarkets</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">AE</span><div class="mkt-name">UAE · Medio Oriente</div><div class="mkt-detail"><span lang-es">Frutas premium</span><span lang-en">Premium fruits</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">JP</span><div class="mkt-name">Japón</div><div class="mkt-detail"><span lang-es">Premium · Gourmet</span><span lang-en">Premium · Gourmet</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">CN</span><div class="mkt-name">China</div><div class="mkt-detail"><span lang-es">Aguacate · Maracuyá</span><span lang-en">Avocado · Passion Fruit</span></div></div>
+    <div class="mkt-card"><span class="mkt-flag">CA</span><div class="mkt-name">Canadá</div><div class="mkt-detail"><span lang-es">Mercado étnico</span><span lang-en">Ethnic market</span></div></div>
   </div>
 </div>
 </div>
@@ -602,10 +606,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   </p>
 
   <!-- IQF GRID -->
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,97,26,0.15);margin-bottom:4rem;">
+  <div class="iqf-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(212,97,26,0.15);margin-bottom:4rem;">
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--orange);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🥭</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Mango Congelado IQF</span><span lang-en>Frozen Mango IQF</span><span lang-ar>مانجو مجمد IQF</span><span lang-zh>冷冻芒果 IQF</span><span lang-pt>Mango Congelado IQF</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">Tommy · Kent · Ataulfo</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Cubos y trozos de mango IQF. Brix 14–18°. Humedad controlada. Sin conservantes. Ideal para smoothies, jugos, helados y snacks. Origen Colombia y Brasil.</span><span lang-en>IQF mango cubes and pieces. Brix 14–18°. Controlled moisture. No preservatives. Ideal for smoothies, juices, ice cream and snacks. Origin Colombia and Brazil.</span><span lang-pt>Cubos y trozos de mango IQF. Brix 14–18°. Humedad controlada. Sin conservantes. Ideal para smoothies, jugos, helados y snacks. Origen Colombia y Brasil.</span></p>
@@ -617,7 +621,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--orange);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🍓</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Pulpa de Fruta Congelada</span><span lang-en>Frozen Fruit Pulp</span><span lang-ar>عصير فاكهة مجمد</span><span lang-zh>冷冻果浆</span><span lang-pt>Cubos y trozos de mango IQF. Brix 14–18°. Humedad controlada. Sin conservantes. Ideal para smoothies, jugos, helados y snacks. Origen Colombia y Brasil.</span><span lang-pt>Pulpa de Fruta Congelada</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">Maracuyá · Guanábana · Lulo · Guayaba</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Pulpa 100% natural sin aditivos. Sin azúcar añadida. Procesada en planta ICA certificada. Alta concentración de sabor. Bolsas de 1 kg selladas al vacío. Frío de cadena garantizado. Origen Colombia.</span><span lang-en>100% natural pulp with no additives. No added sugar. Processed in ICA certified plant. High flavor concentration. 1 kg vacuum-sealed bags. Guaranteed cold chain. Origin Colombia.</span><span lang-pt>Pulpa 100% natural sin aditivos. Sin azúcar añadida. Procesada en planta ICA certificada. Alta concentración de sabor. Bolsas de 1 kg selladas al vacío. Frío de cadena garantizado. Origen Colombia.</span></p>
@@ -629,7 +633,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--orange);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🥑</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Aguacate Congelado & Guacamole</span><span lang-en>Frozen Avocado & Guacamole</span><span lang-ar>أفوكادو مجمد وجواكاموليه</span><span lang-zh>冷冻牛油果和鳄梨酱</span><span lang-pt>Pulpa 100% natural sin aditivos. Sin azúcar añadida. Procesada en planta ICA certificada. Alta concentración de sabor. Bolsas de 1 kg selladas al vacío. Frío de cadena garantizado. Origen Colombia.</span><span lang-pt>Aguacate Congelado & Guacamole</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">Hass · Mitades · Cubos · Guacamole</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Aguacate Hass congelado IQF: mitades, cubos y rodajas. Guacamole natural congelado (sin conservantes, con jugo de limón). Alta demanda USA, Europa. Ideal retail y foodservice. Origen Colombia y Perú.</span><span lang-en>IQF frozen Hass avocado: halves, cubes and slices. Frozen natural guacamole (no preservatives, with lemon juice). High demand USA, Europe. Ideal retail and foodservice. Origin Colombia and Peru.</span><span lang-pt>Aguacate Hass congelado IQF: mitades, cubos y rodajas. Guacamole natural congelado (sin conservantes, con jugo de limón). Alta demanda USA, Europa. Ideal retail y foodservice. Origen Colombia y Perú.</span></p>
@@ -641,7 +645,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--gold);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🍍</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Piña & Coco Congelado</span><span lang-en>Frozen Pineapple & Coconut</span><span lang-ar>أناناس وجوز هند مجمد</span><span lang-zh>冷冻菠萝和椰子</span><span lang-pt>Aguacate Hass congelado IQF: mitades, cubos y rodajas. Guacamole natural congelado (sin conservantes, con jugo de limón). Alta demanda USA, Europa. Ideal retail y foodservice. Origen Colombia y Perú.</span><span lang-pt>Piña & Coco Congelado</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">MD2 · Cubos · Aros · Coco Rallado</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Piña MD2 congelada IQF (cubos, aros, chunks). Coco rallado congelado. Ideal para heladerías, cócteles, industria de alimentos. MOQ 1 FCL congelado. Origen Colombia y Costa Rica.</span><span lang-en>IQF frozen MD2 pineapple (cubes, rings, chunks). Frozen shredded coconut. Ideal for ice cream shops, cocktails, food industry. MOQ 1 frozen FCL. Origin Colombia and Costa Rica.</span><span lang-pt>Piña MD2 congelada IQF (cubos, aros, chunks). Coco rallado congelado. Ideal para heladerías, cócteles, industria de alimentos. MOQ 1 FCL congelado. Origen Colombia y Costa Rica.</span></p>
@@ -653,7 +657,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--gold);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🫐</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Berries & Exóticos Congelados</span><span lang-en>Frozen Berries & Exotic</span><span lang-ar>توت وفواكه نادرة مجمدة</span><span lang-zh>冷冻浆果和异国水果</span><span lang-pt>Piña MD2 congelada IQF (cubos, aros, chunks). Coco rallado congelado. Ideal para heladerías, cócteles, industria de alimentos. MOQ 1 FCL congelado. Origen Colombia y Costa Rica.</span><span lang-pt>Berries & Exóticos Congelados</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">Uchuva · Mora · Fresa · Borojó</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Uchuva (Cape Gooseberry) congelada IQF. Mora de castilla, fresa, borojó. Superfrutos colombianos alta en antioxidantes. Mercado gourmet, juguerías premium y industria farmacéutica. Origen Colombia.</span><span lang-en>IQF frozen uchuva (Cape Gooseberry). Blackberry, strawberry, borojó. Colombian superfruits high in antioxidants. Gourmet market, premium juice bars and pharmaceutical industry. Origin Colombia.</span><span lang-pt>Uchuva (Cape Gooseberry) congelada IQF. Mora de castilla, fresa, borojó. Superfrutos colombianos alta en antioxidantes. Mercado gourmet, juguerías premium y industria farmacéutica. Origen Colombia.</span></p>
@@ -665,7 +669,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     </div>
 
     <div style="background:var(--dark2);padding:2.2rem 2rem;border-top:3px solid var(--gold);">
-      <div style="font-size:2.5rem;margin-bottom:0.8rem;">🧃</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-frutas-tropicales.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);margin-bottom:0.3rem;"><span lang-es>Concentrados & Jugos NFC</span><span lang-en>Concentrates & NFC Juices</span><span lang-ar>مركزات وعصائر NFC</span><span lang-zh>浓缩汁和NFC果汁</span><span lang-pt>Uchuva (Cape Gooseberry) congelada IQF. Mora de castilla, fresa, borojó. Superfrutos colombianos alta en antioxidantes. Mercado gourmet, juguerías premium y industria farmacéutica. Origen Colombia.</span><span lang-pt>Concentrados & Jugos NFC</span></div>
       <div style="font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange-light);margin-bottom:0.8rem;">Maracuyá · Guayaba · Naranja · Mango</div>
       <p style="font-size:0.9rem;color:var(--text-dim);line-height:1.6;margin-bottom:1rem;"><span lang-es>Jugos NFC (Not From Concentrate) y concentrados de fruta tropical. Brix según especificación del cliente. Empaque en aséptico bag-in-box (200–1000L) o tambores. Ideal para industria bebidas. Origen Colombia y Brasil.</span><span lang-en>NFC (Not From Concentrate) juices and tropical fruit concentrates. Brix per customer specification. Aseptic bag-in-box packaging (200–1000L) or drums. Ideal for beverage industry. Origin Colombia and Brazil.</span><span lang-pt>Jugos NFC (Not From Concentrate) y concentrados de fruta tropical. Brix según especificación del cliente. Empaque en aséptico bag-in-box (200–1000L) o tambores. Ideal para industria bebidas. Origen Colombia y Brasil.</span></p>
@@ -679,24 +683,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   </div>
 
   <!-- FROZEN ADVANTAGES -->
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.1);">
+  <div class="frozen-advantages-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,168,76,0.1);">
     <div style="background:var(--dark3);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:0.5rem;">❄️</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;"><span lang-es>Cadena de Frío −18°C</span><span lang-en>Cold Chain −18°C</span><span lang-pt>Cadena de Frío −18°C</span></div>
       <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.5;"><span lang-es>Monitoreo de temperatura en tiempo real durante todo el trayecto. Certificado al arribo.</span><span lang-en>Real-time temperature monitoring throughout the journey. Certified on arrival.</span><span lang-pt>Monitoreo de temperatura en tiempo real durante todo el trayecto. Certificado al arribo.</span></p>
     </div>
     <div style="background:var(--dark3);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:0.5rem;">📦</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;"><span lang-es>Private Label</span><span lang-en>Private Label</span><span lang-pt>Private Label</span></div>
       <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.5;"><span lang-es>Empaque con la marca del cliente. Bolsas, cajas y big bags personalizables. MOQ desde 500 kg.</span><span lang-en>Packaging with client brand. Customizable bags, boxes and big bags. MOQ from 500 kg.</span><span lang-pt>Empaque con la marca del cliente. Bolsas, cajas y big bags personalizables. MOQ desde 500 kg.</span></p>
     </div>
     <div style="background:var(--dark3);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:0.5rem;">🏭</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-calidad.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;"><span lang-es>Planta Certificada</span><span lang-en>Certified Plant</span><span lang-pt>Planta Certificada</span></div>
       <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.5;"><span lang-es>ICA Colombia y MAPA Brasil. HACCP. BPM. FDA Registration. Exportación directa a USA y UE.</span><span lang-en>ICA Colombia and MAPA Brazil. HACCP. BPM. FDA Registration. Direct export to USA and EU.</span><span lang-pt>ICA Colombia y MAPA Brasil. HACCP. BPM. FDA Registration. Exportación directa a USA y UE.</span></p>
     </div>
     <div style="background:var(--dark3);padding:2rem 1.5rem;text-align:center;">
-      <div style="font-size:2rem;margin-bottom:0.5rem;">🚢</div>
+      <div><img class="glv-icon glv-icon--card" src="./imagenes/iconos/icon-comercio-logistica.svg" alt=""></div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;"><span lang-es>FCL Congelado</span><span lang-en>Frozen FCL</span><span lang-pt>FCL Congelado</span></div>
       <p style="font-size:0.82rem;color:var(--text-dim);line-height:1.5;"><span lang-es>Contenedor 20'/40' reefer. CIF Miami, FOB Cartagena/Santos. Consolidado disponible bajo pedido.</span><span lang-en>20'/40' reefer container. CIF Miami, FOB Cartagena/Santos. Consolidated available on request.</span><span lang-pt>Contenedor 20'/40' reefer. CIF Miami, FOB Cartagena/Santos. Consolidado disponible bajo pedido.</span></p>
     </div>
@@ -731,10 +735,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <span lang-es>Solicitar Cotización →</span><span lang-en>Request a Quote →</span><span lang-ar>← طلب عرض سعر</span><span lang-zh>申请报价 →</span><span lang-pt>Solicitar Cotação →</span>
       </a>
       <a href="https://wa.me/573160865294?text=Hola%20GLV%2C%20quisiera%20cotizar%20frutas%20tropicales%20para%20exportacion" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1.1rem 2.5rem;transition:all 0.2s;">
-        💬 WhatsApp 🇨🇴
+         WhatsApp CO
       </a>
       <a href="https://wa.me/5511946610038?text=Hola%20GLV%2C%20quisiera%20cotizar%20frutas%20tropicales" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.6rem;background:#25D366;color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1.1rem 2.5rem;transition:all 0.2s;">
-        💬 WhatsApp 🇧🇷
+         WhatsApp BR
       </a>
     </div>
   </div>
@@ -742,8 +746,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
 <!-- WA FLOAT -->
 <div class="wa-float">
-  <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" class="wa-btn">💬 <span>🇨🇴 +57 316 086 5294</span></a>
-  <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer" class="wa-btn">💬 <span>🇧🇷 +55 11 9466 10038</span></a>
+  <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" class="wa-btn"> <span>CO +57 316 086 5294</span></a>
+  <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer" class="wa-btn"> <span>BR +55 11 9466 10038</span></a>
 </div>
 
 <!-- FOOTER MINI -->
@@ -758,7 +762,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     <a href="./comercio-internacional.html"><span lang-es>Comercio</span><span lang-en">Trade</span><span lang-pt>Comercio</span></a>
     <a href="./index.html#cotizar"><span lang-es>Cotizar</span><span lang-en">Quote</span><span lang-pt>Cotar</span></a>
   </div>
-  <div style="font-size:0.82rem;color:var(--text-dim);">📧 <a href="mailto:info@glvglobalfoodservices.com" style="color:var(--gold);">info@glvglobalfoodservices.com</a></div>
+  <div style="font-size:0.82rem;color:var(--text-dim);">Email: <a href="mailto:info@glvglobalfoodservices.com" style="color:var(--gold);">info@glvglobalfoodservices.com</a></div>
 </div>
 
 <script>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Huevo y proteínas</title>
+  <rect x="1" y="1" width="62" height="62" rx="12" fill="#151515" stroke="#3a3425" stroke-width="2"/>
+  <path d="M32 12c-8 10-13 19-13 27a13 13 0 0 0 26 0c0-8-5-17-13-27Z" fill="none" stroke="#C9A84C" stroke-width="3"/>
+  <path d="M25 42c2.5 4 11.5 4 14 0" fill="none" stroke="#E7E3D8" stroke-width="2" stroke-linecap="round"/>
+</svg>
