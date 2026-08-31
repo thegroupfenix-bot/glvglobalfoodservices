@@ -277,13 +277,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   /* H-5: Footer */
   .footer-top { grid-template-columns:1fr; }
   /* L-2: Process 2col on mobile */
-  .process-steps { grid-template-columns:repeat(2,1fr); }
+  .process-grid { grid-template-columns:repeat(2,1fr); }
 }
 
 /* ─── RESPONSIVE — 480px ─── */
 @media (max-width:480px) {
   /* H-1: 480px breakpoint */
   nav { padding:0 1rem; height:56px; }
+  .nav-back, .nav-cta-portal { display:none; }
+  .nav-right { gap:0.5rem; }
   /* C-3: Hero smaller devices */
   .hero { min-height:min(100svh, 520px); }
   .hero-content { padding:0 1rem; padding-top:56px; }
@@ -303,7 +305,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   .quote-section, .logistics-section { padding:3rem 1rem; }
   .stats-bar { padding:1.5rem 1rem; }
   /* L-2: Process 1col */
-  .process-steps { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr; }
   /* Footer 1col */
   .footer-top { grid-template-columns:1fr; }
   .footer-inner { padding:3rem 1rem 1.5rem; }
@@ -631,7 +633,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 </div>
 
 <!-- ═══════════ VIDEOS — OPERACIONES & TESTIMONIOS ═══════════ -->
-<section style="background:#181818;padding:6rem 4rem;border-top:1px solid rgba(139,26,26,0.2);">
+<section id="operaciones-video" style="background:#181818;padding:6rem 4rem;border-top:1px solid rgba(139,26,26,0.2);">
 <div style="max-width:1400px;margin:0 auto;">
   <p class="section-eyebrow">
     <span lang-es>Operaciones Reales · Nuestro Proceso</span>
@@ -649,8 +651,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- Video 1: Fazenda ovinos -->
     <div style="background:#1e1414;border:1px solid rgba(139,26,26,0.25);border-radius:8px;overflow:hidden;">
-      <video controls preload="metadata" style="width:100%;display:block;max-height:240px;object-fit:cover;background:#0f0f0f;">
-        <source src="./imagenes/video%20fazenda%20ovinos%20marcio.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-fazenda-ovinos-brasil.webp" aria-label="Operación de una fazenda de ovinos en Brasil" style="width:100%;display:block;max-height:240px;object-fit:contain;object-position:center;background:#0f0f0f;">
+        <source src="./imagenes/videos/video-fazenda-ovinos-brasil.mp4" type="video/mp4">
       </video>
       <div style="padding:1rem 1.2rem;">
         <div style="font-size:0.72rem;color:#e87070;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">Fazenda · Brasil</div>
@@ -664,8 +666,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- Video 2: Rendimiento cordero -->
     <div style="background:#1e1414;border:1px solid rgba(139,26,26,0.25);border-radius:8px;overflow:hidden;">
-      <video controls preload="metadata" style="width:100%;display:block;max-height:240px;object-fit:cover;background:#0f0f0f;">
-        <source src="./imagenes/vide-%20rendimiento%20de%20un%20cordero%20en%20cortes%20-%20copia.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-rendimiento-cordero.webp" aria-label="Demostración del rendimiento de un cordero en cortes" style="width:100%;display:block;max-height:240px;object-fit:contain;object-position:center;background:#0f0f0f;">
+        <source src="./imagenes/videos/video-rendimiento-cordero.mp4" type="video/mp4">
       </video>
       <div style="padding:1rem 1.2rem;">
         <div style="font-size:0.72rem;color:#e87070;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">Cortes Premium · Halal</div>
@@ -679,8 +681,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 
     <!-- Video 3: Testimonio Marcio -->
     <div style="background:#1e1414;border:1px solid rgba(139,26,26,0.25);border-radius:8px;overflow:hidden;">
-      <video controls preload="metadata" style="width:100%;display:block;max-height:240px;object-fit:cover;background:#0f0f0f;">
-        <source src="./imagenes/Video-marcio-recomendando%20a%20glv%20global%20food%20services.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-testimonio-marcio.webp" aria-label="Testimonio de Marcio, socio productor de GLV" style="width:100%;display:block;max-height:240px;object-fit:contain;object-position:center;background:#0f0f0f;">
+        <source src="./imagenes/videos/video-testimonio-marcio.mp4" type="video/mp4">
       </video>
       <div style="padding:1rem 1.2rem;">
         <div style="font-size:0.72rem;color:#e87070;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.3rem;">Testimonio · Socio Productor</div>
@@ -708,9 +710,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
         <span lang-en">Halal supervision from the source farm to the point of destination. Certificates issued by recognized authorities. Documented chain of custody for the Middle East, Asia and US Muslim markets.</span><span lang-pt>Supervisión Halal desde la granja de origen hasta el punto de destino. Certificados emitidos por autoridades reconocidas. Cadena de custodia documentada para Medio Oriente, Asia y mercados musulmanes de USA.</span>
       </p>
     </div>
-    <a href="#cotizar-animales" style="background:var(--gold);color:#0f0f0f;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;white-space:nowrap;">
+    <a href="./index.html#cotizar" style="background:var(--gold);color:#0f0f0f;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:2px;white-space:nowrap;">
       <span lang-es>Cotizar Halal →</span><span lang-en">Quote Halal →</span><span lang-pt>Cotizar Halal →</span>
     </a>
+    <div id="proceso-halal" data-halal-gate style="flex-basis:100%;background:#0f0f0f;border:1px solid rgba(201,168,76,0.2);border-radius:6px;overflow:hidden;">
+      <div data-halal-warning style="padding:1.2rem 1.5rem;text-align:center;">
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:1rem;">Contenido sensible. Este video documenta un proceso halal certificado realizado bajo controles operativos y sanitarios.</p>
+        <button type="button" aria-controls="video-proceso-halal" onclick="enableHalalVideo(this)" style="background:var(--gold);color:#0f0f0f;border:0;padding:0.8rem 1.8rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;">Ver proceso halal</button>
+      </div>
+      <video id="video-proceso-halal" hidden controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-proceso-halal-certificado.webp" data-src="./imagenes/videos/video-proceso-halal-certificado.mp4" aria-label="Evidencia técnica del proceso halal certificado" style="width:100%;max-height:420px;object-fit:contain;object-position:center;background:#0f0f0f;"></video>
+    </div>
   </div>
 </div>
 </section>
@@ -767,6 +776,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 </div>
 
 <script>
+function enableHalalVideo(button){
+  var gate=button.closest('[data-halal-gate]');
+  var video=gate.querySelector('video[data-src]');
+  if(!video.getAttribute('src')){video.setAttribute('src',video.getAttribute('data-src'));video.load();}
+  gate.querySelector('[data-halal-warning]').hidden=true;
+  video.hidden=false;
+  video.focus();
+}
 function setLang(l){if(!['es','en','ar','zh','pt'].includes(l))return;document.body.className='lang-'+l;var labels={es:'ES · Español',en:'EN · English',pt:'PT · Português',ar:'AR · العربية',zh:'ZH · 中文'};var el=document.getElementById('langLabel');if(el)el.textContent=labels[l]||l.toUpperCase();document.querySelectorAll('.lang-option').forEach(function(o){o.classList.toggle('active',o.getAttribute('data-lang')===l);});localStorage.setItem('glv-lang',l);}
 (function(){var s=localStorage.getItem('glv-lang')||'es';setLang(s);
 function toggleLangMenu(){var w=document.getElementById('langSelect');if(w)w.classList.toggle('open');}

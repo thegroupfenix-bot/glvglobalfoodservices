@@ -58,7 +58,7 @@ Videos are served directly from Hostinger File Manager (not tracked in Git).
 ## Contact Form
 
 `send-email.php` uses PHP's native `mail()` — no SMTP credentials in code.  
-Sends to `info@glvglobalfoodservices.com` and `info@glvservicesexp.com`.  
+Sends to `info@glvglobalfoodservices.com`.
 Auto-reply sent to the customer upon successful submission.
 
 ---

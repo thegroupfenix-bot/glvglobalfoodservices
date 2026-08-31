@@ -153,6 +153,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
   .split-img{height:300px;}
   .footer-mini{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
   .hero-bg::after{-webkit-mask-image:none;mask-image:none;background:rgba(15,15,15,0.82);}
+  .video-feature-grid{grid-template-columns:1fr !important;}
 }
 
 /* ─── LANG SELECT DROPDOWN ─── */
@@ -497,7 +498,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
 </div>
 
 <!-- ═══════════ VIDEO — PRODUCTO EN OPERACIÓN ═══════════ -->
-<section style="background:#181818;padding:5rem 4rem;border-top:1px solid rgba(201,168,76,0.08);">
+<section id="huevo-video" style="background:#181818;padding:5rem 4rem;border-top:1px solid rgba(201,168,76,0.08);">
 <div style="max-width:1200px;margin:0 auto;">
   <p class="section-eyebrow">
     <span lang-es>Producto Real · Operación GLV</span>
@@ -507,10 +508,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,15,15,0.
     <span lang-es>Vea nuestro <em>huevo en operación</em></span>
     <span lang-en">See our <em>eggs in operation</em></span><span lang-pt>Vea nuestro <em>huevo en operación</em></span>
   </h2>
-  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:3rem;align-items:center;">
+  <div class="video-feature-grid" style="display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;margin-top:3rem;align-items:center;">
     <div style="border:1px solid rgba(201,168,76,0.15);border-radius:8px;overflow:hidden;background:#0f0f0f;">
-      <video controls preload="metadata" style="width:100%;display:block;">
-        <source src="./imagenes/video-huevos-cubeta-transparente%201.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="./imagenes/videos/posters/video-huevos-cubeta-transparente.webp" aria-label="Huevos en cubeta transparente" style="width:100%;display:block;max-height:520px;object-fit:contain;object-position:center;background:#0f0f0f;">
+        <source src="./imagenes/videos/video-huevos-cubeta-transparente.mp4" type="video/mp4">
       </video>
     </div>
     <div>

@@ -18,6 +18,10 @@ imagenes/*.mov
 imagenes/*.avi
 imagenes/*.webm
 
+# ── Fuentes y herramientas locales (nunca publicar) ──────
+incoming-videos/
+.tools/
+
 # ── Logs del servidor ─────────────────────────────────────
 error_log
 *.log
