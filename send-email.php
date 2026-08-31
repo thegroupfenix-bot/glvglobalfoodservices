@@ -1,167 +1,230 @@
 <?php
-header('Content-Type: application/json');
+declare(strict_types=1);
 
-// ── CORS ──────────────────────────────────────────────────────────────────────
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (preg_match('#^https?://(www\.)?glvglobalfoodservices\.com$#i', $origin)) {
-    header("Access-Control-Allow-Origin: {$origin}");
-} else {
-    header('Access-Control-Allow-Origin: https://glvglobalfoodservices.com');
+header('Content-Type: application/json; charset=UTF-8');
+header('X-Content-Type-Options: nosniff');
+header('Cache-Control: no-store');
+
+function respond(int $status, array $payload): void
+{
+    http_response_code($status);
+    echo json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    exit;
 }
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+
+$allowedOrigins = [
+    'https://glvglobalfoodservices.com',
+    'https://www.glvglobalfoodservices.com',
+];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+
+if ($origin !== '') {
+    if (!in_array($origin, $allowedOrigins, true)) {
+        respond(403, ['success' => false, 'error' => 'Origen no autorizado.']);
+    }
+    header('Access-Control-Allow-Origin: ' . $origin);
+    header('Vary: Origin');
+    header('Access-Control-Allow-Credentials: true');
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') {
     header('Access-Control-Allow-Methods: POST, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, X-CSRF-Token');
+    header('Access-Control-Max-Age: 600');
     http_response_code(204);
     exit;
 }
 
-// ── METHOD GUARD ──────────────────────────────────────────────────────────────
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['success' => false, 'error' => 'Method not allowed']);
-    exit;
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    header('Allow: POST, OPTIONS');
+    respond(405, ['success' => false, 'error' => 'Método no permitido.']);
 }
 
-// ── RATE LIMITING (5 requests per IP per 10 minutes) ─────────────────────────
-$ip        = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$ip        = trim(explode(',', $ip)[0]);
-$cacheDir  = sys_get_temp_dir() . '/glv_rate';
-if (!is_dir($cacheDir)) { @mkdir($cacheDir, 0700, true); }
-$cacheFile = $cacheDir . '/' . md5($ip) . '.json';
-$now       = time();
-$window    = 600;   // 10 minutes
-$limit     = 5;
-
-$rl = ['count' => 0, 'start' => $now];
-if (file_exists($cacheFile)) {
-    $data = json_decode(file_get_contents($cacheFile), true);
-    if ($data && ($now - $data['start']) < $window) {
-        $rl = $data;
-    }
-}
-if ($rl['count'] >= $limit) {
-    http_response_code(429);
-    echo json_encode(['success' => false, 'error' => 'Too many requests. Please try again in a few minutes.']);
-    exit;
-}
-$rl['count']++;
-file_put_contents($cacheFile, json_encode($rl), LOCK_EX);
-
-// ── CSRF TOKEN ────────────────────────────────────────────────────────────────
 if (session_status() === PHP_SESSION_NONE) {
-    session_set_cookie_params(['secure' => true, 'httponly' => true, 'samesite' => 'Strict']);
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path' => '/',
+        'secure' => true,
+        'httponly' => true,
+        'samesite' => 'Strict',
+    ]);
     session_start();
 }
-$csrfToken = $_POST['csrf_token'] ?? $_SERVER['HTTP_X_CSRF_TOKEN'] ?? '';
-if (empty($_SESSION['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $csrfToken)) {
-    http_response_code(403);
-    echo json_encode(['success' => false, 'error' => 'Invalid security token. Please reload the page and try again.']);
-    exit;
+
+/* CSRF is checked before validation and before consuming the rate limit. */
+$submittedToken = $_POST['csrf_token'] ?? ($_SERVER['HTTP_X_CSRF_TOKEN'] ?? '');
+$sessionToken = $_SESSION['csrf_token'] ?? '';
+if (
+    !is_string($submittedToken)
+    || !is_string($sessionToken)
+    || $submittedToken === ''
+    || !hash_equals($sessionToken, $submittedToken)
+) {
+    respond(403, ['success' => false, 'error' => 'Token de seguridad inválido o vencido.']);
 }
-// Rotate token after use
-$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
-// ── SANITIZATION ──────────────────────────────────────────────────────────────
-function sanitize(string $val, int $max = 200): string {
-    return substr(strip_tags(trim($val)), 0, $max);
+function cleanText($value, int $maxLength): string
+{
+    if (!is_string($value)) {
+        return '';
+    }
+    $value = strip_tags($value);
+    $value = preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $value) ?? '';
+    $value = trim($value);
+    return function_exists('mb_substr')
+        ? mb_substr($value, 0, $maxLength, 'UTF-8')
+        : substr($value, 0, $maxLength);
 }
 
-$name     = sanitize($_POST['name']        ?? '');
-$company  = sanitize($_POST['company']     ?? '');
-$phone    = sanitize($_POST['phone']       ?? '', 30);
-$product  = sanitize($_POST['product']     ?? '');
-$dest     = sanitize($_POST['destination'] ?? '');
-$volume   = sanitize($_POST['volume']      ?? '', 100);
-$incoterm = sanitize($_POST['incoterm']    ?? '', 50);
-$payment  = sanitize($_POST['payment']     ?? '', 100);
-$message  = sanitize($_POST['message']     ?? '', 2000);
+$name = cleanText($_POST['name'] ?? '', 120);
+$company = cleanText($_POST['company'] ?? '', 160);
+$emailInput = is_string($_POST['email'] ?? null) ? trim((string) $_POST['email']) : '';
+$email = filter_var($emailInput, FILTER_VALIDATE_EMAIL);
+$phone = cleanText($_POST['phone'] ?? '', 60);
+$product = cleanText($_POST['product'] ?? '', 180);
+$destination = cleanText($_POST['destination'] ?? '', 180);
+$volume = cleanText($_POST['volume'] ?? '', 100);
+$incoterm = cleanText($_POST['incoterm'] ?? '', 40);
+$payment = cleanText($_POST['payment'] ?? '', 80);
+$message = cleanText($_POST['message'] ?? '', 2000);
 
-// ── SERVER-SIDE VALIDATION ────────────────────────────────────────────────────
 $errors = [];
-if (strlen($name) < 2)    { $errors[] = 'Name must be at least 2 characters.'; }
-if (strlen($product) < 2) { $errors[] = 'Product is required.'; }
-
-$email = filter_var(trim($_POST['email'] ?? ''), FILTER_VALIDATE_EMAIL);
-if (!$email) { $errors[] = 'Invalid email address.'; }
-
-if ($errors) {
-    http_response_code(422);
-    echo json_encode(['success' => false, 'error' => implode(' ', $errors)]);
-    exit;
+if (strlen($name) < 2) {
+    $errors[] = 'El nombre es obligatorio.';
+}
+if (strlen($company) < 2) {
+    $errors[] = 'La empresa y el país son obligatorios.';
+}
+if ($email === false || strlen($emailInput) > 254 || preg_match('/[\r\n]/', $emailInput)) {
+    $errors[] = 'El correo electrónico no es válido.';
+}
+if ($product === '') {
+    $errors[] = 'El producto es obligatorio.';
+}
+if ($destination === '') {
+    $errors[] = 'El destino es obligatorio.';
+}
+if ($errors !== []) {
+    respond(422, ['success' => false, 'error' => implode(' ', $errors)]);
 }
 
-// ── HEADER INJECTION PREVENTION (CWE-93) ─────────────────────────────────────
-$safe_name  = preg_replace('/[\r\n\t]/', ' ', $name);
-$safe_email = preg_replace('/[\r\n\t]/', '', $email);
-
-// ── COMPOSE EMAIL ─────────────────────────────────────────────────────────────
-$to  = 'info@glvglobalfoodservices.com';
-$to2 = 'info@glvservicesexp.com';
-
-$subject = "GLV Food Services — Cotizacion: {$product} | {$company}";
-
-$body  = "===========================================\n";
-$body .= " GLV GLOBAL FOOD SERVICES LLC - MIAMI\n";
-$body .= " Nueva Solicitud de Cotizacion\n";
-$body .= "===========================================\n\n";
-$body .= "CONTACTO\n";
-$body .= "--------\n";
-$body .= "Nombre:    {$name}\n";
-$body .= "Empresa:   {$company}\n";
-$body .= "Email:     {$email}\n";
-$body .= "WhatsApp:  {$phone}\n\n";
-$body .= "PEDIDO\n";
-$body .= "------\n";
-$body .= "Producto:  {$product}\n";
-$body .= "Destino:   {$dest}\n";
-$body .= "Volumen:   {$volume}\n";
-$body .= "Incoterm:  {$incoterm}\n";
-$body .= "Pago:      {$payment}\n\n";
-if ($message) {
-    $body .= "MENSAJE ADICIONAL\n";
-    $body .= "-----------------\n";
-    $body .= "{$message}\n\n";
+/* Use the direct peer address. Forwarded headers are intentionally not trusted by default. */
+$remoteAddress = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+if ($remoteAddress !== 'unknown' && filter_var($remoteAddress, FILTER_VALIDATE_IP) === false) {
+    $remoteAddress = 'unknown';
 }
-$body .= "-------------------------------------------\n";
-$body .= "IP:     {$ip}\n";
-$body .= "Enviado desde glvglobalfoodservices.com\n";
-$body .= date('Y-m-d H:i:s T') . "\n";
-
-$headers  = "From: GLV Food Services <noreply@glvglobalfoodservices.com>\r\n";
-$headers .= "Reply-To: {$safe_name} <{$safe_email}>\r\n";
-$headers .= "X-Mailer: GLV-QuoteForm/2.0\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-
-// ── SEND ──────────────────────────────────────────────────────────────────────
-$sent = mail($to, $subject, $body, $headers);
-mail($to2, $subject, $body, $headers);
-
-if ($sent) {
-    $replySubject = "GLV Global Food Services - Recibimos su solicitud / We received your request";
-    $replyBody  = "Dear {$name},\n\n";
-    $replyBody .= "Thank you for contacting GLV Global Food Services LLC - Miami, Florida.\n";
-    $replyBody .= "We have received your inquiry for: {$product}\n\n";
-    $replyBody .= "Our team will respond within 24 business hours.\n\n";
-    $replyBody .= "---\n\n";
-    $replyBody .= "Estimado/a {$name},\n\n";
-    $replyBody .= "Gracias por contactar a GLV Global Food Services LLC - Miami, Florida.\n";
-    $replyBody .= "Hemos recibido su solicitud para: {$product}\n\n";
-    $replyBody .= "Nuestro equipo respondera en menos de 24 horas habiles.\n\n";
-    $replyBody .= "WhatsApp CO +57 316 086 5294\n";
-    $replyBody .= "WhatsApp BR +55 11 9466 10038\n";
-    $replyBody .= "Email: info@glvglobalfoodservices.com\n\n";
-    $replyBody .= "Where Food Moves Markets.\n";
-    $replyBody .= "GLV Global Food Services LLC\n";
-
-    $replyHeaders  = "From: GLV Global Food Services <info@glvglobalfoodservices.com>\r\n";
-    $replyHeaders .= "MIME-Version: 1.0\r\n";
-    $replyHeaders .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    mail($safe_email, $replySubject, $replyBody, $replyHeaders);
-
-    // New CSRF token in response so client can make a fresh request if needed
-    echo json_encode(['success' => true, 'csrf_token' => $_SESSION['csrf_token']]);
-} else {
-    http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Mail server error. Please contact us directly at info@glvglobalfoodservices.com']);
+$rateDirectory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'glv_quote_rate';
+if (!is_dir($rateDirectory) && !mkdir($rateDirectory, 0700, true) && !is_dir($rateDirectory)) {
+    respond(500, ['success' => false, 'error' => 'No fue posible procesar la solicitud en este momento.']);
 }
+
+$rateFile = $rateDirectory . DIRECTORY_SEPARATOR . hash('sha256', $remoteAddress) . '.json';
+$rateHandle = fopen($rateFile, 'c+');
+if ($rateHandle === false || !flock($rateHandle, LOCK_EX)) {
+    if (is_resource($rateHandle)) {
+        fclose($rateHandle);
+    }
+    respond(500, ['success' => false, 'error' => 'No fue posible procesar la solicitud en este momento.']);
+}
+
+$now = time();
+$windowSeconds = 600;
+$maxRequests = 5;
+$stored = stream_get_contents($rateHandle);
+$history = json_decode($stored !== false ? $stored : '[]', true);
+if (!is_array($history)) {
+    $history = [];
+}
+$history = array_values(array_filter($history, static function ($timestamp) use ($now, $windowSeconds): bool {
+    return is_int($timestamp) && $timestamp > ($now - $windowSeconds);
+}));
+
+if (count($history) >= $maxRequests) {
+    flock($rateHandle, LOCK_UN);
+    fclose($rateHandle);
+    respond(429, ['success' => false, 'error' => 'Has enviado demasiadas solicitudes. Espera unos minutos e intenta de nuevo.']);
+}
+
+$history[] = $now;
+rewind($rateHandle);
+ftruncate($rateHandle, 0);
+fwrite($rateHandle, json_encode($history));
+fflush($rateHandle);
+flock($rateHandle, LOCK_UN);
+fclose($rateHandle);
+
+$escape = static function (string $value): string {
+    return htmlspecialchars($value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+};
+
+$safeName = $escape($name);
+$safeCompany = $escape($company);
+$safeEmail = $escape((string) $email);
+$safePhone = $escape($phone);
+$safeProduct = $escape($product);
+$safeDestination = $escape($destination);
+$safeVolume = $escape($volume);
+$safeIncoterm = $escape($incoterm);
+$safePayment = $escape($payment);
+$safeMessage = nl2br($escape($message), false);
+
+$subject = 'Nueva solicitud de cotización — ' . preg_replace('/[\r\n]+/', ' ', $product) . ' — ' . preg_replace('/[\r\n]+/', ' ', $company);
+$body = '<!DOCTYPE html><html><head><meta charset="UTF-8"><style>'
+    . 'body{font-family:Arial,sans-serif;color:#222;line-height:1.6}.box{max-width:680px;margin:auto;border:1px solid #ddd;padding:24px}'
+    . 'h1{font-size:22px;color:#9b7d2d}table{width:100%;border-collapse:collapse}td{padding:8px;border-bottom:1px solid #eee}'
+    . 'td:first-child{font-weight:bold;width:34%;color:#555}</style></head><body><div class="box">'
+    . '<h1>Nueva solicitud de cotización</h1><table>'
+    . '<tr><td>Nombre</td><td>' . $safeName . '</td></tr>'
+    . '<tr><td>Empresa · País</td><td>' . $safeCompany . '</td></tr>'
+    . '<tr><td>Email</td><td>' . $safeEmail . '</td></tr>'
+    . '<tr><td>WhatsApp / Teléfono</td><td>' . ($safePhone !== '' ? $safePhone : '—') . '</td></tr>'
+    . '<tr><td>Producto</td><td>' . $safeProduct . '</td></tr>'
+    . '<tr><td>Destino</td><td>' . $safeDestination . '</td></tr>'
+    . '<tr><td>Volumen</td><td>' . ($safeVolume !== '' ? $safeVolume : '—') . '</td></tr>'
+    . '<tr><td>Incoterm</td><td>' . ($safeIncoterm !== '' ? $safeIncoterm : '—') . '</td></tr>'
+    . '<tr><td>Método de pago</td><td>' . ($safePayment !== '' ? $safePayment : '—') . '</td></tr>'
+    . '<tr><td>Mensaje</td><td>' . ($safeMessage !== '' ? $safeMessage : '—') . '</td></tr>'
+    . '</table></div></body></html>';
+
+$headers = [
+    'MIME-Version: 1.0',
+    'Content-Type: text/html; charset=UTF-8',
+    'From: GLV Global Food Services <info@glvglobalfoodservices.com>',
+    'Reply-To: ' . preg_replace('/[\r\n]+/', '', (string) $email),
+    'X-Mailer: PHP/' . PHP_VERSION,
+];
+
+$mailDisabled = getenv('GLV_DISABLE_MAIL') === '1';
+$sent = $mailDisabled || mail(
+    'info@glvglobalfoodservices.com',
+    $subject,
+    $body,
+    implode("\r\n", $headers)
+);
+
+if (!$sent) {
+    respond(500, ['success' => false, 'error' => 'No fue posible enviar la solicitud. Conservamos tus datos en el formulario para que puedas intentarlo de nuevo.']);
+}
+
+if (!$mailDisabled) {
+    $replySubject = 'Recibimos tu solicitud — GLV Global Food Services';
+    $replyBody = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="font-family:Arial,sans-serif;color:#222;line-height:1.6">'
+        . '<div style="max-width:620px;margin:auto;border:1px solid #ddd;padding:24px">'
+        . '<h1 style="font-size:22px;color:#9b7d2d">Solicitud recibida</h1>'
+        . '<p>Hola ' . $safeName . ',</p>'
+        . '<p>Recibimos tu solicitud para <strong>' . $safeProduct . '</strong> con destino <strong>' . $safeDestination . '</strong>.</p>'
+        . '<p>Nuestro equipo comercial responderá a <strong>' . $safeEmail . '</strong> en menos de 24 horas hábiles.</p>'
+        . '<p>GLV Global Food Services LLC<br>Miami, Florida, USA</p></div></body></html>';
+    mail((string) $email, $replySubject, $replyBody, implode("\r\n", [
+        'MIME-Version: 1.0',
+        'Content-Type: text/html; charset=UTF-8',
+        'From: GLV Global Food Services <info@glvglobalfoodservices.com>',
+    ]));
+}
+
+$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+respond(200, [
+    'success' => true,
+    'message' => 'Solicitud enviada correctamente.',
+    'csrf_token' => $_SESSION['csrf_token'],
+]);
