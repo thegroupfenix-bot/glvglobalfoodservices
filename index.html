@@ -822,7 +822,7 @@ footer {
       },
       "description": "Miami-based food export company specializing in USDA eggs, certified coconut oils, grains, tropical fruits, live animals, and international trade operations.",
       "email": "info@glvglobalfoodservices.com",
-      "telephone": ["+573160865294", "+5511946610038"],
+      "telephone": ["+573160865294"],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Miami",
@@ -839,7 +839,7 @@ footer {
       "image": "https://glvglobalfoodservices.com/imagenes/operaciones-miami-glv.jpg",
       "description": "Miami-based food export company specializing in USDA eggs, certified coconut oils, grains, tropical fruits, live animals, and international trade operations.",
       "email": "info@glvglobalfoodservices.com",
-      "telephone": ["+573160865294", "+5511946610038"],
+      "telephone": ["+573160865294"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Miami",
@@ -1603,7 +1603,7 @@ footer {
       <div class="contact-item-label">WhatsApp</div>
       <div class="contact-item-value">
         <span class="country-code">CO</span> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer">+57 316 086 5294</a><br>
-        <span class="country-code">BR</span> <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer">+55 11 9466 10038</a>
+        <span class="country-code">CO</span> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer">+57 316 086 5294</a>
       </div>
     </div>
     <div class="contact-item-box">
@@ -1798,7 +1798,7 @@ footer {
       &nbsp;·&nbsp;
       <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">WhatsApp CO</a>
       &nbsp;·&nbsp;
-      <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">WhatsApp BR</a>
+      <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">WhatsApp CO</a>
     </p>
   </div>
 </section>
@@ -1819,7 +1819,7 @@ footer {
           Miami, Florida, USA<br>
           Email: <a href="mailto:info@glvglobalfoodservices.com" style="color:var(--gold);">info@glvglobalfoodservices.com</a><br>
           <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" style="color:var(--gold);"><span class="country-code">CO</span> +57 316 086 5294</a><br>
-          <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer" style="color:var(--gold);"><span class="country-code">BR</span> +55 11 9466 10038</a>
+          <img class="glv-icon glv-icon--contact" src="./imagenes/iconos/icon-contacto.svg" alt=""> <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" style="color:var(--gold);"><span class="country-code">CO</span> +57 316 086 5294</a>
         </p>
       </div>
       <div>
@@ -1881,9 +1881,9 @@ footer {
     <img class="glv-icon glv-icon--contact wa-icon" src="./imagenes/iconos/icon-contacto.svg" alt="">
     <span class="wa-label"><span class="wa-flag country-code">CO</span> Colombia<br><small>+57 316 086 5294</small></span>
   </a>
-  <a href="https://wa.me/5511946610038" target="_blank" rel="noopener noreferrer" class="wa-btn">
+  <a href="https://wa.me/573160865294" target="_blank" rel="noopener noreferrer" class="wa-btn">
     <img class="glv-icon glv-icon--contact wa-icon" src="./imagenes/iconos/icon-contacto.svg" alt="">
-    <span class="wa-label"><span class="wa-flag country-code">BR</span> Brasil<br><small>+55 11 9466 10038</small></span>
+    <span class="wa-label"><span class="wa-flag country-code">CO</span> Colombia<br><small>+57 316 086 5294</small></span>
   </a>
 </div>
 
@@ -2057,8 +2057,7 @@ function buildWAMessage(data) {
 }
 
 function getWhatsAppNumber(destination) {
-  var colombiaRoutes = /USA|Dominican|Caribbean|Latin America|Other/i;
-  return colombiaRoutes.test(destination) ? '573160865294' : '5511946610038';
+  return '573160865294';
 }
 
 function sendViaWhatsApp() {
@@ -2347,7 +2346,7 @@ function prepareQuoteDocument(data) {
     '<tr><td>Forma de pago</td><td>L/C · Wire Transfer · D/P</td></tr></table>' +
     '<div class="footer-note"><div class="footer-logo">GLV Global Food Services LLC</div>' +
     'Miami, Florida, USA &nbsp;·&nbsp; info@glvglobalfoodservices.com<br>' +
-    '+57 316 086 5294 (Colombia) &nbsp;·&nbsp; +55 11 9466 10038 (Brasil)<br><br>' +
+    '+57 316 086 5294 (Colombia)<br><br>' +
     'Parte del GLV Global Holding — Colombia · USA · Brasil · UAE · Italia · Hong Kong · China<br>' +
     'Este documento fue generado automáticamente desde glvglobalfoodservices.com</div></body></html>';
 
