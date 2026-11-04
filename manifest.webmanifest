@@ -1,0 +1,28 @@
+{
+  "name": "GLV Global Food Services LLC",
+  "short_name": "GLV Global",
+  "description": "Miami · Florida · Where Food Moves Markets",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a1628",
+  "theme_color": "#1B2A4A",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/imagenes/operaciones-miami-glv.jpg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ],
+  "categories": ["business", "food"],
+  "shortcuts": [
+    {
+      "name": "Comercio Internacional",
+      "short_name": "Comercio",
+      "url": "/comercio-internacional",
+      "description": "Operaciones de comercio internacional GLV Global"
+    }
+  ]
+}
