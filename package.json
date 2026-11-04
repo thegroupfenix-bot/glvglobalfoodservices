@@ -1,0 +1,12 @@
+{
+  "name": "glv-global-food-services",
+  "version": "1.0.0",
+  "description": "GLV Global Food Services LLC — Miami, Florida",
+  "private": true,
+  "scripts": {
+    "test:pwa": "node tests/pwa-security.test.mjs"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
