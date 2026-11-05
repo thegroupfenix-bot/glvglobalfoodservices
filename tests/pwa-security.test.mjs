@@ -163,52 +163,35 @@ const indexSource = readFileSync(path.join(root, 'index.html'), 'utf8');
   console.log('  PASS D8 HTML pages not cached');
 }
 
-// ─── E. index.html security ─────────────────────────────────────────────────
+// ─── E. index.html security (containment) ───────────────────────────────────
 {
+  // E1: manifest still linked
   assert.ok(indexSource.includes('rel="manifest"'), 'index.html must link manifest');
-  assert.ok(indexSource.includes('e.preventDefault()'), 'Must defer install prompt');
-  assert.ok(indexSource.includes('beforeinstallprompt'), 'Must use beforeinstallprompt');
-  assert.ok(
-    indexSource.includes('onclick="pwaInstall()"') || indexSource.includes("onclick='pwaInstall()'"),
-    'Install must require explicit click on a button (onclick="pwaInstall()")'
-  );
-  console.log('  PASS E1 install requires explicit user action');
+  console.log('  PASS E1 manifest still linked');
+
+  // E2: no device permissions
   const deviceAPIs = ['Notification.requestPermission', 'navigator.geolocation', 'getUserMedia', 'navigator.contacts', 'navigator.bluetooth'];
   for (const api of deviceAPIs) {
     assert.ok(!indexSource.includes(api), `Must not request device API: ${api}`);
   }
   console.log('  PASS E2 no device permissions requested');
 
-  // E3: install button must NOT use position:fixed (fixed banner removed)
-  assert.ok(
-    !indexSource.includes('id="pwa-install-banner"'),
-    'Old fixed install banner must be removed'
-  );
-  console.log('  PASS E3 no position:fixed install banner');
+  // E3: no old fixed install banner
+  assert.ok(!indexSource.includes('id="pwa-install-banner"'), 'Old fixed install banner must be absent');
+  console.log('  PASS E3 no old fixed install banner');
 
-  // E4: desktop navbar install button present
-  assert.ok(indexSource.includes('data-pwa-install'), 'Desktop install UI must exist (data-pwa-install)');
-  assert.ok(indexSource.includes('class="pwa-nav-desktop"'), 'Desktop navbar button must have pwa-nav-desktop class');
-  console.log('  PASS E4 desktop navbar install button present');
+  // E4: blocking iOS guide modal REMOVED (containment)
+  assert.ok(!indexSource.includes('id="pwa-ios-guide"'), 'iOS guide modal must be removed (containment)');
+  console.log('  PASS E4 blocking iOS guide modal removed (containment active)');
 
-  // E5: mobile menu install button present
-  assert.ok(indexSource.includes('class="pwa-menu-btn"'), 'Mobile menu install button must exist');
-  assert.ok(indexSource.includes('data-pwa-installed'), 'Installed status UI must exist (data-pwa-installed)');
-  console.log('  PASS E5 mobile menu install button present');
+  // E5: install UI elements REMOVED (containment)
+  assert.ok(!indexSource.includes('data-pwa-install'), 'Install UI must be removed (containment)');
+  assert.ok(!indexSource.includes('pwa-nav-desktop'), 'Desktop install button must be removed (containment)');
+  console.log('  PASS E5 no install UI elements (containment active)');
 
-  // E6: iOS guide modal present with 3-step guide
-  assert.ok(indexSource.includes('id="pwa-ios-guide"'), 'iOS guide modal must exist');
-  assert.ok(indexSource.includes('Compartir'), 'iOS guide must mention Compartir (Share)');
-  assert.ok(
-    indexSource.includes('Agregar a pantalla de inicio') || indexSource.includes('Add to Home Screen'),
-    'iOS guide must mention Add to Home Screen'
-  );
-  console.log('  PASS E6 iOS guide modal with 3-step instructions present');
-
-  // E7: standalone detection present
-  assert.ok(indexSource.includes('display-mode: standalone'), 'Must detect standalone/installed mode');
-  assert.ok(indexSource.includes('navigator.standalone'), 'Must detect iOS standalone');
-  console.log('  PASS E7 standalone/installed detection present');
+  // E6: mobile install button REMOVED (containment)
+  assert.ok(!indexSource.includes('pwa-menu-btn'), 'Mobile install button must be removed (containment)');
+  console.log('  PASS E6 no mobile install button (containment active)');
 }
 
 // ─── F. No credentials ──────────────────────────────────────────────────────
