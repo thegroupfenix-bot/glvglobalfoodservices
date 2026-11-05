@@ -136,6 +136,14 @@ nav {
   display:none; background:none; border:none;
   color:var(--gold); font-size:1.4rem; cursor:pointer;
 }
+/* ─── PWA install button ─── */
+.pwa-nav-btn { background:#1B2A4A; color:#C9A84C; border:1px solid #C9A84C; padding:5px 12px; border-radius:4px; cursor:pointer; font-size:0.78rem; display:flex; align-items:center; gap:5px; font-family:inherit; min-height:36px; min-width:44px; white-space:nowrap; letter-spacing:0.05em; transition:background 0.2s; }
+.pwa-nav-btn:hover,.pwa-nav-btn:focus-visible { background:#243352; outline:2px solid #C9A84C; outline-offset:2px; }
+.pwa-nav-installed { color:#C9A84C; font-size:0.75rem; letter-spacing:0.06em; display:flex; align-items:center; gap:4px; opacity:0.8; }
+.pwa-menu-btn { width:100%; min-height:48px; background:#1B2A4A; color:#C9A84C; border:1px solid #C9A84C; border-radius:6px; padding:12px 16px; display:flex; align-items:center; gap:10px; font-size:1rem; font-family:inherit; cursor:pointer; text-align:left; transition:background 0.2s; }
+.pwa-menu-btn:hover,.pwa-menu-btn:focus-visible { background:#243352; outline:2px solid #C9A84C; outline-offset:2px; }
+.pwa-menu-installed { color:#C9A84C; display:flex; align-items:center; gap:8px; padding:12px 16px; min-height:48px; font-size:0.9rem; opacity:0.85; }
+@media (max-width:768px) { .pwa-nav-desktop { display:none !important; } }
 
 /* ─── HERO ─── */
 .hero {
@@ -927,8 +935,26 @@ footer {
     <li><a href="#mercados"><span lang-es>Mercados</span><span lang-en>Markets</span><span lang-ar>الأسواق</span><span lang-zh>市场</span><span lang-pt>Mercados</span></a></li>
     <li><a href="#holding">Holding</a></li>
     <li><a href="#contacto"><span lang-es>Contacto</span><span lang-en>Contact</span><span lang-ar>اتصل</span><span lang-zh>联系</span><span lang-pt>Contacto</span></a></li>
+    <li data-pwa-install hidden style="border-top:1px solid rgba(201,168,76,0.3);margin-top:8px;padding-top:8px;">
+      <button onclick="pwaInstall(this)" class="pwa-menu-btn" aria-label="Instalar aplicación GLV Global">
+        <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm7-18l-7 7h4v4h6v-4h4L12 2z"/></svg>
+        <span class="pwa-menu-label"><span lang-es>Instalar GLV Global</span><span lang-en>Install GLV Global</span><span lang-ar>تثبيت GLV Global</span><span lang-zh>安装 GLV Global</span></span>
+      </button>
+    </li>
+    <li data-pwa-installed hidden>
+      <span class="pwa-menu-installed">✓ <span lang-es>GLV ya está instalado</span><span lang-en>GLV is installed</span></span>
+    </li>
   </ul>
   <div class="nav-right">
+    <div data-pwa-install hidden class="pwa-nav-desktop">
+      <button onclick="pwaInstall(this)" class="pwa-nav-btn" aria-label="Instalar aplicación GLV Global">
+        <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm7-18l-7 7h4v4h6v-4h4L12 2z"/></svg>
+        <span><span lang-es>Instalar GLV</span><span lang-en>Install GLV</span><span lang-ar>تثبيت GLV</span><span lang-zh>安装 GLV</span></span>
+      </button>
+    </div>
+    <div data-pwa-installed hidden class="pwa-nav-desktop">
+      <span class="pwa-nav-installed">✓ <span lang-es>Instalado</span><span lang-en>Installed</span></span>
+    </div>
     <div class="lang-select-wrap" id="langSelect">
       <button class="lang-select-btn" onclick="toggleLangMenu()" aria-haspopup="listbox" aria-label="Select language">
         <img class="glv-icon glv-icon--small" src="./imagenes/iconos/icon-comercio-logistica.svg" alt="" aria-hidden="true">
@@ -2398,9 +2424,60 @@ function generatePDF() {
 </script>
 
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(){});
-    }
+    (function() {
+      var deferredPrompt = null;
+      function isInstalled() { return window.matchMedia('(display-mode: standalone)').matches || !!window.navigator.standalone; }
+      function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+      function showInstallUI() {
+        document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = false; });
+        document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = true; });
+      }
+      function hideInstallUI() { document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = true; }); }
+      function showInstalledUI() { document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = false; }); }
+      function showHint(anchor, html, id) {
+        var ex = document.getElementById(id);
+        if (ex) { clearTimeout(ex._t); document.removeEventListener('click', ex._onDoc, { capture: true }); ex.remove(); }
+        var hint = document.createElement('div');
+        hint.id = id;
+        hint.setAttribute('role', 'status');
+        hint.style.cssText = 'position:fixed;background:#1B2A4A;color:#fff;font-size:0.82rem;line-height:1.6;padding:12px 16px;border-radius:8px;max-width:300px;z-index:9000;box-shadow:0 4px 20px rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.4);cursor:pointer;';
+        hint.innerHTML = html;
+        if (anchor) {
+          var r = anchor.getBoundingClientRect();
+          hint.style.top = (r.bottom + 8) + 'px';
+          hint.style.right = Math.max(8, document.documentElement.clientWidth - r.right) + 'px';
+        } else { hint.style.bottom = '80px'; hint.style.right = '16px'; }
+        document.body.appendChild(hint);
+        function onDoc(e) { if (!hint.contains(e.target) && e.target !== anchor) dismiss(); }
+        function dismiss() { clearTimeout(hint._t); document.removeEventListener('click', onDoc, { capture: true }); if (hint.parentNode) hint.remove(); }
+        hint._t = setTimeout(dismiss, 7000);
+        hint._onDoc = onDoc;
+        hint.addEventListener('click', dismiss);
+        document.addEventListener('click', onDoc, { capture: true });
+      }
+      window.pwaInstall = function(anchor) {
+        if (isIOS()) {
+          showHint(anchor,
+            '<strong style="color:#C9A84C;display:block;margin-bottom:6px;">Añadir a pantalla de inicio</strong>' +
+            '1. Toca <strong>Compartir</strong> (□↑)<br>' +
+            '2. Selecciona <strong>“Agregar a pantalla de inicio”</strong>',
+            'pwa-ios-hint');
+          return;
+        }
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          deferredPrompt.userChoice.then(function(r) { deferredPrompt = null; if (r.outcome === 'accepted') { hideInstallUI(); showInstalledUI(); } });
+        } else {
+          showHint(anchor,
+            'La instalación aún no está disponible.<br>Usa el menú de Chrome &rarr; <strong>Instalar página</strong> o <strong>Añadir al escritorio</strong>.',
+            'pwa-install-hint');
+        }
+      };
+      if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(){}); }
+      window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; });
+      window.addEventListener('appinstalled', function() { deferredPrompt = null; hideInstallUI(); showInstalledUI(); });
+      if (isInstalled()) { hideInstallUI(); showInstalledUI(); } else { showInstallUI(); }
+    })();
   </script>
 
 </body>

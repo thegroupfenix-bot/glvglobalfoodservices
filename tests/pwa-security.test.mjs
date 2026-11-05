@@ -163,7 +163,7 @@ const indexSource = readFileSync(path.join(root, 'index.html'), 'utf8');
   console.log('  PASS D8 HTML pages not cached');
 }
 
-// ─── E. index.html security (containment) ───────────────────────────────────
+// ─── E. index.html security ─────────────────────────────────────────────────
 {
   // E1: manifest still linked
   assert.ok(indexSource.includes('rel="manifest"'), 'index.html must link manifest');
@@ -180,18 +180,33 @@ const indexSource = readFileSync(path.join(root, 'index.html'), 'utf8');
   assert.ok(!indexSource.includes('id="pwa-install-banner"'), 'Old fixed install banner must be absent');
   console.log('  PASS E3 no old fixed install banner');
 
-  // E4: blocking iOS guide modal REMOVED (containment)
-  assert.ok(!indexSource.includes('id="pwa-ios-guide"'), 'iOS guide modal must be removed (containment)');
-  console.log('  PASS E4 blocking iOS guide modal removed (containment active)');
+  // E4: NO fullscreen install overlay
+  assert.ok(!indexSource.includes('id="pwa-ios-guide"'), 'Fullscreen iOS guide modal must be absent');
+  assert.ok(!indexSource.includes('pwa-ios-guide'), 'pwa-ios-guide element must be absent');
+  assert.ok(
+    !indexSource.match(/position\s*:\s*fixed\s*;?\s*inset\s*:\s*0[^;]*[^#]*pwa/),
+    'No position:fixed;inset:0 blocking install overlay allowed'
+  );
+  console.log('  PASS E4 no fullscreen blocking install overlay');
 
-  // E5: install UI elements REMOVED (containment)
-  assert.ok(!indexSource.includes('data-pwa-install'), 'Install UI must be removed (containment)');
-  assert.ok(!indexSource.includes('pwa-nav-desktop'), 'Desktop install button must be removed (containment)');
-  console.log('  PASS E5 no install UI elements (containment active)');
+  // E5: desktop navbar install button present
+  assert.ok(indexSource.includes('data-pwa-install'), 'Desktop install UI must exist (data-pwa-install)');
+  assert.ok(indexSource.includes('class="pwa-nav-desktop"'), 'Desktop navbar button must have pwa-nav-desktop class');
+  console.log('  PASS E5 desktop navbar install button present');
 
-  // E6: mobile install button REMOVED (containment)
-  assert.ok(!indexSource.includes('pwa-menu-btn'), 'Mobile install button must be removed (containment)');
-  console.log('  PASS E6 no mobile install button (containment active)');
+  // E6: mobile menu install button present
+  assert.ok(indexSource.includes('class="pwa-menu-btn"'), 'Mobile menu install button must exist');
+  assert.ok(indexSource.includes('data-pwa-installed'), 'Installed status UI must exist (data-pwa-installed)');
+  console.log('  PASS E6 mobile menu install button present');
+
+  // E7: safe install function present, pwaInstall script has no fullscreen backdrop
+  assert.ok(indexSource.includes('window.pwaInstall'), 'pwaInstall function must exist');
+  assert.ok(indexSource.includes('isIOS()'), 'iOS detection must be present');
+  assert.ok(indexSource.includes('showHint'), 'showHint (non-blocking tooltip) must exist');
+  // The pwaInstall IIFE must not contain inset:0 (the page loader/send-overlay legitimately use it)
+  const pwaScriptMatch = indexSource.match(/window\.pwaInstall[\s\S]*?(?=<\/script>)/);
+  assert.ok(pwaScriptMatch && !pwaScriptMatch[0].includes('inset:0'), 'pwaInstall script must not use fullscreen inset:0 overlay');
+  console.log('  PASS E7 safe install script present, no fullscreen backdrop');
 }
 
 // ─── F. No credentials ──────────────────────────────────────────────────────
