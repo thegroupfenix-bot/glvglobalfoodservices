@@ -255,6 +255,15 @@ const indexSource = readFileSync(path.join(root, 'index.html'), 'utf8');
   console.log('  PASS E11 installed/standalone detection present');
 }
 
+// ─── E12: layout — mobile li hidden on desktop via CSS ──────────────────────
+{
+  assert.ok(
+    indexSource.includes('min-width:769px') && indexSource.includes('li[data-pwa-install]'),
+    'Must have CSS hiding li[data-pwa-install] on desktop (≥769px)'
+  );
+  console.log('  PASS E12 mobile li[data-pwa-install] hidden on desktop via CSS');
+}
+
 // ─── F. No credentials ──────────────────────────────────────────────────────
 {
   const creds = ['password', 'secret', 'smtp', 'apikey', 'api_key', '@gmail.com'];
