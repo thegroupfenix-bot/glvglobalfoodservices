@@ -2427,7 +2427,10 @@ function generatePDF() {
     (function() {
       var deferredPrompt = null;
       function isInstalled() { return window.matchMedia('(display-mode: standalone)').matches || !!window.navigator.standalone; }
-      function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+      function isIOS() {
+        return (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ||
+               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      }
       function showInstallUI() {
         document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = false; });
         document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = true; });
