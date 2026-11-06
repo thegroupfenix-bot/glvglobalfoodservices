@@ -142,7 +142,13 @@ try {
     const page = await ctx.newPage();
     await spoofPlatform(page, 'Win32', 0);
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     // 1a — exactamente 1 botón install visible en escritorio
     const visCount = await countVisibleInstall(page);
@@ -298,7 +304,14 @@ try {
     const page = await ctx.newPage();
     await spoofPlatform(page, 'Linux armv8l', 5);
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    // wait for #glv-loader to become hidden before proceeding (it has position:fixed;inset:0)
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     // 2a — botón desktop oculto en móvil por CSS
     const desktopDiv = await page.$('.pwa-nav-desktop');
@@ -348,7 +361,13 @@ try {
     const page = await ctx.newPage();
     await spoofPlatform(page, 'MacIntel', 5);
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     // 3a — exactamente 1 install visible en iPadOS
     const visCount = await countVisibleInstall(page);
@@ -521,7 +540,13 @@ try {
       Object.defineProperty(navigator, 'standalone', { get: () => true });
     });
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     const installCount = await countVisibleInstall(page);
     assert.equal(installCount, 0, `En standalone no debe haber botones install visibles; hay ${installCount}`);
@@ -551,7 +576,13 @@ try {
     const page = await ctx.newPage();
     await spoofPlatform(page, 'Linux armv8l', 5);
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     const hamBtn = await page.$('button.nav-hamburger');
     assert.ok(hamBtn !== null, 'Debe existir button.nav-hamburger en 320px');
@@ -588,7 +619,13 @@ try {
     await spoofPlatform(page, 'Win32', 0);
     await page.addInitScript(() => { window._pwaPromptCallCount = 0; });
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: 15000 });
-    await page.waitForTimeout(400);
+    await page.waitForFunction(() => {
+      const loader = document.getElementById('glv-loader');
+      if (!loader) return true;
+      const cs = window.getComputedStyle(loader);
+      return cs.visibility === 'hidden' || cs.display === 'none' || parseFloat(cs.opacity) < 0.1;
+    }, { timeout: 8000 }).catch(() => null);
+    await page.waitForTimeout(200);
 
     // Despachar beforeinstallprompt DESPUÉS de que la IIFE registra el listener
     await page.evaluate(() => {
