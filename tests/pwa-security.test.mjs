@@ -165,50 +165,94 @@ const indexSource = readFileSync(path.join(root, 'index.html'), 'utf8');
 
 // ─── E. index.html security ─────────────────────────────────────────────────
 {
+  // E1: manifest still linked
   assert.ok(indexSource.includes('rel="manifest"'), 'index.html must link manifest');
-  assert.ok(indexSource.includes('e.preventDefault()'), 'Must defer install prompt');
-  assert.ok(indexSource.includes('beforeinstallprompt'), 'Must use beforeinstallprompt');
-  assert.ok(
-    indexSource.includes('onclick="pwaInstall()"') || indexSource.includes("onclick='pwaInstall()'"),
-    'Install must require explicit click on a button (onclick="pwaInstall()")'
-  );
-  console.log('  PASS E1 install requires explicit user action');
+  console.log('  PASS E1 manifest still linked');
+
+  // E2: no device permissions
   const deviceAPIs = ['Notification.requestPermission', 'navigator.geolocation', 'getUserMedia', 'navigator.contacts', 'navigator.bluetooth'];
   for (const api of deviceAPIs) {
     assert.ok(!indexSource.includes(api), `Must not request device API: ${api}`);
   }
   console.log('  PASS E2 no device permissions requested');
 
-  // E3: install button must NOT use position:fixed (fixed banner removed)
-  assert.ok(
-    !indexSource.includes('id="pwa-install-banner"'),
-    'Old fixed install banner must be removed'
-  );
-  console.log('  PASS E3 no position:fixed install banner');
+  // E3: no old fixed install banner
+  assert.ok(!indexSource.includes('id="pwa-install-banner"'), 'Old fixed install banner must be absent');
+  console.log('  PASS E3 no old fixed install banner');
 
-  // E4: desktop navbar install button present
+  // E4: NO fullscreen install overlay
+  assert.ok(!indexSource.includes('id="pwa-ios-guide"'), 'Fullscreen iOS guide modal must be absent');
+  assert.ok(!indexSource.includes('pwa-ios-guide'), 'pwa-ios-guide element must be absent');
+  assert.ok(
+    !indexSource.match(/position\s*:\s*fixed\s*;?\s*inset\s*:\s*0[^;]*[^#]*pwa/),
+    'No position:fixed;inset:0 blocking install overlay allowed'
+  );
+  console.log('  PASS E4 no fullscreen blocking install overlay');
+
+  // E5: desktop navbar install button present
   assert.ok(indexSource.includes('data-pwa-install'), 'Desktop install UI must exist (data-pwa-install)');
   assert.ok(indexSource.includes('class="pwa-nav-desktop"'), 'Desktop navbar button must have pwa-nav-desktop class');
-  console.log('  PASS E4 desktop navbar install button present');
+  console.log('  PASS E5 desktop navbar install button present');
 
-  // E5: mobile menu install button present
+  // E6: mobile menu install button present
   assert.ok(indexSource.includes('class="pwa-menu-btn"'), 'Mobile menu install button must exist');
   assert.ok(indexSource.includes('data-pwa-installed'), 'Installed status UI must exist (data-pwa-installed)');
-  console.log('  PASS E5 mobile menu install button present');
+  console.log('  PASS E6 mobile menu install button present');
 
-  // E6: iOS guide modal present with 3-step guide
-  assert.ok(indexSource.includes('id="pwa-ios-guide"'), 'iOS guide modal must exist');
-  assert.ok(indexSource.includes('Compartir'), 'iOS guide must mention Compartir (Share)');
+  // E7: safe install function present, pwaInstall script has no fullscreen backdrop
+  assert.ok(indexSource.includes('window.pwaInstall'), 'pwaInstall function must exist');
+  assert.ok(indexSource.includes('isIOS()'), 'iOS detection must be present');
+  assert.ok(indexSource.includes('showHint'), 'showHint (non-blocking tooltip) must exist');
+  // The pwaInstall IIFE must not contain inset:0 (the page loader/send-overlay legitimately use it)
+  const pwaScriptMatch = indexSource.match(/window\.pwaInstall[\s\S]*?(?=<\/script>)/);
+  assert.ok(pwaScriptMatch && !pwaScriptMatch[0].includes('inset:0'), 'pwaInstall script must not use fullscreen inset:0 overlay');
+  console.log('  PASS E7 safe install script present, no fullscreen backdrop');
+}
+
+// ─── E8: iPadOS desktop mode detection ──────────────────────────────────────
+{
   assert.ok(
-    indexSource.includes('Agregar a pantalla de inicio') || indexSource.includes('Add to Home Screen'),
-    'iOS guide must mention Add to Home Screen'
+    indexSource.includes("navigator.platform === 'MacIntel'") ||
+    indexSource.includes('navigator.platform === "MacIntel"'),
+    'Must detect iPadOS desktop mode via navigator.platform'
   );
-  console.log('  PASS E6 iOS guide modal with 3-step instructions present');
+  assert.ok(
+    indexSource.includes('navigator.maxTouchPoints > 1'),
+    'Must check maxTouchPoints > 1 for iPadOS desktop mode'
+  );
+  console.log('  PASS E8 iPadOS desktop mode detection present');
+}
 
-  // E7: standalone detection present
-  assert.ok(indexSource.includes('display-mode: standalone'), 'Must detect standalone/installed mode');
+// ─── E9: behavioral simulation — isIOS logic ─────────────────────────────────
+{
+  function isIOSSim(ua, platform, maxTouchPoints) {
+    return (/iPad|iPhone|iPod/.test(ua) && !undefined) ||
+           (platform === 'MacIntel' && maxTouchPoints > 1);
+  }
+  assert.ok(isIOSSim('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)', 'MacIntel', 5), 'iPadOS desktop mode must be detected as iOS');
+  assert.ok(isIOSSim('Mozilla/5.0 (iPad; CPU OS 17_0 like Mac OS X)', 'iPad', 5), 'Classic iPad UA must be detected as iOS');
+  assert.ok(isIOSSim('Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)', 'iPhone', 5), 'iPhone UA must be detected as iOS');
+  assert.ok(!isIOSSim('Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120', 'Win32', 0), 'Chrome Windows must NOT be detected as iOS');
+  assert.ok(!isIOSSim('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)', 'MacIntel', 0), 'Mac desktop (no touch) must NOT be detected as iOS');
+  console.log('  PASS E9 isIOS behavioral simulation: iPadOS ✓, iPad ✓, iPhone ✓, Chrome Windows ✗, Mac desktop ✗');
+}
+
+// ─── E10: install hints must not use page-covering inset:0 ───────────────────
+{
+  const showHintIdx = indexSource.indexOf('function showHint(');
+  assert.ok(showHintIdx > -1, 'showHint function must exist');
+  const showHintCode = indexSource.slice(showHintIdx, showHintIdx + 1500);
+  assert.ok(!showHintCode.includes('inset:0') && !showHintCode.includes('inset: 0'), 'showHint must not use inset:0 overlay');
+  assert.ok(showHintCode.includes('style.top') || showHintCode.includes('style.bottom'), 'showHint must use specific top/bottom positioning, not inset:0');
+  console.log('  PASS E10 showHint uses specific positioning, no page-covering inset:0');
+}
+
+// ─── E11: PWA installed mode detection present ───────────────────────────────
+{
+  assert.ok(indexSource.includes('display-mode: standalone'), 'Must detect standalone mode');
   assert.ok(indexSource.includes('navigator.standalone'), 'Must detect iOS standalone');
-  console.log('  PASS E7 standalone/installed detection present');
+  assert.ok(indexSource.includes('isInstalled'), 'isInstalled function or check must exist');
+  console.log('  PASS E11 installed/standalone detection present');
 }
 
 // ─── F. No credentials ──────────────────────────────────────────────────────

@@ -143,6 +143,7 @@ nav {
 .pwa-menu-btn { width:100%; min-height:48px; background:#1B2A4A; color:#C9A84C; border:1px solid #C9A84C; border-radius:6px; padding:12px 16px; display:flex; align-items:center; gap:10px; font-size:1rem; font-family:inherit; cursor:pointer; text-align:left; transition:background 0.2s; }
 .pwa-menu-btn:hover,.pwa-menu-btn:focus-visible { background:#243352; outline:2px solid #C9A84C; outline-offset:2px; }
 .pwa-menu-installed { color:#C9A84C; display:flex; align-items:center; gap:8px; padding:12px 16px; min-height:48px; font-size:0.9rem; opacity:0.85; }
+@media (max-width:768px) { .pwa-nav-desktop { display:none !important; } }
 
 /* ─── HERO ─── */
 .hero {
@@ -657,7 +658,6 @@ footer {
   }
   .nav-hamburger { display:block; }
   .btn-nav-hide { display:none; }
-  .pwa-nav-desktop { display:none !important; }
   .about-section, .services-section, .markets-section,
   .quote-section, .logistics-section, .contact-strip { padding:5rem 1.5rem; }
   .stats-bar { padding:2rem 1.5rem; }
@@ -936,24 +936,24 @@ footer {
     <li><a href="#holding">Holding</a></li>
     <li><a href="#contacto"><span lang-es>Contacto</span><span lang-en>Contact</span><span lang-ar>اتصل</span><span lang-zh>联系</span><span lang-pt>Contacto</span></a></li>
     <li data-pwa-install hidden style="border-top:1px solid rgba(201,168,76,0.3);margin-top:8px;padding-top:8px;">
-      <button onclick="pwaInstall()" class="pwa-menu-btn" aria-label="Instalar aplicación GLV Global">
+      <button onclick="pwaInstall(this)" class="pwa-menu-btn" aria-label="Instalar aplicación GLV Global">
         <svg width="20" height="20" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm7-18l-7 7h4v4h6v-4h4L12 2z"/></svg>
         <span class="pwa-menu-label"><span lang-es>Instalar GLV Global</span><span lang-en>Install GLV Global</span><span lang-ar>تثبيت GLV Global</span><span lang-zh>安装 GLV Global</span></span>
       </button>
     </li>
     <li data-pwa-installed hidden>
-      <span class="pwa-menu-installed">✓ <span lang-es>GLV ya está instalado</span><span lang-en>GLV is installed</span><span lang-ar>تم تثبيت GLV</span><span lang-zh>GLV 已安装</span></span>
+      <span class="pwa-menu-installed">✓ <span lang-es>GLV ya está instalado</span><span lang-en>GLV is installed</span></span>
     </li>
   </ul>
   <div class="nav-right">
     <div data-pwa-install hidden class="pwa-nav-desktop">
-      <button onclick="pwaInstall()" class="pwa-nav-btn" aria-label="Instalar aplicación GLV Global">
+      <button onclick="pwaInstall(this)" class="pwa-nav-btn" aria-label="Instalar aplicación GLV Global">
         <svg width="16" height="16" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zm7-18l-7 7h4v4h6v-4h4L12 2z"/></svg>
         <span><span lang-es>Instalar GLV</span><span lang-en>Install GLV</span><span lang-ar>تثبيت GLV</span><span lang-zh>安装 GLV</span></span>
       </button>
     </div>
     <div data-pwa-installed hidden class="pwa-nav-desktop">
-      <span class="pwa-nav-installed">✓ <span lang-es>Instalado</span><span lang-en>Installed</span><span lang-ar>مثبت</span><span lang-zh>已安装</span></span>
+      <span class="pwa-nav-installed">✓ <span lang-es>Instalado</span><span lang-en>Installed</span></span>
     </div>
     <div class="lang-select-wrap" id="langSelect">
       <button class="lang-select-btn" onclick="toggleLangMenu()" aria-haspopup="listbox" aria-label="Select language">
@@ -2423,61 +2423,63 @@ function generatePDF() {
 })();
 </script>
 
-  <!-- iOS install guide modal — backdrop is fixed, the INSTALL BUTTON is not -->
-  <div id="pwa-ios-guide" role="dialog" aria-modal="true" aria-labelledby="pwa-ios-title" hidden
-       style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:10000;padding:16px;">
-    <div style="background:#fff;border-radius:12px;max-width:360px;width:100%;padding:24px;position:relative;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
-      <button data-close onclick="pwaCloseIOSGuide()" aria-label="Cerrar"
-        style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.5rem;cursor:pointer;line-height:1;color:#333;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;">×</button>
-      <h2 id="pwa-ios-title" style="margin:0 0 16px;font-size:1.1rem;color:#1B2A4A;">
-        <span lang-es>Añadir a pantalla de inicio</span>
-        <span lang-en>Add to Home Screen</span>
-        <span lang-ar>إضافة إلى الشاشة الرئيسية</span>
-        <span lang-zh>添加到主屏幕</span>
-      </h2>
-      <ol style="margin:0;padding-left:20px;line-height:1.9;color:#333;font-size:0.95rem;">
-        <li><span lang-es>Abre esta página en <strong>Safari</strong>.</span><span lang-en>Open this page in <strong>Safari</strong>.</span><span lang-ar>افتح هذه الصفحة في <strong>Safari</strong>.</span><span lang-zh>在 <strong>Safari</strong> 中打开此页面。</span></li>
-        <li><span lang-es>Toca el botón <strong>Compartir</strong> (□↑).</span><span lang-en>Tap the <strong>Share</strong> button (□↑).</span><span lang-ar>اضغط زر <strong>مشاركة</strong> (□↑).</span><span lang-zh>点击<strong>分享</strong>按钮 (□↑)。</span></li>
-        <li><span lang-es>Selecciona <strong>"Agregar a pantalla de inicio"</strong>.</span><span lang-en>Select <strong>"Add to Home Screen"</strong>.</span><span lang-ar>اختر <strong>"إضافة إلى الشاشة الرئيسية"</strong>.</span><span lang-zh>选择<strong>"添加到主屏幕"</strong>。</span></li>
-      </ol>
-    </div>
-  </div>
-
   <script>
     (function() {
       var deferredPrompt = null;
       function isInstalled() { return window.matchMedia('(display-mode: standalone)').matches || !!window.navigator.standalone; }
-      function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+      function isIOS() {
+        return (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ||
+               (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      }
       function showInstallUI() {
         document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = false; });
         document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = true; });
       }
-      function hideInstallUI() {
-        document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = true; });
+      function hideInstallUI() { document.querySelectorAll('[data-pwa-install]').forEach(function(el) { el.hidden = true; }); }
+      function showInstalledUI() { document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = false; }); }
+      function showHint(anchor, html, id) {
+        var ex = document.getElementById(id);
+        if (ex) { clearTimeout(ex._t); document.removeEventListener('click', ex._onDoc, { capture: true }); ex.remove(); }
+        var hint = document.createElement('div');
+        hint.id = id;
+        hint.setAttribute('role', 'status');
+        hint.style.cssText = 'position:fixed;background:#1B2A4A;color:#fff;font-size:0.82rem;line-height:1.6;padding:12px 16px;border-radius:8px;max-width:300px;z-index:9000;box-shadow:0 4px 20px rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.4);cursor:pointer;';
+        hint.innerHTML = html;
+        if (anchor) {
+          var r = anchor.getBoundingClientRect();
+          hint.style.top = (r.bottom + 8) + 'px';
+          hint.style.right = Math.max(8, document.documentElement.clientWidth - r.right) + 'px';
+        } else { hint.style.bottom = '80px'; hint.style.right = '16px'; }
+        document.body.appendChild(hint);
+        function onDoc(e) { if (!hint.contains(e.target) && e.target !== anchor) dismiss(); }
+        function dismiss() { clearTimeout(hint._t); document.removeEventListener('click', onDoc, { capture: true }); if (hint.parentNode) hint.remove(); }
+        hint._t = setTimeout(dismiss, 7000);
+        hint._onDoc = onDoc;
+        hint.addEventListener('click', dismiss);
+        document.addEventListener('click', onDoc, { capture: true });
       }
-      function showInstalledStatus() {
-        document.querySelectorAll('[data-pwa-installed]').forEach(function(el) { el.hidden = false; });
-      }
-      window.pwaInstall = function() {
+      window.pwaInstall = function(anchor) {
         if (isIOS()) {
-          var guide = document.getElementById('pwa-ios-guide');
-          if (guide) { guide.hidden = false; guide.focus(); }
+          showHint(anchor,
+            '<strong style="color:#C9A84C;display:block;margin-bottom:6px;">Añadir a pantalla de inicio</strong>' +
+            '1. Toca <strong>Compartir</strong> (□↑)<br>' +
+            '2. Selecciona <strong>“Agregar a pantalla de inicio”</strong>',
+            'pwa-ios-hint');
           return;
         }
         if (deferredPrompt) {
           deferredPrompt.prompt();
-          deferredPrompt.userChoice.then(function() { deferredPrompt = null; });
+          deferredPrompt.userChoice.then(function(r) { deferredPrompt = null; if (r.outcome === 'accepted') { hideInstallUI(); showInstalledUI(); } });
+        } else {
+          showHint(anchor,
+            'La instalación aún no está disponible.<br>Usa el menú de Chrome &rarr; <strong>Instalar página</strong> o <strong>Añadir al escritorio</strong>.',
+            'pwa-install-hint');
         }
       };
-      window.pwaCloseIOSGuide = function() {
-        var guide = document.getElementById('pwa-ios-guide');
-        if (guide) guide.hidden = true;
-      };
-      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') window.pwaCloseIOSGuide(); });
-      if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {}); }
-      window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; if (!isInstalled()) showInstallUI(); });
-      window.addEventListener('appinstalled', function() { deferredPrompt = null; hideInstallUI(); showInstalledStatus(); });
-      if (isInstalled()) { hideInstallUI(); showInstalledStatus(); } else if (isIOS()) { showInstallUI(); }
+      if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function(){}); }
+      window.addEventListener('beforeinstallprompt', function(e) { e.preventDefault(); deferredPrompt = e; });
+      window.addEventListener('appinstalled', function() { deferredPrompt = null; hideInstallUI(); showInstalledUI(); });
+      if (isInstalled()) { hideInstallUI(); showInstalledUI(); } else { showInstallUI(); }
     })();
   </script>
 
