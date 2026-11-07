@@ -2448,10 +2448,20 @@ function generatePDF() {
         hint.innerHTML = html;
         if (anchor) {
           var r = anchor.getBoundingClientRect();
-          hint.style.top = (r.bottom + 8) + 'px';
-          hint.style.right = Math.max(8, document.documentElement.clientWidth - r.right) + 'px';
+          if (r.width > 0 && r.height > 0) {
+            hint.style.top = (r.bottom + 8) + 'px';
+            hint.style.right = Math.max(8, document.documentElement.clientWidth - r.right) + 'px';
+          } else {
+            hint.style.bottom = '80px';
+            hint.style.left = '16px';
+          }
         } else { hint.style.bottom = '80px'; hint.style.right = '16px'; }
         document.body.appendChild(hint);
+        // Clamp hint inside viewport after render (handles bottom overflow on small screens)
+        var hRect = hint.getBoundingClientRect();
+        if (hRect.bottom > window.innerHeight - 8) {
+          hint.style.top = Math.max(8, window.innerHeight - hRect.height - 8) + 'px';
+        }
         function onDoc(e) { if (!hint.contains(e.target) && e.target !== anchor) dismiss(); }
         function dismiss() { clearTimeout(hint._t); document.removeEventListener('click', onDoc, { capture: true }); if (hint.parentNode) hint.remove(); }
         hint._t = setTimeout(dismiss, 7000);
