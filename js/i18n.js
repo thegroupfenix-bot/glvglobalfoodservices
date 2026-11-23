@@ -167,6 +167,13 @@
   function init() {
     var saved = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
     setLang(saved);
+    var portalLanguage = document.getElementById('portalLanguage');
+    if (portalLanguage) {
+      portalLanguage.value = SUPPORTED.includes(saved) ? saved : DEFAULT_LANG;
+      portalLanguage.addEventListener('change', function () {
+        setLang(portalLanguage.value);
+      });
+    }
   }
 
   /* ── Public API ─────────────────────────────────────────────────────────── */
