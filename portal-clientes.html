@@ -56,6 +56,19 @@
 
   .portal-desc { font-size:1.1rem; color:var(--muted); max-width:560px; line-height:1.7; margin-bottom:3.5rem; }
 
+  .features-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1.5rem; max-width:900px; width:100%; margin-bottom:1rem;
+  }
+  .feature-card {
+    background:var(--dark2); border:1px solid rgba(201,168,76,0.15);
+    padding:1.75rem 1.25rem; text-align:center;
+  }
+  .feature-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+  .feature-title { font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+  .feature-desc { font-size:0.8rem; color:var(--muted); line-height:1.5; }
+
+  .portal-features-title { margin:2.5rem 0 1.25rem; color:var(--gold); }
   .notify-box { max-width:480px; width:100%; margin-top:2rem; }
   .notify-box a { color:var(--gold); }
   .notify-box p { font-size:0.85rem; color:var(--muted); margin-bottom:1.25rem; }
@@ -98,6 +111,34 @@
   <h1><span data-i18n="portal.title">Portal de Clientes</span></h1>
   <p class="portal-desc" data-i18n="portal.desc">Si su cuenta está activa, ingrese a GLV GOS con su usuario y contraseña.</p>
   <a href="https://misaelvalencia-production.up.railway.app/login" class="notify-cta" data-i18n="portal.login">Iniciar sesión</a>
+  <h2 class="portal-features-title" data-i18n="portal.featuresTitle">Qué encontrará en el portal según su cuenta</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feature-icon">👤</span>
+      <div class="feature-title" data-i18n="portal.features.register.title">Registro de Clientes</div>
+      <div class="feature-desc" data-i18n="portal.features.register.desc">Alta segura de empresas importadoras y distribuidoras con verificación</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">🔍</span>
+      <div class="feature-title" data-i18n="portal.features.kyc.title">KYC / Due Diligence</div>
+      <div class="feature-desc" data-i18n="portal.features.kyc.desc">Proceso de conocimiento del cliente con cumplimiento regulatorio internacional</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">📄</span>
+      <div class="feature-title" data-i18n="portal.features.docs.title">Seguimiento Documental</div>
+      <div class="feature-desc" data-i18n="portal.features.docs.desc">Estado en tiempo real de certificados, BL, facturas y permisos sanitarios</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">💼</span>
+      <div class="feature-title" data-i18n="portal.features.quotes.title">Cotizaciones en Línea</div>
+      <div class="feature-desc" data-i18n="portal.features.quotes.desc">Solicite y reciba cotizaciones formales con historial y comparativas</div>
+    </div>
+    <div class="feature-card">
+      <span class="feature-icon">⬇️</span>
+      <div class="feature-title" data-i18n="portal.features.download.title">Descarga de Documentos</div>
+      <div class="feature-desc" data-i18n="portal.features.download.desc">Acceso seguro a documentos de exportación, certificados USDA/FDA y contratos</div>
+    </div>
+  </div>
   <div class="notify-box">
     <p data-i18n="portal.notify">¿Necesita ayuda con su acceso?</p>
     <a href="mailto:info@glvglobalfoodservices.com" data-i18n="portal.cta">Contáctenos</a>
