@@ -90,18 +90,13 @@
         <span class="nav-logo-sub">Miami · Florida · USA</span>
       </span>
     </a>
-    <div class="lang-select-wrap" id="langSelect">
-      <button class="lang-select-btn" onclick="toggleLangMenu()" aria-label="Seleccionar idioma">
-        🌐 <span id="langLabel">ES · Español</span> ▼
-      </button>
-      <div class="lang-select-menu" role="listbox">
-        <button class="lang-option active" data-lang="es" onclick="setLang('es');closeLangMenu()">🇪🇸 ES · Español</button>
-        <button class="lang-option" data-lang="en" onclick="setLang('en');closeLangMenu()">🇺🇸 EN · English</button>
-        <button class="lang-option" data-lang="pt" onclick="setLang('pt');closeLangMenu()">🇧🇷 PT · Português</button>
-        <button class="lang-option" data-lang="ar" onclick="setLang('ar');closeLangMenu()">🇦🇪 AR · العربية</button>
-        <button class="lang-option" data-lang="zh" onclick="setLang('zh');closeLangMenu()">🇨🇳 ZH · 中文</button>
-      </div>
-    </div>
+    <select id="portalLanguage" class="lang-select-btn" aria-label="Idioma / Language">
+      <option value="es">ES · Español</option>
+      <option value="en">EN · English</option>
+      <option value="pt">PT · Português</option>
+      <option value="ar">AR · العربية</option>
+      <option value="zh">ZH · 中文</option>
+    </select>
     <a href="/portal-clientes" class="nav-cta nav-cta-portal" data-i18n="nav.portal">Portal Clientes</a>
     <a href="/#cotizar" class="nav-cta" data-i18n="nav.quote">Cotizar</a>
   </div>
